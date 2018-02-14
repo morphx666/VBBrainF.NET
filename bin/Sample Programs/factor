@@ -1,0 +1,1288 @@
+Dim p As Integer
+Dim b(0 To 32767) As Byte
+
+Public Sub Main()
+	p = 0
+	incPtr(30)
+	decVal(1)
+	decPtr(9)
+	incVal(1)
+	Do While b(p) > 0
+		decVal(1)
+		Do While b(p) > 0
+			incPtr(10)
+		Loop
+		Do While b(p) > 0
+			decVal(1)
+		Loop
+		decPtr(10)
+		Do While b(p) > 0
+			Do While b(p) > 0
+				decVal(1)
+				incPtr(10)
+				incVal(1)
+				decPtr(10)
+			Loop
+			decPtr(10)
+		Loop
+		incPtr(10)
+		b(p) = Asc(Input())
+		decVal(10)
+	Loop
+	incPtr(10)
+	Do While b(p) > 0
+		decVal(37)
+		incPtr(9)
+		decVal(1)
+		incPtr(1)
+	Loop
+	decPtr(1)
+	Do While b(p) > 0
+		incVal(1)
+		incPtr(1)
+		Do While b(p) > 0
+			incPtr(9)
+			incVal(1)
+			incPtr(1)
+		Loop
+		decPtr(1)
+		decVal(1)
+		decPtr(10)
+	Loop
+	decVal(1)
+	Do While b(p) > 0
+		incPtr(1)
+		incVal(48)
+		Print Chr(b(p))
+		decVal(48)
+		decPtr(11)
+	Loop
+	incVal(58)
+	Print Chr(b(p))
+	decVal(26)
+	Print Chr(b(p))
+	Do While b(p) > 0
+		decVal(1)
+	Loop
+	incPtr(12)
+	incVal(2)
+	decPtr(4)
+	incVal(1)
+	Do While b(p) > 0
+		Do While b(p) > 0
+			decVal(1)
+		Loop
+		incPtr(2)
+		Do While b(p) > 0
+			incPtr(4)
+			Do While b(p) > 0
+				decVal(1)
+			Loop
+			incPtr(1)
+			Do While b(p) > 0
+				decVal(1)
+			Loop
+			incPtr(1)
+			Do While b(p) > 0
+				decVal(1)
+			Loop
+			incPtr(1)
+			Do While b(p) > 0
+				decVal(1)
+			Loop
+			incPtr(1)
+			Do While b(p) > 0
+				decVal(1)
+			Loop
+			incPtr(1)
+			Do While b(p) > 0
+				decVal(1)
+			Loop
+			decPtr(7)
+			Do While b(p) > 0
+				decVal(1)
+				incPtr(3)
+				incVal(1)
+				incPtr(1)
+				incVal(1)
+				decPtr(4)
+			Loop
+			incPtr(8)
+		Loop
+		decPtr(10)
+		Do While b(p) > 0
+			incPtr(6)
+			Do While b(p) > 0
+				decVal(1)
+				decPtr(4)
+				incVal(1)
+				incPtr(4)
+			Loop
+			decPtr(16)
+		Loop
+		incPtr(10)
+		Do While b(p) > 0
+			incPtr(1)
+			Do While b(p) > 0
+				decVal(1)
+				incPtr(3)
+				incVal(1)
+				incPtr(2)
+				incVal(1)
+				decPtr(5)
+			Loop
+			incPtr(9)
+		Loop
+		decPtr(10)
+		Do While b(p) > 0
+			incPtr(6)
+			Do While b(p) > 0
+				decVal(1)
+				decPtr(5)
+				incVal(1)
+				incPtr(5)
+			Loop
+			decPtr(16)
+		Loop
+		incPtr(10)
+		Do While b(p) > 0
+			incPtr(3)
+			Do While b(p) > 0
+				decVal(1)
+			Loop
+			incPtr(3)
+			Do While b(p) > 0
+				decVal(1)
+			Loop
+			incPtr(1)
+			Do While b(p) > 0
+				decVal(1)
+			Loop
+			incPtr(3)
+		Loop
+		decPtr(10)
+		Do While b(p) > 0
+			decPtr(10)
+		Loop
+		incPtr(9)
+		Do While b(p) > 0
+			decVal(1)
+		Loop
+		incPtr(7)
+		incVal(1)
+		decPtr(8)
+		Do While b(p) > 0
+			incVal(1)
+		Loop
+		incVal(1)
+		Do While b(p) > 0
+			decVal(1)
+			incPtr(2)
+			Do While b(p) > 0
+				incPtr(6)
+				Do While b(p) > 0
+					decVal(1)
+					incPtr(1)
+					incVal(2)
+					decPtr(1)
+				Loop
+				incPtr(4)
+			Loop
+			decPtr(10)
+			Do While b(p) > 0
+				incPtr(8)
+				Do While b(p) > 0
+					decVal(1)
+				Loop
+				incPtr(1)
+				Do While b(p) > 0
+					decVal(1)
+				Loop
+				decPtr(4)
+				Do While b(p) > 0
+					decVal(1)
+					incPtr(3)
+					incVal(2)
+					decPtr(3)
+				Loop
+				decPtr(15)
+			Loop
+			incPtr(10)
+			Do While b(p) > 0
+				incPtr(8)
+				Do While b(p) > 0
+					decVal(1)
+					incPtr(1)
+					incVal(1)
+					decPtr(1)
+					Do While b(p) > 0
+						decVal(1)
+						incPtr(1)
+						incVal(1)
+						decPtr(1)
+						Do While b(p) > 0
+							decVal(1)
+							incPtr(1)
+							incVal(1)
+							decPtr(1)
+							Do While b(p) > 0
+								decVal(1)
+								incPtr(1)
+								incVal(1)
+								decPtr(1)
+								Do While b(p) > 0
+									decVal(1)
+									incPtr(1)
+									incVal(1)
+									decPtr(1)
+									Do While b(p) > 0
+										decVal(1)
+										incPtr(1)
+										incVal(1)
+										decPtr(1)
+										Do While b(p) > 0
+											decVal(1)
+											incPtr(1)
+											incVal(1)
+											decPtr(1)
+											Do While b(p) > 0
+												decVal(1)
+												incPtr(1)
+												incVal(1)
+												decPtr(1)
+												Do While b(p) > 0
+													decVal(1)
+													incPtr(1)
+													incVal(1)
+													decPtr(1)
+													Do While b(p) > 0
+														decVal(1)
+														incPtr(1)
+														decVal(9)
+														incPtr(9)
+														incVal(1)
+														decPtr(10)
+														Do While b(p) > 0
+															decVal(1)
+															incPtr(1)
+															incVal(1)
+															decPtr(1)
+														Loop
+													Loop
+												Loop
+											Loop
+										Loop
+									Loop
+								Loop
+							Loop
+						Loop
+					Loop
+				Loop
+				incPtr(2)
+			Loop
+			decPtr(10)
+			Do While b(p) > 0
+				incPtr(9)
+				Do While b(p) > 0
+					decVal(1)
+					decPtr(1)
+					incVal(1)
+					decPtr(3)
+					incVal(1)
+					incPtr(4)
+				Loop
+				decPtr(19)
+			Loop
+			incPtr(10)
+			Do While b(p) > 0
+				incPtr(7)
+				Do While b(p) > 0
+					decVal(1)
+					decPtr(1)
+					incVal(1)
+					incPtr(1)
+					Do While b(p) > 0
+						decVal(1)
+						decPtr(1)
+						incVal(1)
+						incPtr(1)
+						Do While b(p) > 0
+							decVal(1)
+							decPtr(1)
+							incVal(1)
+							incPtr(1)
+							Do While b(p) > 0
+								decVal(1)
+								decPtr(1)
+								incVal(1)
+								incPtr(1)
+								Do While b(p) > 0
+									decVal(1)
+									decPtr(1)
+									incVal(1)
+									incPtr(1)
+									Do While b(p) > 0
+										decVal(1)
+										decPtr(1)
+										incVal(1)
+										incPtr(1)
+										Do While b(p) > 0
+											decVal(1)
+											decPtr(1)
+											incVal(1)
+											incPtr(1)
+											Do While b(p) > 0
+												decVal(1)
+												decPtr(1)
+												incVal(1)
+												incPtr(1)
+												Do While b(p) > 0
+													decVal(1)
+													decPtr(1)
+													incVal(1)
+													incPtr(1)
+													Do While b(p) > 0
+														decVal(1)
+														decPtr(1)
+														decVal(9)
+														incPtr(11)
+														incVal(1)
+														decPtr(10)
+														Do While b(p) > 0
+															decVal(1)
+															decPtr(1)
+															incVal(1)
+															incPtr(1)
+														Loop
+													Loop
+												Loop
+											Loop
+										Loop
+									Loop
+								Loop
+							Loop
+						Loop
+					Loop
+				Loop
+				incPtr(3)
+			Loop
+			decPtr(10)
+			Do While b(p) > 0
+				incPtr(4)
+				Do While b(p) > 0
+					decVal(1)
+					incPtr(3)
+					incVal(1)
+					incPtr(2)
+					incVal(1)
+					decPtr(5)
+				Loop
+				decPtr(14)
+			Loop
+			incPtr(10)
+			Do While b(p) > 0
+				incPtr(7)
+				Do While b(p) > 0
+					decVal(1)
+					decPtr(3)
+					incVal(1)
+					incPtr(3)
+				Loop
+				incPtr(3)
+			Loop
+			decPtr(10)
+			Do While b(p) > 0
+				incPtr(8)
+				Do While b(p) > 0
+					decVal(1)
+					incPtr(1)
+					decVal(1)
+					decPtr(1)
+				Loop
+				incPtr(1)
+				Do While b(p) > 0
+					decPtr(9)
+					Do While b(p) > 0
+						decPtr(1)
+						Do While b(p) > 0
+							decVal(1)
+						Loop
+						incPtr(10)
+						Do While b(p) > 0
+							decVal(1)
+							decPtr(10)
+							incVal(1)
+							incPtr(10)
+						Loop
+						decPtr(19)
+					Loop
+					incPtr(19)
+				Loop
+				decPtr(19)
+			Loop
+			incPtr(9)
+			Do While b(p) > 0
+				incVal(1)
+				Do While b(p) > 0
+					incVal(1)
+					Do While b(p) > 0
+						incVal(1)
+						Do While b(p) > 0
+							incVal(1)
+							Do While b(p) > 0
+								incVal(1)
+								Do While b(p) > 0
+									incVal(1)
+									Do While b(p) > 0
+										incVal(1)
+										Do While b(p) > 0
+											incVal(1)
+											Do While b(p) > 0
+												incVal(1)
+												Do While b(p) > 0
+													incVal(1)
+													Do While b(p) > 0
+														Do While b(p) > 0
+															decVal(1)
+														Loop
+														decPtr(1)
+														incVal(1)
+														incPtr(1)
+													Loop
+												Loop
+											Loop
+										Loop
+									Loop
+								Loop
+							Loop
+						Loop
+					Loop
+				Loop
+			Loop
+			decPtr(1)
+		Loop
+		incPtr(8)
+		Do While b(p) > 0
+			decPtr(6)
+			Do While b(p) > 0
+				incPtr(8)
+				Do While b(p) > 0
+					decVal(1)
+				Loop
+				incPtr(1)
+				Do While b(p) > 0
+					decVal(1)
+				Loop
+				decPtr(5)
+				Do While b(p) > 0
+					decVal(1)
+					incPtr(3)
+					incVal(1)
+					incPtr(1)
+					incVal(1)
+					decPtr(4)
+				Loop
+				incPtr(6)
+			Loop
+			decPtr(10)
+			Do While b(p) > 0
+				incPtr(8)
+				Do While b(p) > 0
+					decVal(1)
+					decPtr(4)
+					incVal(1)
+					incPtr(4)
+				Loop
+				decPtr(3)
+				Do While b(p) > 0
+					decVal(1)
+					incPtr(3)
+					incVal(1)
+					incPtr(1)
+					incVal(1)
+					decPtr(4)
+				Loop
+				decPtr(15)
+			Loop
+			incPtr(10)
+			Do While b(p) > 0
+				incPtr(9)
+				Do While b(p) > 0
+					decVal(1)
+					decPtr(4)
+					incVal(1)
+					incPtr(4)
+				Loop
+				incPtr(1)
+			Loop
+			decPtr(10)
+			Do While b(p) > 0
+				incPtr(8)
+				Do While b(p) > 0
+					decVal(1)
+					decPtr(1)
+					decVal(1)
+					incPtr(1)
+				Loop
+				decPtr(18)
+			Loop
+			incPtr(10)
+			Do While b(p) > 0
+				incPtr(7)
+				Do While b(p) > 0
+					decVal(1)
+					incPtr(1)
+					incVal(1)
+					decPtr(1)
+					Do While b(p) > 0
+						decVal(1)
+						incPtr(1)
+						incVal(1)
+						decPtr(1)
+						Do While b(p) > 0
+							decVal(1)
+							incPtr(1)
+							incVal(1)
+							decPtr(1)
+							Do While b(p) > 0
+								decVal(1)
+								incPtr(1)
+								incVal(1)
+								decPtr(1)
+								Do While b(p) > 0
+									decVal(1)
+									incPtr(1)
+									incVal(1)
+									decPtr(1)
+									Do While b(p) > 0
+										decVal(1)
+										incPtr(1)
+										incVal(1)
+										decPtr(1)
+										Do While b(p) > 0
+											decVal(1)
+											incPtr(1)
+											incVal(1)
+											decPtr(1)
+											Do While b(p) > 0
+												decVal(1)
+												incPtr(1)
+												incVal(1)
+												decPtr(1)
+												Do While b(p) > 0
+													decVal(1)
+													incPtr(1)
+													incVal(1)
+													decPtr(1)
+													Do While b(p) > 0
+														decVal(1)
+														incPtr(1)
+														incVal(1)
+														decPtr(1)
+														Do While b(p) > 0
+															incVal(10)
+															Do While b(p) > 0
+																incVal(1)
+																incPtr(1)
+																decVal(1)
+																decPtr(1)
+															Loop
+															incPtr(10)
+															decVal(1)
+															decPtr(10)
+														Loop
+													Loop
+												Loop
+											Loop
+										Loop
+									Loop
+								Loop
+							Loop
+						Loop
+					Loop
+				Loop
+				incPtr(3)
+			Loop
+			incPtr(7)
+			incVal(1)
+			Do While b(p) > 0
+				Do While b(p) > 0
+					decVal(1)
+				Loop
+				decPtr(17)
+				Do While b(p) > 0
+					incPtr(4)
+					Do While b(p) > 0
+						decVal(1)
+					Loop
+					incPtr(4)
+					Do While b(p) > 0
+						decVal(1)
+						decPtr(4)
+						incVal(1)
+						incPtr(4)
+					Loop
+					decPtr(2)
+					Do While b(p) > 0
+						decVal(1)
+						incPtr(2)
+						incVal(1)
+						decPtr(2)
+					Loop
+					decPtr(16)
+				Loop
+				incPtr(10)
+				Do While b(p) > 0
+					incPtr(8)
+					Do While b(p) > 0
+						decVal(1)
+						incPtr(1)
+						incVal(1)
+						decPtr(3)
+						incVal(1)
+						incPtr(2)
+					Loop
+					incPtr(2)
+				Loop
+				decPtr(10)
+				Do While b(p) > 0
+					incPtr(3)
+					Do While b(p) > 0
+						decVal(1)
+						incPtr(6)
+						incVal(1)
+						decPtr(6)
+					Loop
+					decPtr(13)
+				Loop
+				incPtr(10)
+				Do While b(p) > 0
+					incPtr(9)
+					Do While b(p) > 0
+						decVal(1)
+						decPtr(6)
+						incVal(1)
+						incPtr(6)
+						Do While b(p) > 0
+							decVal(1)
+							decPtr(6)
+							incVal(1)
+							incPtr(6)
+							Do While b(p) > 0
+								decVal(1)
+								decPtr(6)
+								incVal(1)
+								incPtr(6)
+								Do While b(p) > 0
+									decVal(1)
+									decPtr(6)
+									incVal(1)
+									incPtr(6)
+									Do While b(p) > 0
+										decVal(1)
+										decPtr(6)
+										incVal(1)
+										incPtr(6)
+										Do While b(p) > 0
+											decVal(1)
+											decPtr(6)
+											incVal(1)
+											incPtr(6)
+											Do While b(p) > 0
+												decVal(1)
+												decPtr(6)
+												incVal(1)
+												incPtr(6)
+												Do While b(p) > 0
+													decVal(1)
+													decPtr(6)
+													incVal(1)
+													incPtr(6)
+													Do While b(p) > 0
+														decVal(1)
+														decPtr(6)
+														incVal(1)
+														incPtr(6)
+														Do While b(p) > 0
+															decVal(1)
+															decPtr(6)
+															decVal(9)
+															incPtr(16)
+															incVal(1)
+															decPtr(10)
+															Do While b(p) > 0
+																decVal(1)
+																decPtr(6)
+																incVal(1)
+																incPtr(6)
+															Loop
+														Loop
+													Loop
+												Loop
+											Loop
+										Loop
+									Loop
+								Loop
+							Loop
+						Loop
+					Loop
+					incPtr(1)
+				Loop
+				incPtr(7)
+			Loop
+			decPtr(17)
+			Do While b(p) > 0
+				decPtr(10)
+			Loop
+			incPtr(10)
+			Do While b(p) > 0
+				incPtr(8)
+				Do While b(p) > 0
+					decVal(1)
+				Loop
+				decPtr(2)
+				Do While b(p) > 0
+					decVal(1)
+					incPtr(1)
+					incVal(1)
+					decPtr(1)
+				Loop
+				decPtr(1)
+				Do While b(p) > 0
+					decVal(1)
+					incPtr(3)
+					incVal(1)
+					decPtr(3)
+				Loop
+				incPtr(5)
+			Loop
+			decPtr(10)
+			Do While b(p) > 0
+				incVal(1)
+				incPtr(7)
+				Do While b(p) > 0
+					decVal(1)
+					decPtr(7)
+					incVal(1)
+					incPtr(7)
+					Do While b(p) > 0
+						decVal(1)
+						decPtr(7)
+						decVal(1)
+						incPtr(6)
+						incVal(1)
+						incPtr(1)
+						Do While b(p) > 0
+							decVal(1)
+							decPtr(7)
+							incVal(1)
+							incPtr(7)
+							Do While b(p) > 0
+								decVal(1)
+								decPtr(7)
+								decVal(1)
+								incPtr(6)
+								incVal(1)
+								incPtr(1)
+								Do While b(p) > 0
+									decVal(1)
+									decPtr(7)
+									incVal(1)
+									incPtr(7)
+									Do While b(p) > 0
+										decVal(1)
+										decPtr(7)
+										decVal(1)
+										incPtr(6)
+										incVal(1)
+										incPtr(1)
+										Do While b(p) > 0
+											decVal(1)
+											decPtr(7)
+											incVal(1)
+											incPtr(7)
+											Do While b(p) > 0
+												decVal(1)
+												decPtr(7)
+												decVal(1)
+												incPtr(6)
+												incVal(1)
+												incPtr(1)
+												Do While b(p) > 0
+													decVal(1)
+													decPtr(7)
+													incVal(1)
+													incPtr(7)
+												Loop
+											Loop
+										Loop
+									Loop
+								Loop
+							Loop
+						Loop
+					Loop
+				Loop
+				decPtr(7)
+				Do While b(p) > 0
+					decVal(1)
+					incPtr(7)
+					incVal(1)
+					decPtr(7)
+				Loop
+				decVal(1)
+				decPtr(10)
+			Loop
+			incPtr(7)
+			Do While b(p) > 0
+				decVal(1)
+				decPtr(11)
+				incVal(1)
+				incPtr(11)
+			Loop
+			incPtr(3)
+			Do While b(p) > 0
+				incPtr(7)
+				Do While b(p) > 0
+					decVal(1)
+					decPtr(11)
+					incVal(5)
+					incPtr(11)
+				Loop
+				incPtr(3)
+			Loop
+			decPtr(10)
+			Do While b(p) > 0
+				incVal(1)
+				incPtr(8)
+				Do While b(p) > 0
+					decVal(1)
+					decPtr(8)
+					incVal(1)
+					incPtr(8)
+					Do While b(p) > 0
+						decVal(1)
+						decPtr(8)
+						decVal(1)
+						incPtr(5)
+						incVal(1)
+						incPtr(3)
+						Do While b(p) > 0
+							decVal(1)
+							decPtr(8)
+							incVal(1)
+							incPtr(8)
+							Do While b(p) > 0
+								decVal(1)
+								decPtr(8)
+								decVal(1)
+								incPtr(5)
+								incVal(1)
+								incPtr(3)
+								Do While b(p) > 0
+									decVal(1)
+									decPtr(8)
+									incVal(1)
+									incPtr(8)
+									Do While b(p) > 0
+										decVal(1)
+										decPtr(8)
+										decVal(1)
+										incPtr(5)
+										incVal(1)
+										incPtr(3)
+										Do While b(p) > 0
+											decVal(1)
+											decPtr(8)
+											incVal(1)
+											incPtr(8)
+											Do While b(p) > 0
+												decVal(1)
+												decPtr(8)
+												decVal(1)
+												incPtr(5)
+												incVal(1)
+												incPtr(3)
+												Do While b(p) > 0
+													decVal(1)
+													decPtr(8)
+													incVal(1)
+													incPtr(8)
+												Loop
+											Loop
+										Loop
+									Loop
+								Loop
+							Loop
+						Loop
+					Loop
+				Loop
+				decPtr(8)
+				Do While b(p) > 0
+					decVal(1)
+					incPtr(8)
+					incVal(1)
+					decPtr(8)
+				Loop
+				decVal(1)
+				decPtr(10)
+			Loop
+			incPtr(8)
+			Do While b(p) > 0
+				decVal(1)
+				decPtr(13)
+				incVal(1)
+				incPtr(13)
+			Loop
+			incPtr(2)
+			Do While b(p) > 0
+				incPtr(8)
+				Do While b(p) > 0
+					decVal(1)
+					decPtr(13)
+					incVal(5)
+					incPtr(13)
+				Loop
+				incPtr(2)
+			Loop
+			decPtr(10)
+			Do While b(p) > 0
+				decPtr(10)
+			Loop
+			incPtr(16)
+		Loop
+		decPtr(6)
+		Do While b(p) > 0
+			incPtr(3)
+			Do While b(p) > 0
+				decVal(1)
+				incPtr(4)
+				incVal(1)
+				incPtr(1)
+				incVal(1)
+				decPtr(5)
+			Loop
+			incPtr(7)
+		Loop
+		decPtr(10)
+		Do While b(p) > 0
+			incPtr(7)
+			Do While b(p) > 0
+				decVal(1)
+				decPtr(4)
+				incVal(1)
+				incPtr(4)
+			Loop
+			decPtr(5)
+			Do While b(p) > 0
+				decVal(1)
+				incPtr(5)
+				incVal(1)
+				incPtr(2)
+				incVal(1)
+				decPtr(7)
+			Loop
+			decPtr(12)
+		Loop
+		incPtr(10)
+		Do While b(p) > 0
+			incPtr(7)
+			Do While b(p) > 0
+				decVal(1)
+				decPtr(5)
+				incVal(1)
+				incPtr(5)
+			Loop
+			incPtr(3)
+		Loop
+		decPtr(10)
+		Do While b(p) > 0
+			incPtr(9)
+			Do While b(p) > 0
+				decVal(1)
+				decPtr(1)
+				decVal(1)
+				incPtr(1)
+			Loop
+			decPtr(1)
+			Do While b(p) > 0
+				decPtr(8)
+				Do While b(p) > 0
+					decPtr(2)
+					Do While b(p) > 0
+						decVal(1)
+					Loop
+					incPtr(10)
+					Do While b(p) > 0
+						decVal(1)
+						decPtr(10)
+						incVal(1)
+						incPtr(10)
+					Loop
+					decPtr(18)
+				Loop
+				incPtr(18)
+			Loop
+			decPtr(18)
+		Loop
+		incPtr(8)
+		Do While b(p) > 0
+			incPtr(1)
+			decVal(1)
+			decPtr(1)
+			Do While b(p) > 0
+				incVal(1)
+				Do While b(p) > 0
+					incVal(1)
+					Do While b(p) > 0
+						incVal(1)
+						Do While b(p) > 0
+							incVal(1)
+							Do While b(p) > 0
+								incVal(1)
+								Do While b(p) > 0
+									incVal(1)
+									Do While b(p) > 0
+										incVal(1)
+										Do While b(p) > 0
+											incVal(1)
+											Do While b(p) > 0
+												incVal(1)
+												Do While b(p) > 0
+													Do While b(p) > 0
+														decVal(1)
+													Loop
+													incPtr(1)
+													incVal(1)
+													decPtr(1)
+												Loop
+											Loop
+										Loop
+									Loop
+								Loop
+							Loop
+						Loop
+					Loop
+				Loop
+			Loop
+		Loop
+		incPtr(1)
+		incVal(1)
+		Do While b(p) > 0
+			Do While b(p) > 0
+				decVal(1)
+			Loop
+			decPtr(1)
+			Do While b(p) > 0
+				decVal(1)
+			Loop
+			incVal(1)
+			incPtr(4)
+			incVal(1)
+			incPtr(8)
+			Do While b(p) > 0
+				incPtr(10)
+			Loop
+			decPtr(10)
+			Do While b(p) > 0
+				decPtr(6)
+				Do While b(p) > 0
+					decPtr(4)
+					Do While b(p) > 0
+						decPtr(10)
+					Loop
+					incPtr(4)
+					incVal(1)
+					decPtr(10)
+				Loop
+				decPtr(4)
+			Loop
+			incPtr(20)
+			Do While b(p) > 0
+				incPtr(10)
+			Loop
+			decPtr(10)
+			Do While b(p) > 0
+				decPtr(10)
+			Loop
+			incPtr(4)
+			decVal(1)
+			Do While b(p) > 0
+				Do While b(p) > 0
+					incVal(1)
+				Loop
+				incPtr(8)
+				decVal(1)
+				decPtr(2)
+				Do While b(p) > 0
+					incPtr(1)
+					Do While b(p) > 0
+						decVal(1)
+					Loop
+					incPtr(2)
+					Do While b(p) > 0
+						decVal(1)
+						decPtr(2)
+						incVal(1)
+						incPtr(2)
+					Loop
+					incPtr(7)
+				Loop
+				decPtr(10)
+				Do While b(p) > 0
+					incVal(1)
+					incPtr(2)
+					Do While b(p) > 0
+						incPtr(8)
+						incVal(1)
+						incPtr(2)
+					Loop
+					decPtr(2)
+					decVal(1)
+					decPtr(10)
+				Loop
+				decVal(1)
+				Do While b(p) > 0
+					incPtr(2)
+					incVal(48)
+					Print Chr(b(p))
+					decVal(48)
+					decPtr(12)
+				Loop
+				incVal(32)
+				Print Chr(b(p))
+				Do While b(p) > 0
+					decVal(1)
+				Loop
+				incPtr(4)
+			Loop
+			incPtr(6)
+			Do While b(p) > 0
+				incPtr(2)
+				Do While b(p) > 0
+					decVal(1)
+					incPtr(5)
+					incVal(1)
+					decPtr(5)
+					Do While b(p) > 0
+						decVal(1)
+						incPtr(5)
+						incVal(1)
+						decPtr(5)
+						Do While b(p) > 0
+							decVal(1)
+							incPtr(5)
+							incVal(1)
+							decPtr(5)
+							Do While b(p) > 0
+								decVal(1)
+								incPtr(5)
+								incVal(1)
+								decPtr(5)
+								Do While b(p) > 0
+									decVal(1)
+									incPtr(5)
+									incVal(1)
+									decPtr(5)
+									Do While b(p) > 0
+										decVal(1)
+										incPtr(5)
+										incVal(1)
+										decPtr(5)
+										Do While b(p) > 0
+											decVal(1)
+											incPtr(5)
+											incVal(1)
+											decPtr(5)
+											Do While b(p) > 0
+												decVal(1)
+												incPtr(5)
+												incVal(1)
+												decPtr(5)
+												Do While b(p) > 0
+													decVal(1)
+													incPtr(5)
+													incVal(1)
+													decPtr(5)
+													Do While b(p) > 0
+														decVal(1)
+														incPtr(5)
+														decVal(9)
+														incPtr(5)
+														incVal(1)
+														decPtr(10)
+														Do While b(p) > 0
+															decVal(1)
+															incPtr(5)
+															incVal(1)
+															decPtr(5)
+														Loop
+													Loop
+												Loop
+											Loop
+										Loop
+									Loop
+								Loop
+							Loop
+						Loop
+					Loop
+				Loop
+				incPtr(8)
+			Loop
+			decPtr(10)
+			Do While b(p) > 0
+				incPtr(7)
+				Do While b(p) > 0
+					decVal(1)
+					decPtr(5)
+					incVal(1)
+					incPtr(5)
+				Loop
+				decPtr(17)
+			Loop
+			incPtr(9)
+		Loop
+		decPtr(1)
+	Loop
+	incPtr(2)
+	Do While b(p) > 0
+		incPtr(10)
+	Loop
+	decPtr(10)
+	Do While b(p) > 0
+		incVal(1)
+		incPtr(1)
+		Do While b(p) > 0
+			incPtr(9)
+			incVal(1)
+			incPtr(1)
+		Loop
+		decPtr(1)
+		decVal(1)
+		decPtr(10)
+	Loop
+	decVal(1)
+	Do While b(p) > 0
+		incPtr(1)
+		incVal(48)
+		Print Chr(b(p))
+		decPtr(11)
+	Loop
+	incVal(10)
+	Print Chr(b(p))
+End Sub
+
+Private Sub incPtr(ByVal n As Integer)
+	If p < 32676 - n Then p = p + n Else p = 0
+End Sub
+
+Private Sub decPtr(ByVal n As Integer)
+	If p > n - 1 Then p = p - n Else p = 255
+End Sub
+
+Private Sub incVal(ByVal n As Integer)
+	If b(p) < 255 - n Then b(p) = b(p) + n Else b(p) = 0
+End Sub
+
+Private Sub decVal(ByVal n As Integer)
+	If b(p) > n - 1 Then b(p) = b(p) - n Else b(p) = 255
+End Sub
