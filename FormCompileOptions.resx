@@ -112,35 +112,42 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Label3.Text" xml:space="preserve">
-    <value>VBBrainFNET is the one of the fastest and most feature-rich application of its kind. With features such as compile to EXE, debug, breakpoints, memory map and simultaneous generation of Visual Basic, C and JavaScript code this is the perfect tool to develop brainfuck programs!</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="PictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAA4ElEQVRYR+2OQQ7EIAwD+/T9+a4QRYBj
+        EwJqtQdGmgs4ia8Fvo6P0Bz4OLbZfe5F9hDCMnV+jWZRr4Jls/ESsKDqwWay8yVgsNeDzVT9EjBg9WAz
+        vboEBLUKluXyEhAai7CM1haAwBv2JeDzDRcKzMDmuLUAfGhnYHPaXAIe51SwrPYUOAVOgVwgAR++Cpbl
+        1uMJ+PRVsCz3zwokIDBWwbJWezwBobEKlrXyAgkI9kZhO/KNMTBQjWJ3+McLMJiN0s/PHy/Agh3jxwv3
+        MFs6Y5nfp1nGDrW22WfAI2iA6/oB60o6MUVCM7EAAAAASUVORK5CYII=
+</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAIAICAQAAAAAADoAgAAJgAAABAQEAAAAAAAKAEAAA4DAAAoAAAAIAAAAEAAAAABAAQAAAAAAIAC
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAgAAAAICAAIAAAACAAIAAgIAAAICAgADAwMAAAAD/AAD/
-        AAAA//8A/wAAAP8A/wD//wAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC7u7u7AAAAAAAAAAAAAAu7
-        u7u7u7uwAAAAAAAAAAC7u7u7u7u7uwAAAAAAAAC7u7u7u7u7u7u7AAAAAAALu7u7u7u7u7u7u7AAAAAA
-        u7u7u7u7u7u7u7u7AAAAALu7u7u7u7u7u7u7uwAAAAu7u7uwAAAAAAu7u7uwAAC7u7u7u7u7u7u7u7u7
-        uwAAu7u7u7u7u7u7u7u7u7sAALu7u7u7u7u7u7u7u7u7AAu7u7u7u7u7u7u7u7u7u7ALu7u7u7u7u7u7
-        u7u7u7uwC7u7u7u7u7u7u7u7u7u7sAu7u7u7u7u7u7u7u7u7u7ALu7u7u7u7u7u7u7u7u7uwC7u7u7uw
-        C7u7sAu7u7u7sAu7u7u7AAC7uwAAu7u7u7ALu7u7uwAAu7sAALu7u7uwALu7u7sAALu7AAC7u7u7AAC7
-        u7u7AAC7uwAAu7u7uwAAu7u7uwAAu7sAALu7u7sAAAu7u7uwC7u7sAu7u7uwAAAAu7u7u7u7u7u7u7u7
-        AAAAALu7u7u7u7u7u7u7uwAAAAALu7u7u7u7u7u7u7AAAAAAALu7u7u7u7u7u7sAAAAAAAAAu7u7u7u7
-        u7sAAAAAAAAAAAu7u7u7u7uwAAAAAAAAAAAAALu7u7sAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//AP//+A
-        Af/+AAB//AAAP/gAAB/wAAAP4AAAB8AAAAPAAAADgAAAAYAAAAGAAAABAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAACAAAABgAAAAYAAAAHAAAADwAAAA+AAAAfwAAAP+AAAH/wAAD/+AAB//4AB///w
-        D/8oAAAAEAAAACAAAAABAAQAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAgAAAAICAAIAA
-        AACAAIAAgIAAAICAgADAwMAAAAD/AAD/AAAA//8A/wAAAP8A/wD//wAA////AAAAAAAAAAAAAAALu7uw
-        AAAAC7u7u7uwAAC7u7u7u7sAALuwAAALuwALu7u7u7u7sAu7u7u7u7uwC7u7u7u7u7ALu7ALsAu7sAu7
-        sAuwC7uwC7uwC7ALu7AAu7ALsAu7AAC7u7u7u7sAAAu7u7u7sAAAAAu7u7AAAAAAAAAAAAAA+B8AAOAH
-        AADAAwAAgAEAAIABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQAAgAEAAMADAADgBwAA+B8AAA==
+        AAAA//8A/wAAAP8A/wD//wAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAP//8AAAAAAAAAAAAAAAAP/wAP/wAAAAAAAAAAAAAA/wAAAA/wAAAAAAAAAAAAAPAAAAAA
+        8AAAAAAAAAAAAA/wAAAAAP8AAAAAAAAAAAAPAAAAAAAPAAAAAAAAAAAADwAAAAAADwAAAAAAAAAAAA8A
+        AAAAAA8AAAAAAAAAAAAP8AAAAAD/AAAAAAAAAAAAAPAAAAAA8AAAAAAAAAAAAAD/AAAAD/AAAAAAAAAA
+        AAAAD/8AD/8AAAAAAAAAAAAAAAAP//8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////
+        //////////////////////////////////////////g////gD///wAf//4AD//+AA///AAH//wAB//8A
+        Af//AAH//wAB//+AA///gAP//8AH///gD///+D//////////////////////////////////////////
+        //8oAAAAEAAAACAAAAABAAQAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAgAAAAICAAIAA
+        AACAAIAAgIAAAICAgADAwMAAAAD/AAD/AAAA//8A/wAAAP8A/wD//wAA////AAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAAAAAD/AP8AAAAAAPAADwAAAAAA8AAPAAAAAA
+        D/AP8AAAAAAA//8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP//
+        AAD//wAA//8AAPw/AAD4HwAA8A8AAPAPAADwDwAA8A8AAPgfAAD8PwAA//8AAP//AAD//wAA//8AAA==
 </value>
   </data>
 </root>

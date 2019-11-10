@@ -112,35 +112,35 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Label3.Text" xml:space="preserve">
+    <value>VBBrainFNET is the one of the fastest and most feature-rich application of its kind. With features such as compile to EXE, debug, breakpoints, memory map and simultaneous generation of Visual Basic, C and JavaScript code this is the perfect tool to develop brainfuck programs!</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAIAICAQAAAAAADoAgAAJgAAABAQEAAAAAAAKAEAAA4DAAAoAAAAIAAAAEAAAAABAAQAAAAAAIAC
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAgAAAAICAAIAAAACAAIAAgIAAAICAgADAwMAAAAD/AAD/
-        AAAA//8A/wAAAP8A/wD//wAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB3d3d3d3d3d3cAAAAAAAAI
-        B4eHh4eHh4eAcAAAAAAAD4B4eHh4eHh4CHAAAAAAAAj4AAAAAAAAAIdwAAAAAAAPjw+Pj4+Pj4B4cAAA
-        AAAACPgI+Pj4+Pjwh3AAAAAAAA+PD4+Pj4+PgHhwAAAAAAAI+Aj4+Pj4+PCHcAAAAAAAD48Pj4ePh3+A
-        eHAAAAAAAAj4CPgH+AD38IdwAAAAAAAPjw+PB3+HB4B4cAB3d3d3CPgI+AD4AAjwh3AIB4eHhw+PD48H
-        dwd3gHhwD4B4eHgI+Aj4AAgACPCHcAj4AAAAD48Pj4+Pj4+AeHAPjw+Pjwj4CPj4+Pj48IdwCPgI+Pjw
-        jw+Pj4+Pj4B4AA+PD4+PjwgI+Pj4+PjwgAAI+Aj4+PjwD4+Pj4+PgAAAD48Pj4ePjwAAAAAAAAAAAAj4
-        CPgH+PB48IdwAAAAAAAPjw+PB3+Af4B4cAAAAAAACPgI+AD48Hjwh3AAAAAAAA+PD48HdwB/gHhwAAAA
-        AAAI+Aj4AAjw+PCHcAAAAAAAD48Pj4+Pj4+AeHAAAAAAAAj4CPj4+Pj48IdwAAAAAAAAjw+Pj4+Pj4B4
-        AAAAAAAAAAgI+Pj4+PjwgAAAAAAAAAAAD4+Pj4+PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//AAA//g
-        AAH/wAAA/8AAAP/AAAD/wAAA/8AAAP/AAAD/wAAA/8AAAP/AAADAAAAAgAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAABAAAAAwAAAAcAAAAPAAAD/wAAA/8AAAP/AAAD/wAAA/8AAAP/AAAD/4AAB//AAA//4AAf//AA
-        P/8oAAAAEAAAACAAAAABAAQAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAgAAAAICAAIAA
-        AACAAIAAgIAAAICAgADAwMAAAAD/AAD/AAAA//8A/wAAAP8A/wD//wAA////AAAAAAAAAAAAAAAAB3d3
-        dwAAAACAAAAAcAAAAPD4+PBwAAAAgIeHgHAAAADw9/fwcAB3cICHf4BwCAAA8Pj48HAPD4CAAAAAcAgI
-        8Aj4+PgADw9/AAAAAAAICHf4DwAAAA8Pj48PAAAACAAAAA8AAAAAj4+PgAAAAAAAAAAAAAAA/AEAAPgA
-        AAD4AAAA+AAAAPgAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAHwAAAB8AAAAfAAAAHwAAgD8AAA==
+        AAAA//8A/wAAAP8A/wD//wAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC7u7u7AAAAAAAAAAAAAAu7
+        u7u7u7uwAAAAAAAAAAC7u7u7u7u7uwAAAAAAAAC7u7u7u7u7u7u7AAAAAAALu7u7u7u7u7u7u7AAAAAA
+        u7u7u7u7u7u7u7u7AAAAALu7u7u7u7u7u7u7uwAAAAu7u7uwAAAAAAu7u7uwAAC7u7u7u7u7u7u7u7u7
+        uwAAu7u7u7u7u7u7u7u7u7sAALu7u7u7u7u7u7u7u7u7AAu7u7u7u7u7u7u7u7u7u7ALu7u7u7u7u7u7
+        u7u7u7uwC7u7u7u7u7u7u7u7u7u7sAu7u7u7u7u7u7u7u7u7u7ALu7u7u7u7u7u7u7u7u7uwC7u7u7uw
+        C7u7sAu7u7u7sAu7u7u7AAC7uwAAu7u7u7ALu7u7uwAAu7sAALu7u7uwALu7u7sAALu7AAC7u7u7AAC7
+        u7u7AAC7uwAAu7u7uwAAu7u7uwAAu7sAALu7u7sAAAu7u7uwC7u7sAu7u7uwAAAAu7u7u7u7u7u7u7u7
+        AAAAALu7u7u7u7u7u7u7uwAAAAALu7u7u7u7u7u7u7AAAAAAALu7u7u7u7u7u7sAAAAAAAAAu7u7u7u7
+        u7sAAAAAAAAAAAu7u7u7u7uwAAAAAAAAAAAAALu7u7sAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//AP//+A
+        Af/+AAB//AAAP/gAAB/wAAAP4AAAB8AAAAPAAAADgAAAAYAAAAGAAAABAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAACAAAABgAAAAYAAAAHAAAADwAAAA+AAAAfwAAAP+AAAH/wAAD/+AAB//4AB///w
+        D/8oAAAAEAAAACAAAAABAAQAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAgAAAAICAAIAA
+        AACAAIAAgIAAAICAgADAwMAAAAD/AAD/AAAA//8A/wAAAP8A/wD//wAA////AAAAAAAAAAAAAAALu7uw
+        AAAAC7u7u7uwAAC7u7u7u7sAALuwAAALuwALu7u7u7u7sAu7u7u7u7uwC7u7u7u7u7ALu7ALsAu7sAu7
+        sAuwC7uwC7uwC7ALu7AAu7ALsAu7AAC7u7u7u7sAAAu7u7u7sAAAAAu7u7AAAAAAAAAAAAAA+B8AAOAH
+        AADAAwAAgAEAAIABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQAAgAEAAMADAADgBwAA+B8AAA==
 </value>
   </data>
 </root>

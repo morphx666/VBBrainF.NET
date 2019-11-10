@@ -120,22 +120,22 @@
     <Compile Include="AssemblyInfo.vb">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="frmAbout.vb">
+    <Compile Include="FormAbout.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCompileOptions.vb">
+    <Compile Include="FormCompileOptions.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInput.vb">
+    <Compile Include="FormInput.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.vb">
+    <Compile Include="FormMain.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMemory.vb">
+    <Compile Include="FormMemory.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="modGlobals.vb">
+    <Compile Include="ModuleGlobals.vb">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="My Project\Application.Designer.vb">
@@ -155,24 +155,24 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </Content>
-    <EmbeddedResource Include="frmAbout.resx">
-      <DependentUpon>frmAbout.vb</DependentUpon>
+    <EmbeddedResource Include="FormAbout.resx">
+      <DependentUpon>FormAbout.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCompileOptions.resx">
-      <DependentUpon>frmCompileOptions.vb</DependentUpon>
+    <EmbeddedResource Include="FormCompileOptions.resx">
+      <DependentUpon>FormCompileOptions.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInput.resX">
-      <DependentUpon>frmInput.vb</DependentUpon>
+    <EmbeddedResource Include="FormInput.resX">
+      <DependentUpon>FormInput.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resX">
-      <DependentUpon>frmMain.vb</DependentUpon>
+    <EmbeddedResource Include="FormMain.resX">
+      <DependentUpon>FormMain.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMemory.resx">
-      <DependentUpon>frmMemory.vb</DependentUpon>
+    <EmbeddedResource Include="FormMemory.resx">
+      <DependentUpon>FormMemory.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">

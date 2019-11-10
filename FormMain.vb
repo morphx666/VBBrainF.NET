@@ -1,9 +1,9 @@
 Imports System.Threading
 
-Public Class frmMain
+Public Class FormMain
     Inherits System.Windows.Forms.Form
 
-    Private dlgMemory As frmMemory = New frmMemory
+    Private dlgMemory As FormMemory = New FormMemory
     Private compilerStartTime As Integer
 
     Private Const ocIncVal As Byte = Asc("+")
@@ -582,7 +582,7 @@ Public Class frmMain
 
         debugEvent = New AutoResetEvent(False)
 
-        dlgMemory = New frmMemory
+        dlgMemory = New FormMemory
         dlgMemory.Owner = Me
         AddHandler dlgMemory.Closing, AddressOf dlgMemory_Closing
 
@@ -1527,7 +1527,7 @@ Public Class frmMain
     End Sub
 
     Private Sub mHelpAbout_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mHelpAbout.Click
-        Dim dlgAbout As Form = New frmAbout
+        Dim dlgAbout As Form = New FormAbout
         dlgAbout.ShowDialog()
         dlgAbout.Dispose()
     End Sub
@@ -1630,7 +1630,7 @@ Public Class frmMain
     Friend WithEvents mHelpAbout As System.Windows.Forms.MenuItem
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
         Me.txtOut = New System.Windows.Forms.TextBox()
         Me.mMenu = New System.Windows.Forms.MainMenu(Me.components)
         Me.mFile = New System.Windows.Forms.MenuItem()
@@ -1733,7 +1733,7 @@ Public Class frmMain
         Me.txtOut.ReadOnly = True
         Me.txtOut.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.txtOut.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.txtOut.Size = New System.Drawing.Size(655, 130)
+        Me.txtOut.Size = New System.Drawing.Size(862, 403)
         Me.txtOut.TabIndex = 1
         Me.txtOut.WordWrap = False
         '
@@ -2026,15 +2026,15 @@ Public Class frmMain
         Me.tcLanguages.Location = New System.Drawing.Point(0, 12)
         Me.tcLanguages.Name = "tcLanguages"
         Me.tcLanguages.SelectedIndex = 0
-        Me.tcLanguages.Size = New System.Drawing.Size(655, 222)
+        Me.tcLanguages.Size = New System.Drawing.Size(862, 222)
         Me.tcLanguages.TabIndex = 6
         '
         'tpBF
         '
         Me.tpBF.Controls.Add(Me.txtCode)
-        Me.tpBF.Location = New System.Drawing.Point(4, 22)
+        Me.tpBF.Location = New System.Drawing.Point(4, 24)
         Me.tpBF.Name = "tpBF"
-        Me.tpBF.Size = New System.Drawing.Size(647, 196)
+        Me.tpBF.Size = New System.Drawing.Size(854, 194)
         Me.tpBF.TabIndex = 0
         Me.tpBF.Text = "Brainfuck"
         '
@@ -2047,7 +2047,7 @@ Public Class frmMain
         Me.txtCode.Multiline = True
         Me.txtCode.Name = "txtCode"
         Me.txtCode.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.txtCode.Size = New System.Drawing.Size(637, 185)
+        Me.txtCode.Size = New System.Drawing.Size(844, 179)
         Me.txtCode.TabIndex = 0
         '
         'tpBoF
@@ -2057,7 +2057,7 @@ Public Class frmMain
         Me.tpBoF.Location = New System.Drawing.Point(4, 22)
         Me.tpBoF.Name = "tpBoF"
         Me.tpBoF.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpBoF.Size = New System.Drawing.Size(647, 196)
+        Me.tpBoF.Size = New System.Drawing.Size(854, 196)
         Me.tpBoF.TabIndex = 4
         Me.tpBoF.Text = "Boolfuck"
         '
@@ -2089,7 +2089,7 @@ Public Class frmMain
         Me.tpVBasic.Controls.Add(Me.txtBasic)
         Me.tpVBasic.Location = New System.Drawing.Point(4, 22)
         Me.tpVBasic.Name = "tpVBasic"
-        Me.tpVBasic.Size = New System.Drawing.Size(647, 196)
+        Me.tpVBasic.Size = New System.Drawing.Size(854, 196)
         Me.tpVBasic.TabIndex = 1
         Me.tpVBasic.Text = "Visual Basic"
         '
@@ -2121,7 +2121,7 @@ Public Class frmMain
         Me.tpC.Controls.Add(Me.txtC)
         Me.tpC.Location = New System.Drawing.Point(4, 22)
         Me.tpC.Name = "tpC"
-        Me.tpC.Size = New System.Drawing.Size(647, 196)
+        Me.tpC.Size = New System.Drawing.Size(854, 196)
         Me.tpC.TabIndex = 2
         Me.tpC.Text = "C"
         '
@@ -2153,7 +2153,7 @@ Public Class frmMain
         Me.tpJS.Controls.Add(Me.txtJS)
         Me.tpJS.Location = New System.Drawing.Point(4, 22)
         Me.tpJS.Name = "tpJS"
-        Me.tpJS.Size = New System.Drawing.Size(647, 196)
+        Me.tpJS.Size = New System.Drawing.Size(854, 196)
         Me.tpJS.TabIndex = 3
         Me.tpJS.Text = "JavaScript"
         '
@@ -2184,21 +2184,21 @@ Public Class frmMain
         '
         Me.pSplit.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pSplit.Cursor = System.Windows.Forms.Cursors.NoMoveVert
-        Me.pSplit.Location = New System.Drawing.Point(0, 224)
+        Me.pSplit.Location = New System.Drawing.Point(0, 367)
         Me.pSplit.Name = "pSplit"
-        Me.pSplit.Size = New System.Drawing.Size(655, 7)
+        Me.pSplit.Size = New System.Drawing.Size(862, 7)
         Me.pSplit.TabIndex = 7
         '
         'sbInfo
         '
-        Me.sbInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.sbInfo.Location = New System.Drawing.Point(0, 376)
+        Me.sbInfo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.sbInfo.Location = New System.Drawing.Point(0, 656)
         Me.sbInfo.Name = "sbInfo"
         Me.sbInfo.Panels.AddRange(New System.Windows.Forms.StatusBarPanel() {Me.sbpProgSize, Me.sbpStatus, Me.sbpCellSize, Me.sbpIPS, Me.sbpElapsed, Me.sbpTransStatus})
         Me.sbInfo.ProgramSize = 0
         Me.sbInfo.Progress = -1
         Me.sbInfo.ShowPanels = True
-        Me.sbInfo.Size = New System.Drawing.Size(656, 20)
+        Me.sbInfo.Size = New System.Drawing.Size(863, 26)
         Me.sbInfo.TabIndex = 8
         '
         'sbpProgSize
@@ -2206,7 +2206,7 @@ Public Class frmMain
         Me.sbpProgSize.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents
         Me.sbpProgSize.Name = "sbpProgSize"
         Me.sbpProgSize.Text = "Size: 0 bytes"
-        Me.sbpProgSize.Width = 79
+        Me.sbpProgSize.Width = 81
         '
         'sbpStatus
         '
@@ -2223,39 +2223,40 @@ Public Class frmMain
         Me.sbpIPS.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents
         Me.sbpIPS.Name = "sbpIPS"
         Me.sbpIPS.Text = "0 ips"
-        Me.sbpIPS.Width = 38
+        Me.sbpIPS.Width = 40
         '
         'sbpElapsed
         '
         Me.sbpElapsed.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents
         Me.sbpElapsed.Name = "sbpElapsed"
         Me.sbpElapsed.Text = "0h 0m 0s 0ms"
-        Me.sbpElapsed.Width = 85
+        Me.sbpElapsed.Width = 90
         '
         'sbpTransStatus
         '
         Me.sbpTransStatus.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Spring
         Me.sbpTransStatus.Name = "sbpTransStatus"
-        Me.sbpTransStatus.Width = 237
+        Me.sbpTransStatus.Width = 435
         '
-        'frmMain
+        'FormMain
         '
-        Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
+        Me.AutoScaleBaseSize = New System.Drawing.Size(6, 16)
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(656, 396)
+        Me.ClientSize = New System.Drawing.Size(863, 682)
         Me.Controls.Add(Me.sbInfo)
         Me.Controls.Add(Me.txtOut)
         Me.Controls.Add(Me.pSplit)
         Me.Controls.Add(Me.tcLanguages)
         Me.Cursor = System.Windows.Forms.Cursors.Default
+        Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.Location = New System.Drawing.Point(338, 230)
         Me.Menu = Me.mMenu
-        Me.Name = "frmMain"
+        Me.Name = "FormMain"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "VBBrainFNET"
         Me.tcLanguages.ResumeLayout(False)
         Me.tpBF.ResumeLayout(False)

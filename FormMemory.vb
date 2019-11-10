@@ -1,4 +1,4 @@
-Public Class frmMemory
+Public Class FormMemory
     Inherits System.Windows.Forms.Form
 
 #Region " Windows Form Designer generated code "
@@ -30,7 +30,7 @@ Public Class frmMemory
     'Do not modify it using the code editor.
     Friend WithEvents vsbScrollBar As System.Windows.Forms.VScrollBar
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMemory))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMemory))
         Me.vsbScrollBar = New System.Windows.Forms.VScrollBar
         Me.SuspendLayout()
         '

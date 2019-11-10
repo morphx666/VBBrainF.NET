@@ -76,8 +76,9 @@ Public Class frmCompilerOptions
         '
         'btnOK
         '
+        Me.btnOK.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.btnOK.Location = New System.Drawing.Point(370, 218)
+        Me.btnOK.Location = New System.Drawing.Point(398, 225)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(63, 25)
         Me.btnOK.TabIndex = 7
@@ -85,6 +86,8 @@ Public Class frmCompilerOptions
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.opCg1)
         Me.GroupBox1.Controls.Add(Me.opCg6)
         Me.GroupBox1.Controls.Add(Me.opCg5)
@@ -93,7 +96,7 @@ Public Class frmCompilerOptions
         Me.GroupBox1.Controls.Add(Me.opCg2)
         Me.GroupBox1.Location = New System.Drawing.Point(224, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(210, 142)
+        Me.GroupBox1.Size = New System.Drawing.Size(237, 142)
         Me.GroupBox1.TabIndex = 8
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Code Generation"
@@ -104,7 +107,7 @@ Public Class frmCompilerOptions
         Me.opCg1.Checked = True
         Me.opCg1.Location = New System.Drawing.Point(10, 18)
         Me.opCg1.Name = "opCg1"
-        Me.opCg1.Size = New System.Drawing.Size(178, 17)
+        Me.opCg1.Size = New System.Drawing.Size(204, 19)
         Me.opCg1.TabIndex = 12
         Me.opCg1.TabStop = True
         Me.opCg1.Text = "Optimize blended model (default)"
@@ -114,7 +117,7 @@ Public Class frmCompilerOptions
         Me.opCg6.AutoSize = True
         Me.opCg6.Location = New System.Drawing.Point(10, 108)
         Me.opCg6.Name = "opCg6"
-        Me.opCg6.Size = New System.Drawing.Size(175, 17)
+        Me.opCg6.Size = New System.Drawing.Size(201, 19)
         Me.opCg6.TabIndex = 11
         Me.opCg6.Text = "Optimize for Pentium 4 or Athlon"
         '
@@ -123,7 +126,7 @@ Public Class frmCompilerOptions
         Me.opCg5.AutoSize = True
         Me.opCg5.Location = New System.Drawing.Point(10, 90)
         Me.opCg5.Name = "opCg5"
-        Me.opCg5.Size = New System.Drawing.Size(153, 17)
+        Me.opCg5.Size = New System.Drawing.Size(170, 19)
         Me.opCg5.TabIndex = 10
         Me.opCg5.Text = "Optimize for PPro, P-II, P-III"
         '
@@ -132,7 +135,7 @@ Public Class frmCompilerOptions
         Me.opCg4.AutoSize = True
         Me.opCg4.Location = New System.Drawing.Point(10, 72)
         Me.opCg4.Name = "opCg4"
-        Me.opCg4.Size = New System.Drawing.Size(121, 17)
+        Me.opCg4.Size = New System.Drawing.Size(139, 19)
         Me.opCg4.TabIndex = 9
         Me.opCg4.Text = "Optimize for Pentium"
         '
@@ -141,7 +144,7 @@ Public Class frmCompilerOptions
         Me.opCg3.AutoSize = True
         Me.opCg3.Location = New System.Drawing.Point(10, 54)
         Me.opCg3.Name = "opCg3"
-        Me.opCg3.Size = New System.Drawing.Size(113, 17)
+        Me.opCg3.Size = New System.Drawing.Size(124, 19)
         Me.opCg3.TabIndex = 8
         Me.opCg3.Text = "Optimize for 80486"
         '
@@ -150,7 +153,7 @@ Public Class frmCompilerOptions
         Me.opCg2.AutoSize = True
         Me.opCg2.Location = New System.Drawing.Point(10, 36)
         Me.opCg2.Name = "opCg2"
-        Me.opCg2.Size = New System.Drawing.Size(113, 17)
+        Me.opCg2.Size = New System.Drawing.Size(124, 19)
         Me.opCg2.TabIndex = 7
         Me.opCg2.Text = "Optimize for 80386"
         '
@@ -172,7 +175,7 @@ Public Class frmCompilerOptions
         Me.opOp1.Checked = True
         Me.opOp1.Location = New System.Drawing.Point(10, 18)
         Me.opOp1.Name = "opOp1"
-        Me.opOp1.Size = New System.Drawing.Size(166, 17)
+        Me.opOp1.Size = New System.Drawing.Size(188, 19)
         Me.opOp1.TabIndex = 15
         Me.opOp1.TabStop = True
         Me.opOp1.Text = "Disable Optimizations (default)"
@@ -182,7 +185,7 @@ Public Class frmCompilerOptions
         Me.opOp3.AutoSize = True
         Me.opOp3.Location = New System.Drawing.Point(10, 54)
         Me.opOp3.Name = "opOp3"
-        Me.opOp3.Size = New System.Drawing.Size(102, 17)
+        Me.opOp3.Size = New System.Drawing.Size(111, 19)
         Me.opOp3.TabIndex = 14
         Me.opOp3.Text = "Maximize Speed"
         '
@@ -191,7 +194,7 @@ Public Class frmCompilerOptions
         Me.opOp2.AutoSize = True
         Me.opOp2.Location = New System.Drawing.Point(10, 36)
         Me.opOp2.Name = "opOp2"
-        Me.opOp2.Size = New System.Drawing.Size(99, 17)
+        Me.opOp2.Size = New System.Drawing.Size(108, 19)
         Me.opOp2.TabIndex = 13
         Me.opOp2.Text = "Minimize Space"
         '
@@ -213,7 +216,7 @@ Public Class frmCompilerOptions
         Me.chkWaitEnd.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkWaitEnd.Location = New System.Drawing.Point(10, 34)
         Me.chkWaitEnd.Name = "chkWaitEnd"
-        Me.chkWaitEnd.Size = New System.Drawing.Size(119, 17)
+        Me.chkWaitEnd.Size = New System.Drawing.Size(129, 19)
         Me.chkWaitEnd.TabIndex = 1
         Me.chkWaitEnd.Text = "Wait for key on end"
         '
@@ -222,30 +225,36 @@ Public Class frmCompilerOptions
         Me.chkWaitStart.AutoSize = True
         Me.chkWaitStart.Location = New System.Drawing.Point(10, 18)
         Me.chkWaitStart.Name = "chkWaitStart"
-        Me.chkWaitStart.Size = New System.Drawing.Size(121, 17)
+        Me.chkWaitStart.Size = New System.Drawing.Size(132, 19)
         Me.chkWaitStart.TabIndex = 0
         Me.chkWaitStart.Text = "Wait for key on start"
         '
         'Panel1
         '
+        Me.Panel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.BackColor = System.Drawing.SystemColors.Info
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Location = New System.Drawing.Point(6, 154)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(427, 56)
+        Me.Panel1.Size = New System.Drawing.Size(455, 63)
         Me.Panel1.TabIndex = 11
         '
         'Label1
         '
+        Me.Label1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.Location = New System.Drawing.Point(52, 8)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(363, 40)
+        Me.Label1.Size = New System.Drawing.Size(391, 47)
         Me.Label1.TabIndex = 13
-        Me.Label1.Text = "The program will freeze while the compiler is generating the executable. Be patie" & _
-            "nt and wait for the compiler to finish. As soon as it finishes, the folder conta" & _
-            "ining the executable will be displayed."
+        Me.Label1.Text = "The program will freeze while the compiler is generating the executable. Be patie" &
+    "nt and wait for the compiler to finish. As soon as it finishes, the folder conta" &
+    "ining the executable will be displayed."
         '
         'PictureBox1
         '
@@ -260,13 +269,14 @@ Public Class frmCompilerOptions
         'frmCompilerOptions
         '
         Me.AcceptButton = Me.btnOK
-        Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-        Me.ClientSize = New System.Drawing.Size(440, 249)
+        Me.AutoScaleBaseSize = New System.Drawing.Size(6, 16)
+        Me.ClientSize = New System.Drawing.Size(468, 256)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnOK)
+        Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False

@@ -1,4 +1,4 @@
-Module modGlobals
+Module ModuleGlobals
     Public maxMem As Integer = 32768 - 1
     Public maxCellSize As Integer = 256 - 1
 
@@ -26,7 +26,7 @@ Module modGlobals
             inputChar.ASCII = Asc(inputChar.Buffer.Substring(0, 1))
             inputChar.Buffer = inputChar.Buffer.Substring(1)
         Else
-            Dim dlgInput As Form = New frmInput
+            Dim dlgInput As Form = New FormInput
 
             inputChar.ASCII = InitValue
             ownerForm.Enabled = False
