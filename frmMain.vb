@@ -269,9 +269,9 @@ Public Class frmMain
         Dim j As Integer = 0
 
         For i As Integer = 0 To prgLen
-            If prg(i) = ocIncVal Or prg(i) = ocDecVal Or _
-                prg(i) = ocIncPtr Or prg(i) = ocDecPtr Or _
-                prg(i) = ocPrnChr Or prg(i) = ocInpChr Or _
+            If prg(i) = ocIncVal Or prg(i) = ocDecVal Or
+                prg(i) = ocIncPtr Or prg(i) = ocDecPtr Or
+                prg(i) = ocPrnChr Or prg(i) = ocInpChr Or
                 prg(i) = ocWleStr Or prg(i) = ocWleEnd Then
                 BFCodePointers(j) = i
                 prg(j) = prg(i)
@@ -851,23 +851,23 @@ Public Class frmMain
         mFileCompileEXE.Enabled = False
 
         ReDim CCodePointers(prgLen)
-        cCode = "#include <conio.h>" + vbCrLf + vbCrLf + _
-                "int main() {" + vbCrLf + _
-                vbTab + "char b[" + maxMem.ToString() + "];" + vbCrLf + _
-                vbTab + "for(int i = 0; i < sizeof(b); i++) b[i] = 0;" + vbCrLf + _
+        cCode = "#include <conio.h>" + vbCrLf + vbCrLf +
+                "int main() {" + vbCrLf +
+                vbTab + "char b[" + maxMem.ToString() + "];" + vbCrLf +
+                vbTab + "for(int i = 0; i < sizeof(b); i++) b[i] = 0;" + vbCrLf +
                 vbTab + "char *p = b;" + vbCrLf
 
         ReDim BasicCodePointers(prgLen)
-        bCode = "Dim p As Integer" + vbCrLf + _
-                "Dim b(0 To 32767) As Byte" + vbCrLf + vbCrLf + _
-                "Public Sub Main()" + vbCrLf + _
+        bCode = "Dim p As Integer" + vbCrLf +
+                "Dim b(0 To 32767) As Byte" + vbCrLf + vbCrLf +
+                "Public Sub Main()" + vbCrLf +
                 vbTab + "p = 0" + vbCrLf
 
         ReDim JSCodePointers(prgLen)
-        jCode = "var p = 0;" + vbCrLf + _
-                "var r = '';" + vbCrLf + _
-                "var b = new Array();" + vbCrLf + _
-                "for(var i=0; i<32768; i++) b[i] = 0;" + vbCrLf + vbCrLf + _
+        jCode = "var p = 0;" + vbCrLf +
+                "var r = '';" + vbCrLf +
+                "var b = new Array();" + vbCrLf +
+                "for(var i=0; i<32768; i++) b[i] = 0;" + vbCrLf + vbCrLf +
                 "function main() {" + vbCrLf
 
         ReDim BoFCodePointers(prgLen)
@@ -963,45 +963,45 @@ Public Class frmMain
                 End If
             Next i
 
-            bCode = bCode + _
-                    "End Sub" + vbCrLf + vbCrLf + _
-                    "Private Sub incPtr(ByVal n As Integer)" + vbCrLf + _
-                    vbTab + "If p < " + maxMem.ToString() + " - n Then p += n Else p = 0" + vbCrLf + _
-                    "End Sub" + vbCrLf + vbCrLf + _
-                    "Private Sub decPtr(ByVal n As Integer)" + vbCrLf + _
-                    vbTab + "If p > n - 1 Then p -= n Else p = " + maxCellSize.ToString() + vbCrLf + _
-                    "End Sub" + vbCrLf + vbCrLf + _
-                    "Private Sub incVal(ByVal n As Integer)" + vbCrLf + _
-                    vbTab + "If b(p) < " + maxCellSize.ToString() + " - n Then b(p) += n Else b(p) = 0" + vbCrLf + _
-                    "End Sub" + vbCrLf + vbCrLf + _
-                    "Private Sub decVal(ByVal n As Integer)" + vbCrLf + _
-                    vbTab + "If b(p) > n - 1 Then b(p) -= n Else b(p) = " + maxCellSize.ToString() + vbCrLf + _
+            bCode = bCode +
+                    "End Sub" + vbCrLf + vbCrLf +
+                    "Private Sub incPtr(ByVal n As Integer)" + vbCrLf +
+                    vbTab + "If p < " + maxMem.ToString() + " - n Then p += n Else p = 0" + vbCrLf +
+                    "End Sub" + vbCrLf + vbCrLf +
+                    "Private Sub decPtr(ByVal n As Integer)" + vbCrLf +
+                    vbTab + "If p > n - 1 Then p -= n Else p = " + maxCellSize.ToString() + vbCrLf +
+                    "End Sub" + vbCrLf + vbCrLf +
+                    "Private Sub incVal(ByVal n As Integer)" + vbCrLf +
+                    vbTab + "If b(p) < " + maxCellSize.ToString() + " - n Then b(p) += n Else b(p) = 0" + vbCrLf +
+                    "End Sub" + vbCrLf + vbCrLf +
+                    "Private Sub decVal(ByVal n As Integer)" + vbCrLf +
+                    vbTab + "If b(p) > n - 1 Then b(p) -= n Else b(p) = " + maxCellSize.ToString() + vbCrLf +
                     "End Sub"
 
-            cCode = cCode + _
-                    vbTab + "return 0;" + vbCrLf + _
+            cCode = cCode +
+                    vbTab + "return 0;" + vbCrLf +
                     "}"
 
-            jCode = jCode + _
-                    "}" + vbCrLf + vbCrLf + _
-                    "function incPtr(n) {" + vbCrLf + _
-                    vbTab + "if(p < " + maxMem.ToString() + " - n) p += n; else p = 0;" + vbCrLf + _
-                    "}" + vbCrLf + vbCrLf + _
-                    "function decPtr(n) {" + vbCrLf + _
-                    vbTab + "if(p > n - 1) p -= n; else p = " + maxCellSize.ToString() + ";" + vbCrLf + _
-                    "}" + vbCrLf + vbCrLf + _
-                    "function incVal(n) {" + vbCrLf + _
-                    vbTab + "if(b[p] < " + maxCellSize.ToString() + " - n) b[p] += n; else b[p] = 0;" + vbCrLf + _
-                    "}" + vbCrLf + vbCrLf + _
-                    "function decVal(n) {" + vbCrLf + _
-                    vbTab + "if(b[p] > n - 1) b[p] -= n; else b[p] = " + maxCellSize.ToString() + ";" + vbCrLf + _
-                    "}" + vbCrLf + vbCrLf + _
-                    "function echo(c) {" + vbCrLf + _
-                    vbTab + "r += c;" + vbCrLf + _
-                    "}" + vbCrLf + _
-                    "var isWS = (typeof(alert)=='undefined');" + vbCrLf + _
-                    "if(isWS) prompt = function() {WScript.Echo(""Unable to run this program.\n'prompt' is not supported under Windows Script Host!"");return """";};" + vbCrLf + _
-                    "main();" + vbCrLf + _
+            jCode = jCode +
+                    "}" + vbCrLf + vbCrLf +
+                    "function incPtr(n) {" + vbCrLf +
+                    vbTab + "if(p < " + maxMem.ToString() + " - n) p += n; else p = 0;" + vbCrLf +
+                    "}" + vbCrLf + vbCrLf +
+                    "function decPtr(n) {" + vbCrLf +
+                    vbTab + "if(p > n - 1) p -= n; else p = " + maxCellSize.ToString() + ";" + vbCrLf +
+                    "}" + vbCrLf + vbCrLf +
+                    "function incVal(n) {" + vbCrLf +
+                    vbTab + "if(b[p] < " + maxCellSize.ToString() + " - n) b[p] += n; else b[p] = 0;" + vbCrLf +
+                    "}" + vbCrLf + vbCrLf +
+                    "function decVal(n) {" + vbCrLf +
+                    vbTab + "if(b[p] > n - 1) b[p] -= n; else b[p] = " + maxCellSize.ToString() + ";" + vbCrLf +
+                    "}" + vbCrLf + vbCrLf +
+                    "function echo(c) {" + vbCrLf +
+                    vbTab + "r += c;" + vbCrLf +
+                    "}" + vbCrLf +
+                    "var isWS = (typeof(alert)=='undefined');" + vbCrLf +
+                    "if(isWS) prompt = function() {WScript.Echo(""Unable to run this program.\n'prompt' is not supported under Windows Script Host!"");return """";};" + vbCrLf +
+                    "main();" + vbCrLf +
                     "if(r!='') if(isWS) WScript.Echo(r); else alert(r);"
         Catch
             bCode = "Translation Failed!"
@@ -1384,13 +1384,31 @@ Public Class frmMain
         Compile2EXE()
     End Sub
 
+    Private Function FindFile(parent As IO.DirectoryInfo, fileName As String, match As String) As IO.DirectoryInfo
+        Try
+            For Each di As IO.DirectoryInfo In parent.GetDirectories()
+                Dim clExePath() As IO.FileInfo = di.GetFiles(fileName)
+                'If clExePath.Length = 1 AndAlso clExePath(0).Directory.ToLower().Contains(match) Then Return di
+                If clExePath.Length = 1 Then Return Nothing
+
+                Dim tmp As IO.DirectoryInfo = FindFile(di, fileName, match)
+                If tmp IsNot Nothing Then Return tmp
+            Next
+        Catch
+        End Try
+        Return Nothing
+    End Function
+
     Private Sub Compile2EXE()
         Try
+            Dim vsBatchFile As String = "vsvars32.bat"
+
             Dim fi As IO.FileInfo = New IO.FileInfo(SaveAsC(False))
             Dim fileName As String = fi.Name
             Dim pathName As String = fi.DirectoryName
             Dim exeName As String = IO.Path.Combine(pathName, fi.FullName.Replace(".cpp", ".exe"))
 
+            ' This used to work for older versions of VS
             Dim vsKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software").OpenSubKey("Microsoft").OpenSubKey("VisualStudio")
             Dim vsvKey As Microsoft.Win32.RegistryKey
             Dim vsTmp As Microsoft.Win32.RegistryKey
@@ -1404,15 +1422,33 @@ Public Class frmMain
                     vsTmp = vsTmp.OpenSubKey("VC")
                     If Not vsTmp Is Nothing Then
                         clPath = vsTmp.GetValue("ProductDir").ToString()
-                        If clPath <> "" Then Exit For
+                        If clPath <> "" Then
+                            clFile += "bin\cl.exe"
+                            Exit For
+                        End If
                     End If
                 End If
             Next
+
+            ' Support for VS 2017+
+            ' https://devblogs.microsoft.com/cppblog/compiler-tools-layout-in-visual-studio-15/
+            If clPath = "" Then
+                Dim parentFolder As New IO.DirectoryInfo(IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), "Microsoft Visual Studio"))
+                Dim files() As IO.FileInfo = parentFolder.GetFiles("cl.exe", IO.SearchOption.AllDirectories)
+                For Each file As IO.FileInfo In files
+                    If file.DirectoryName.ToLower().Contains("bin\hostx86\x86") Then
+                        vsBatchFile = "VsDevCmd.bat"
+                        clPath = file.DirectoryName + "\..\..\..\..\..\..\"
+                        clFile = file.FullName
+                        Exit For
+                    End If
+                Next
+            End If
+
             If clPath = "" Then Throw New IO.FileNotFoundException
 
-            clFile = clPath + "bin\cl.exe"
             If IO.File.Exists(clFile) Then
-                vsVars = String.Format("call ""{0}{1}""", clPath, "..\Common7\Tools\vsvars32.bat")
+                vsVars = String.Format("call ""{0}{1}""", clPath, $"..\Common7\Tools\{vsBatchFile}")
                 clFile = String.Format("cl.exe /O& /G% /Fe""{0}"" ""{1}""", exeName, fi.FullName)
 
                 Dim cOp As New frmCompilerOptions
@@ -1448,8 +1484,8 @@ Public Class frmMain
                 Throw New IO.FileNotFoundException
             End If
         Catch ex As IO.FileNotFoundException
-            MsgBox("VBBrainFNET could not compile the program." + vbCrLf + vbCrLf + _
-                        "In order to be able to compile Brain Fuck programs make sure you have installed cl.exe." + vbCrLf + _
+            MsgBox("VBBrainFNET could not compile the program." + vbCrLf + vbCrLf +
+                        "In order to be able to compile Brain Fuck programs make sure you have installed cl.exe." + vbCrLf +
                         "Check your Visual Studio .NET documentation for further information.", MsgBoxStyle.Critical Or MsgBoxStyle.OkOnly, "Error Compiling")
         End Try
     End Sub
