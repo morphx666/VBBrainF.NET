@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Label3.Text" xml:space="preserve">
-    <value>VBBrainFNET is the one of the fastest and most feature-rich application of its kind. With features such as compile to EXE, debug, breakpoints, memory map and simultaneous generation of Visual Basic, C and JavaScript code this is the perfect tool to develop brainfuck programs!</value>
+    <value>VBBrainFNET is the one of the (BASIC-based) fastest and most feature-rich application of its kind. With features such as compile to EXE, debug, breakpoints, memory map and simultaneous generation of Visual Basic, C and JavaScript code this is the perfect tool to develop brainfuck programs!</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
