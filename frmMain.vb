@@ -1384,21 +1384,6 @@ Public Class frmMain
         Compile2EXE()
     End Sub
 
-    Private Function FindFile(parent As IO.DirectoryInfo, fileName As String, match As String) As IO.DirectoryInfo
-        Try
-            For Each di As IO.DirectoryInfo In parent.GetDirectories()
-                Dim clExePath() As IO.FileInfo = di.GetFiles(fileName)
-                'If clExePath.Length = 1 AndAlso clExePath(0).Directory.ToLower().Contains(match) Then Return di
-                If clExePath.Length = 1 Then Return Nothing
-
-                Dim tmp As IO.DirectoryInfo = FindFile(di, fileName, match)
-                If tmp IsNot Nothing Then Return tmp
-            Next
-        Catch
-        End Try
-        Return Nothing
-    End Function
-
     Private Sub Compile2EXE()
         Try
             Dim vsBatchFile As String = "vsvars32.bat"
