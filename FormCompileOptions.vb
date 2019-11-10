@@ -1,4 +1,4 @@
-Public Class frmCompilerOptions
+Public Class FormCompilerOptions
     Inherits System.Windows.Forms.Form
 
 #Region " Windows Form Designer generated code "
@@ -29,41 +29,41 @@ Public Class frmCompilerOptions
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    Friend WithEvents btnOK As System.Windows.Forms.Button
+    Friend WithEvents ButtonCompile As System.Windows.Forms.Button
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents opCg1 As System.Windows.Forms.RadioButton
-    Friend WithEvents opCg6 As System.Windows.Forms.RadioButton
-    Friend WithEvents opCg5 As System.Windows.Forms.RadioButton
-    Friend WithEvents opCg4 As System.Windows.Forms.RadioButton
-    Friend WithEvents opCg3 As System.Windows.Forms.RadioButton
-    Friend WithEvents opCg2 As System.Windows.Forms.RadioButton
-    Friend WithEvents opOp1 As System.Windows.Forms.RadioButton
-    Friend WithEvents opOp3 As System.Windows.Forms.RadioButton
-    Friend WithEvents opOp2 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButtonCg1 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButtonCg6 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButtonCg5 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButtonCg4 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButtonCg3 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButtonCg2 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButtonOp1 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButtonOp3 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButtonOp2 As System.Windows.Forms.RadioButton
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
-    Friend WithEvents chkWaitStart As System.Windows.Forms.CheckBox
-    Friend WithEvents chkWaitEnd As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBoxWaitStart As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBoxWaitEnd As System.Windows.Forms.CheckBox
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCompilerOptions))
-        Me.btnOK = New System.Windows.Forms.Button()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormCompilerOptions))
+        Me.ButtonCompile = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.opCg1 = New System.Windows.Forms.RadioButton()
-        Me.opCg6 = New System.Windows.Forms.RadioButton()
-        Me.opCg5 = New System.Windows.Forms.RadioButton()
-        Me.opCg4 = New System.Windows.Forms.RadioButton()
-        Me.opCg3 = New System.Windows.Forms.RadioButton()
-        Me.opCg2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButtonCg1 = New System.Windows.Forms.RadioButton()
+        Me.RadioButtonCg6 = New System.Windows.Forms.RadioButton()
+        Me.RadioButtonCg5 = New System.Windows.Forms.RadioButton()
+        Me.RadioButtonCg4 = New System.Windows.Forms.RadioButton()
+        Me.RadioButtonCg3 = New System.Windows.Forms.RadioButton()
+        Me.RadioButtonCg2 = New System.Windows.Forms.RadioButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.opOp1 = New System.Windows.Forms.RadioButton()
-        Me.opOp3 = New System.Windows.Forms.RadioButton()
-        Me.opOp2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButtonOp1 = New System.Windows.Forms.RadioButton()
+        Me.RadioButtonOp3 = New System.Windows.Forms.RadioButton()
+        Me.RadioButtonOp2 = New System.Windows.Forms.RadioButton()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.chkWaitEnd = New System.Windows.Forms.CheckBox()
-        Me.chkWaitStart = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxWaitEnd = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxWaitStart = New System.Windows.Forms.CheckBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -74,26 +74,26 @@ Public Class frmCompilerOptions
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'btnOK
+        'ButtonCompile
         '
-        Me.btnOK.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.btnOK.Location = New System.Drawing.Point(398, 225)
-        Me.btnOK.Name = "btnOK"
-        Me.btnOK.Size = New System.Drawing.Size(63, 25)
-        Me.btnOK.TabIndex = 7
-        Me.btnOK.Text = "Compile"
+        Me.ButtonCompile.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ButtonCompile.DialogResult = System.Windows.Forms.DialogResult.OK
+        Me.ButtonCompile.Location = New System.Drawing.Point(391, 225)
+        Me.ButtonCompile.Name = "ButtonCompile"
+        Me.ButtonCompile.Size = New System.Drawing.Size(70, 25)
+        Me.ButtonCompile.TabIndex = 7
+        Me.ButtonCompile.Text = "Compile"
         '
         'GroupBox1
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox1.Controls.Add(Me.opCg1)
-        Me.GroupBox1.Controls.Add(Me.opCg6)
-        Me.GroupBox1.Controls.Add(Me.opCg5)
-        Me.GroupBox1.Controls.Add(Me.opCg4)
-        Me.GroupBox1.Controls.Add(Me.opCg3)
-        Me.GroupBox1.Controls.Add(Me.opCg2)
+        Me.GroupBox1.Controls.Add(Me.RadioButtonCg1)
+        Me.GroupBox1.Controls.Add(Me.RadioButtonCg6)
+        Me.GroupBox1.Controls.Add(Me.RadioButtonCg5)
+        Me.GroupBox1.Controls.Add(Me.RadioButtonCg4)
+        Me.GroupBox1.Controls.Add(Me.RadioButtonCg3)
+        Me.GroupBox1.Controls.Add(Me.RadioButtonCg2)
         Me.GroupBox1.Location = New System.Drawing.Point(224, 4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(237, 142)
@@ -101,67 +101,67 @@ Public Class frmCompilerOptions
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Code Generation"
         '
-        'opCg1
+        'RadioButtonCg1
         '
-        Me.opCg1.AutoSize = True
-        Me.opCg1.Checked = True
-        Me.opCg1.Location = New System.Drawing.Point(10, 18)
-        Me.opCg1.Name = "opCg1"
-        Me.opCg1.Size = New System.Drawing.Size(204, 19)
-        Me.opCg1.TabIndex = 12
-        Me.opCg1.TabStop = True
-        Me.opCg1.Text = "Optimize blended model (default)"
+        Me.RadioButtonCg1.AutoSize = True
+        Me.RadioButtonCg1.Checked = True
+        Me.RadioButtonCg1.Location = New System.Drawing.Point(10, 18)
+        Me.RadioButtonCg1.Name = "RadioButtonCg1"
+        Me.RadioButtonCg1.Size = New System.Drawing.Size(204, 19)
+        Me.RadioButtonCg1.TabIndex = 12
+        Me.RadioButtonCg1.TabStop = True
+        Me.RadioButtonCg1.Text = "Optimize blended model (default)"
         '
-        'opCg6
+        'RadioButtonCg6
         '
-        Me.opCg6.AutoSize = True
-        Me.opCg6.Location = New System.Drawing.Point(10, 108)
-        Me.opCg6.Name = "opCg6"
-        Me.opCg6.Size = New System.Drawing.Size(201, 19)
-        Me.opCg6.TabIndex = 11
-        Me.opCg6.Text = "Optimize for Pentium 4 or Athlon"
+        Me.RadioButtonCg6.AutoSize = True
+        Me.RadioButtonCg6.Location = New System.Drawing.Point(10, 108)
+        Me.RadioButtonCg6.Name = "RadioButtonCg6"
+        Me.RadioButtonCg6.Size = New System.Drawing.Size(201, 19)
+        Me.RadioButtonCg6.TabIndex = 11
+        Me.RadioButtonCg6.Text = "Optimize for Pentium 4 or Athlon"
         '
-        'opCg5
+        'RadioButtonCg5
         '
-        Me.opCg5.AutoSize = True
-        Me.opCg5.Location = New System.Drawing.Point(10, 90)
-        Me.opCg5.Name = "opCg5"
-        Me.opCg5.Size = New System.Drawing.Size(170, 19)
-        Me.opCg5.TabIndex = 10
-        Me.opCg5.Text = "Optimize for PPro, P-II, P-III"
+        Me.RadioButtonCg5.AutoSize = True
+        Me.RadioButtonCg5.Location = New System.Drawing.Point(10, 90)
+        Me.RadioButtonCg5.Name = "RadioButtonCg5"
+        Me.RadioButtonCg5.Size = New System.Drawing.Size(170, 19)
+        Me.RadioButtonCg5.TabIndex = 10
+        Me.RadioButtonCg5.Text = "Optimize for PPro, P-II, P-III"
         '
-        'opCg4
+        'RadioButtonCg4
         '
-        Me.opCg4.AutoSize = True
-        Me.opCg4.Location = New System.Drawing.Point(10, 72)
-        Me.opCg4.Name = "opCg4"
-        Me.opCg4.Size = New System.Drawing.Size(139, 19)
-        Me.opCg4.TabIndex = 9
-        Me.opCg4.Text = "Optimize for Pentium"
+        Me.RadioButtonCg4.AutoSize = True
+        Me.RadioButtonCg4.Location = New System.Drawing.Point(10, 72)
+        Me.RadioButtonCg4.Name = "RadioButtonCg4"
+        Me.RadioButtonCg4.Size = New System.Drawing.Size(139, 19)
+        Me.RadioButtonCg4.TabIndex = 9
+        Me.RadioButtonCg4.Text = "Optimize for Pentium"
         '
-        'opCg3
+        'RadioButtonCg3
         '
-        Me.opCg3.AutoSize = True
-        Me.opCg3.Location = New System.Drawing.Point(10, 54)
-        Me.opCg3.Name = "opCg3"
-        Me.opCg3.Size = New System.Drawing.Size(124, 19)
-        Me.opCg3.TabIndex = 8
-        Me.opCg3.Text = "Optimize for 80486"
+        Me.RadioButtonCg3.AutoSize = True
+        Me.RadioButtonCg3.Location = New System.Drawing.Point(10, 54)
+        Me.RadioButtonCg3.Name = "RadioButtonCg3"
+        Me.RadioButtonCg3.Size = New System.Drawing.Size(124, 19)
+        Me.RadioButtonCg3.TabIndex = 8
+        Me.RadioButtonCg3.Text = "Optimize for 80486"
         '
-        'opCg2
+        'RadioButtonCg2
         '
-        Me.opCg2.AutoSize = True
-        Me.opCg2.Location = New System.Drawing.Point(10, 36)
-        Me.opCg2.Name = "opCg2"
-        Me.opCg2.Size = New System.Drawing.Size(124, 19)
-        Me.opCg2.TabIndex = 7
-        Me.opCg2.Text = "Optimize for 80386"
+        Me.RadioButtonCg2.AutoSize = True
+        Me.RadioButtonCg2.Location = New System.Drawing.Point(10, 36)
+        Me.RadioButtonCg2.Name = "RadioButtonCg2"
+        Me.RadioButtonCg2.Size = New System.Drawing.Size(124, 19)
+        Me.RadioButtonCg2.TabIndex = 7
+        Me.RadioButtonCg2.Text = "Optimize for 80386"
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.opOp1)
-        Me.GroupBox2.Controls.Add(Me.opOp3)
-        Me.GroupBox2.Controls.Add(Me.opOp2)
+        Me.GroupBox2.Controls.Add(Me.RadioButtonOp1)
+        Me.GroupBox2.Controls.Add(Me.RadioButtonOp3)
+        Me.GroupBox2.Controls.Add(Me.RadioButtonOp2)
         Me.GroupBox2.Location = New System.Drawing.Point(6, 4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(210, 78)
@@ -169,39 +169,39 @@ Public Class frmCompilerOptions
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Optimization"
         '
-        'opOp1
+        'RadioButtonOp1
         '
-        Me.opOp1.AutoSize = True
-        Me.opOp1.Checked = True
-        Me.opOp1.Location = New System.Drawing.Point(10, 18)
-        Me.opOp1.Name = "opOp1"
-        Me.opOp1.Size = New System.Drawing.Size(188, 19)
-        Me.opOp1.TabIndex = 15
-        Me.opOp1.TabStop = True
-        Me.opOp1.Text = "Disable Optimizations (default)"
+        Me.RadioButtonOp1.AutoSize = True
+        Me.RadioButtonOp1.Checked = True
+        Me.RadioButtonOp1.Location = New System.Drawing.Point(10, 18)
+        Me.RadioButtonOp1.Name = "RadioButtonOp1"
+        Me.RadioButtonOp1.Size = New System.Drawing.Size(188, 19)
+        Me.RadioButtonOp1.TabIndex = 15
+        Me.RadioButtonOp1.TabStop = True
+        Me.RadioButtonOp1.Text = "Disable Optimizations (default)"
         '
-        'opOp3
+        'RadioButtonOp3
         '
-        Me.opOp3.AutoSize = True
-        Me.opOp3.Location = New System.Drawing.Point(10, 54)
-        Me.opOp3.Name = "opOp3"
-        Me.opOp3.Size = New System.Drawing.Size(111, 19)
-        Me.opOp3.TabIndex = 14
-        Me.opOp3.Text = "Maximize Speed"
+        Me.RadioButtonOp3.AutoSize = True
+        Me.RadioButtonOp3.Location = New System.Drawing.Point(10, 54)
+        Me.RadioButtonOp3.Name = "RadioButtonOp3"
+        Me.RadioButtonOp3.Size = New System.Drawing.Size(111, 19)
+        Me.RadioButtonOp3.TabIndex = 14
+        Me.RadioButtonOp3.Text = "Maximize Speed"
         '
-        'opOp2
+        'RadioButtonOp2
         '
-        Me.opOp2.AutoSize = True
-        Me.opOp2.Location = New System.Drawing.Point(10, 36)
-        Me.opOp2.Name = "opOp2"
-        Me.opOp2.Size = New System.Drawing.Size(108, 19)
-        Me.opOp2.TabIndex = 13
-        Me.opOp2.Text = "Minimize Space"
+        Me.RadioButtonOp2.AutoSize = True
+        Me.RadioButtonOp2.Location = New System.Drawing.Point(10, 36)
+        Me.RadioButtonOp2.Name = "RadioButtonOp2"
+        Me.RadioButtonOp2.Size = New System.Drawing.Size(108, 19)
+        Me.RadioButtonOp2.TabIndex = 13
+        Me.RadioButtonOp2.Text = "Minimize Space"
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.chkWaitEnd)
-        Me.GroupBox3.Controls.Add(Me.chkWaitStart)
+        Me.GroupBox3.Controls.Add(Me.CheckBoxWaitEnd)
+        Me.GroupBox3.Controls.Add(Me.CheckBoxWaitStart)
         Me.GroupBox3.Location = New System.Drawing.Point(6, 86)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(210, 60)
@@ -209,25 +209,25 @@ Public Class frmCompilerOptions
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Miscellaneous"
         '
-        'chkWaitEnd
+        'CheckBoxWaitEnd
         '
-        Me.chkWaitEnd.AutoSize = True
-        Me.chkWaitEnd.Checked = True
-        Me.chkWaitEnd.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.chkWaitEnd.Location = New System.Drawing.Point(10, 34)
-        Me.chkWaitEnd.Name = "chkWaitEnd"
-        Me.chkWaitEnd.Size = New System.Drawing.Size(129, 19)
-        Me.chkWaitEnd.TabIndex = 1
-        Me.chkWaitEnd.Text = "Wait for key on end"
+        Me.CheckBoxWaitEnd.AutoSize = True
+        Me.CheckBoxWaitEnd.Checked = True
+        Me.CheckBoxWaitEnd.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBoxWaitEnd.Location = New System.Drawing.Point(10, 34)
+        Me.CheckBoxWaitEnd.Name = "CheckBoxWaitEnd"
+        Me.CheckBoxWaitEnd.Size = New System.Drawing.Size(129, 19)
+        Me.CheckBoxWaitEnd.TabIndex = 1
+        Me.CheckBoxWaitEnd.Text = "Wait for key on end"
         '
-        'chkWaitStart
+        'CheckBoxWaitStart
         '
-        Me.chkWaitStart.AutoSize = True
-        Me.chkWaitStart.Location = New System.Drawing.Point(10, 18)
-        Me.chkWaitStart.Name = "chkWaitStart"
-        Me.chkWaitStart.Size = New System.Drawing.Size(132, 19)
-        Me.chkWaitStart.TabIndex = 0
-        Me.chkWaitStart.Text = "Wait for key on start"
+        Me.CheckBoxWaitStart.AutoSize = True
+        Me.CheckBoxWaitStart.Location = New System.Drawing.Point(10, 18)
+        Me.CheckBoxWaitStart.Name = "CheckBoxWaitStart"
+        Me.CheckBoxWaitStart.Size = New System.Drawing.Size(132, 19)
+        Me.CheckBoxWaitStart.TabIndex = 0
+        Me.CheckBoxWaitStart.Text = "Wait for key on start"
         '
         'Panel1
         '
@@ -266,22 +266,22 @@ Public Class frmCompilerOptions
         Me.PictureBox1.TabIndex = 12
         Me.PictureBox1.TabStop = False
         '
-        'frmCompilerOptions
+        'FormCompilerOptions
         '
-        Me.AcceptButton = Me.btnOK
+        Me.AcceptButton = Me.ButtonCompile
         Me.AutoScaleBaseSize = New System.Drawing.Size(6, 16)
         Me.ClientSize = New System.Drawing.Size(468, 256)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.btnOK)
+        Me.Controls.Add(Me.ButtonCompile)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmCompilerOptions"
+        Me.Name = "FormCompilerOptions"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Compiler Options"
         Me.GroupBox1.ResumeLayout(False)
@@ -299,9 +299,9 @@ Public Class frmCompilerOptions
 
 #End Region
 
-    Private Sub btnOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOK.Click
+    Private Sub ButtonCompile_Click(sender As Object, e As EventArgs) Handles ButtonCompile.Click
         SaveCtrlsState(Me)
-        Me.DialogResult = Windows.Forms.DialogResult.OK
+        Me.DialogResult = DialogResult.OK
     End Sub
 
     Private Sub SaveCtrlsState(ByVal cc As Control)
@@ -315,7 +315,7 @@ Public Class frmCompilerOptions
         Next
     End Sub
 
-    Private Sub frmCompilerOptions_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub FormCompilerOptions_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         LoadCtrlsState(Me)
     End Sub
 

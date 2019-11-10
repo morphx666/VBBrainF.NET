@@ -23,196 +23,196 @@ Friend Class FormInput
 	'Required by the Windows Form Designer
 	Private components As System.ComponentModel.IContainer
 	Public ToolTip1 As System.Windows.Forms.ToolTip
-	Public WithEvents txtASCII As System.Windows.Forms.TextBox
-	Public WithEvents txtChar As System.Windows.Forms.TextBox
-    Public WithEvents cmdCont As System.Windows.Forms.Button
+	Public WithEvents TextBoxASCII As System.Windows.Forms.TextBox
+	Public WithEvents TextBoxChar As System.Windows.Forms.TextBox
+    Public WithEvents ButtonCont As System.Windows.Forms.Button
     'NOTE: The following procedure is required by the Windows Form Designer
 	'It can be modified using the Windows Form Designer.
 	'Do not modify it using the code editor.
-    Friend WithEvents rbChar As System.Windows.Forms.RadioButton
-    Friend WithEvents rbASCII As System.Windows.Forms.RadioButton
-    Public WithEvents cmdDebug As System.Windows.Forms.Button
-    Public WithEvents cmdStop As System.Windows.Forms.Button
-    Public WithEvents txtBuffer As System.Windows.Forms.TextBox
-    Friend WithEvents rbBuffer As System.Windows.Forms.RadioButton
-    Friend WithEvents btnLf As System.Windows.Forms.Button
-    Friend WithEvents btnCr As System.Windows.Forms.Button
-    Friend WithEvents btnNull As System.Windows.Forms.Button
+    Friend WithEvents RadioButtonChar As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButtonASCII As System.Windows.Forms.RadioButton
+    Public WithEvents ButtonDebug As System.Windows.Forms.Button
+    Public WithEvents ButtonStop As System.Windows.Forms.Button
+    Public WithEvents TextBoxBuffer As System.Windows.Forms.TextBox
+    Friend WithEvents RadioButtonBuffer As System.Windows.Forms.RadioButton
+    Friend WithEvents ButtonLf As System.Windows.Forms.Button
+    Friend WithEvents ButtonCr As System.Windows.Forms.Button
+    Friend WithEvents ButtonNull As System.Windows.Forms.Button
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormInput))
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.txtASCII = New System.Windows.Forms.TextBox()
-        Me.txtChar = New System.Windows.Forms.TextBox()
-        Me.cmdDebug = New System.Windows.Forms.Button()
-        Me.cmdStop = New System.Windows.Forms.Button()
-        Me.cmdCont = New System.Windows.Forms.Button()
-        Me.rbChar = New System.Windows.Forms.RadioButton()
-        Me.rbASCII = New System.Windows.Forms.RadioButton()
-        Me.txtBuffer = New System.Windows.Forms.TextBox()
-        Me.rbBuffer = New System.Windows.Forms.RadioButton()
-        Me.btnLf = New System.Windows.Forms.Button()
-        Me.btnCr = New System.Windows.Forms.Button()
-        Me.btnNull = New System.Windows.Forms.Button()
+        Me.TextBoxASCII = New System.Windows.Forms.TextBox()
+        Me.TextBoxChar = New System.Windows.Forms.TextBox()
+        Me.ButtonDebug = New System.Windows.Forms.Button()
+        Me.ButtonStop = New System.Windows.Forms.Button()
+        Me.ButtonCont = New System.Windows.Forms.Button()
+        Me.RadioButtonChar = New System.Windows.Forms.RadioButton()
+        Me.RadioButtonASCII = New System.Windows.Forms.RadioButton()
+        Me.TextBoxBuffer = New System.Windows.Forms.TextBox()
+        Me.RadioButtonBuffer = New System.Windows.Forms.RadioButton()
+        Me.ButtonLf = New System.Windows.Forms.Button()
+        Me.ButtonCr = New System.Windows.Forms.Button()
+        Me.ButtonNull = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'txtASCII
+        'TextBoxASCII
         '
-        Me.txtASCII.AcceptsReturn = True
-        Me.txtASCII.BackColor = System.Drawing.SystemColors.Window
-        Me.txtASCII.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtASCII.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.txtASCII.Location = New System.Drawing.Point(86, 45)
-        Me.txtASCII.MaxLength = 0
-        Me.txtASCII.Name = "txtASCII"
-        Me.txtASCII.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtASCII.Size = New System.Drawing.Size(40, 23)
-        Me.txtASCII.TabIndex = 1
-        Me.txtASCII.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TextBoxASCII.AcceptsReturn = True
+        Me.TextBoxASCII.BackColor = System.Drawing.SystemColors.Window
+        Me.TextBoxASCII.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TextBoxASCII.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.TextBoxASCII.Location = New System.Drawing.Point(86, 45)
+        Me.TextBoxASCII.MaxLength = 0
+        Me.TextBoxASCII.Name = "TextBoxASCII"
+        Me.TextBoxASCII.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.TextBoxASCII.Size = New System.Drawing.Size(40, 23)
+        Me.TextBoxASCII.TabIndex = 1
+        Me.TextBoxASCII.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'txtChar
+        'TextBoxChar
         '
-        Me.txtChar.AcceptsReturn = True
-        Me.txtChar.BackColor = System.Drawing.SystemColors.Window
-        Me.txtChar.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtChar.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.txtChar.Location = New System.Drawing.Point(86, 15)
-        Me.txtChar.MaxLength = 0
-        Me.txtChar.Name = "txtChar"
-        Me.txtChar.ReadOnly = True
-        Me.txtChar.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtChar.Size = New System.Drawing.Size(23, 23)
-        Me.txtChar.TabIndex = 0
-        Me.txtChar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.TextBoxChar.AcceptsReturn = True
+        Me.TextBoxChar.BackColor = System.Drawing.SystemColors.Window
+        Me.TextBoxChar.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TextBoxChar.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.TextBoxChar.Location = New System.Drawing.Point(86, 15)
+        Me.TextBoxChar.MaxLength = 0
+        Me.TextBoxChar.Name = "TextBoxChar"
+        Me.TextBoxChar.ReadOnly = True
+        Me.TextBoxChar.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.TextBoxChar.Size = New System.Drawing.Size(23, 23)
+        Me.TextBoxChar.TabIndex = 0
+        Me.TextBoxChar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'cmdDebug
+        'ButtonDebug
         '
-        Me.cmdDebug.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmdDebug.BackColor = System.Drawing.SystemColors.Control
-        Me.cmdDebug.Cursor = System.Windows.Forms.Cursors.Default
-        Me.cmdDebug.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdDebug.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdDebug.Location = New System.Drawing.Point(160, 103)
-        Me.cmdDebug.Name = "cmdDebug"
-        Me.cmdDebug.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cmdDebug.Size = New System.Drawing.Size(68, 37)
-        Me.cmdDebug.TabIndex = 7
-        Me.cmdDebug.Text = "Debug (F8)"
-        Me.cmdDebug.UseVisualStyleBackColor = True
+        Me.ButtonDebug.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ButtonDebug.BackColor = System.Drawing.SystemColors.Control
+        Me.ButtonDebug.Cursor = System.Windows.Forms.Cursors.Default
+        Me.ButtonDebug.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonDebug.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ButtonDebug.Location = New System.Drawing.Point(160, 103)
+        Me.ButtonDebug.Name = "ButtonDebug"
+        Me.ButtonDebug.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.ButtonDebug.Size = New System.Drawing.Size(68, 37)
+        Me.ButtonDebug.TabIndex = 7
+        Me.ButtonDebug.Text = "Debug (F8)"
+        Me.ButtonDebug.UseVisualStyleBackColor = True
         '
-        'cmdStop
+        'ButtonStop
         '
-        Me.cmdStop.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmdStop.BackColor = System.Drawing.SystemColors.Control
-        Me.cmdStop.Cursor = System.Windows.Forms.Cursors.Default
-        Me.cmdStop.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdStop.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdStop.Location = New System.Drawing.Point(234, 103)
-        Me.cmdStop.Name = "cmdStop"
-        Me.cmdStop.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cmdStop.Size = New System.Drawing.Size(68, 37)
-        Me.cmdStop.TabIndex = 8
-        Me.cmdStop.Text = "Stop (CTRL+C)"
-        Me.cmdStop.UseVisualStyleBackColor = True
+        Me.ButtonStop.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ButtonStop.BackColor = System.Drawing.SystemColors.Control
+        Me.ButtonStop.Cursor = System.Windows.Forms.Cursors.Default
+        Me.ButtonStop.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonStop.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ButtonStop.Location = New System.Drawing.Point(234, 103)
+        Me.ButtonStop.Name = "ButtonStop"
+        Me.ButtonStop.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.ButtonStop.Size = New System.Drawing.Size(68, 37)
+        Me.ButtonStop.TabIndex = 8
+        Me.ButtonStop.Text = "Stop (CTRL+C)"
+        Me.ButtonStop.UseVisualStyleBackColor = True
         '
-        'cmdCont
+        'ButtonCont
         '
-        Me.cmdCont.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmdCont.BackColor = System.Drawing.SystemColors.Control
-        Me.cmdCont.Cursor = System.Windows.Forms.Cursors.Default
-        Me.cmdCont.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdCont.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmdCont.Location = New System.Drawing.Point(86, 103)
-        Me.cmdCont.Name = "cmdCont"
-        Me.cmdCont.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cmdCont.Size = New System.Drawing.Size(68, 37)
-        Me.cmdCont.TabIndex = 6
-        Me.cmdCont.Text = "Continue   (F5)"
-        Me.cmdCont.UseVisualStyleBackColor = True
+        Me.ButtonCont.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ButtonCont.BackColor = System.Drawing.SystemColors.Control
+        Me.ButtonCont.Cursor = System.Windows.Forms.Cursors.Default
+        Me.ButtonCont.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonCont.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ButtonCont.Location = New System.Drawing.Point(86, 103)
+        Me.ButtonCont.Name = "ButtonCont"
+        Me.ButtonCont.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.ButtonCont.Size = New System.Drawing.Size(68, 37)
+        Me.ButtonCont.TabIndex = 6
+        Me.ButtonCont.Text = "Continue   (F5)"
+        Me.ButtonCont.UseVisualStyleBackColor = True
         '
-        'rbChar
+        'RadioButtonChar
         '
-        Me.rbChar.Checked = True
-        Me.rbChar.Location = New System.Drawing.Point(12, 17)
-        Me.rbChar.Name = "rbChar"
-        Me.rbChar.Size = New System.Drawing.Size(76, 19)
-        Me.rbChar.TabIndex = 9
-        Me.rbChar.TabStop = True
-        Me.rbChar.Text = "Character"
+        Me.RadioButtonChar.Checked = True
+        Me.RadioButtonChar.Location = New System.Drawing.Point(12, 17)
+        Me.RadioButtonChar.Name = "RadioButtonChar"
+        Me.RadioButtonChar.Size = New System.Drawing.Size(76, 19)
+        Me.RadioButtonChar.TabIndex = 9
+        Me.RadioButtonChar.TabStop = True
+        Me.RadioButtonChar.Text = "Character"
         '
-        'rbASCII
+        'RadioButtonASCII
         '
-        Me.rbASCII.Location = New System.Drawing.Point(12, 47)
-        Me.rbASCII.Name = "rbASCII"
-        Me.rbASCII.Size = New System.Drawing.Size(76, 19)
-        Me.rbASCII.TabIndex = 10
-        Me.rbASCII.Text = "ASCII"
+        Me.RadioButtonASCII.Location = New System.Drawing.Point(12, 47)
+        Me.RadioButtonASCII.Name = "RadioButtonASCII"
+        Me.RadioButtonASCII.Size = New System.Drawing.Size(76, 19)
+        Me.RadioButtonASCII.TabIndex = 10
+        Me.RadioButtonASCII.Text = "ASCII"
         '
-        'txtBuffer
+        'TextBoxBuffer
         '
-        Me.txtBuffer.AcceptsReturn = True
-        Me.txtBuffer.BackColor = System.Drawing.SystemColors.Window
-        Me.txtBuffer.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtBuffer.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.txtBuffer.Location = New System.Drawing.Point(86, 74)
-        Me.txtBuffer.MaxLength = 0
-        Me.txtBuffer.Name = "txtBuffer"
-        Me.txtBuffer.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtBuffer.Size = New System.Drawing.Size(216, 23)
-        Me.txtBuffer.TabIndex = 5
+        Me.TextBoxBuffer.AcceptsReturn = True
+        Me.TextBoxBuffer.BackColor = System.Drawing.SystemColors.Window
+        Me.TextBoxBuffer.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TextBoxBuffer.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.TextBoxBuffer.Location = New System.Drawing.Point(86, 74)
+        Me.TextBoxBuffer.MaxLength = 0
+        Me.TextBoxBuffer.Name = "TextBoxBuffer"
+        Me.TextBoxBuffer.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.TextBoxBuffer.Size = New System.Drawing.Size(216, 23)
+        Me.TextBoxBuffer.TabIndex = 5
         '
-        'rbBuffer
+        'RadioButtonBuffer
         '
-        Me.rbBuffer.Location = New System.Drawing.Point(12, 76)
-        Me.rbBuffer.Name = "rbBuffer"
-        Me.rbBuffer.Size = New System.Drawing.Size(76, 19)
-        Me.rbBuffer.TabIndex = 11
-        Me.rbBuffer.Text = "Buffer"
+        Me.RadioButtonBuffer.Location = New System.Drawing.Point(12, 76)
+        Me.RadioButtonBuffer.Name = "RadioButtonBuffer"
+        Me.RadioButtonBuffer.Size = New System.Drawing.Size(76, 19)
+        Me.RadioButtonBuffer.TabIndex = 11
+        Me.RadioButtonBuffer.Text = "Buffer"
         '
-        'btnLf
+        'ButtonLf
         '
-        Me.btnLf.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLf.Location = New System.Drawing.Point(132, 43)
-        Me.btnLf.Name = "btnLf"
-        Me.btnLf.Size = New System.Drawing.Size(52, 26)
-        Me.btnLf.TabIndex = 2
-        Me.btnLf.Text = "Lf/10"
+        Me.ButtonLf.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonLf.Location = New System.Drawing.Point(132, 43)
+        Me.ButtonLf.Name = "ButtonLf"
+        Me.ButtonLf.Size = New System.Drawing.Size(52, 26)
+        Me.ButtonLf.TabIndex = 2
+        Me.ButtonLf.Text = "Lf/10"
         '
-        'btnCr
+        'ButtonCr
         '
-        Me.btnCr.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCr.Location = New System.Drawing.Point(191, 43)
-        Me.btnCr.Name = "btnCr"
-        Me.btnCr.Size = New System.Drawing.Size(52, 26)
-        Me.btnCr.TabIndex = 3
-        Me.btnCr.Text = "Cr/13"
+        Me.ButtonCr.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonCr.Location = New System.Drawing.Point(191, 43)
+        Me.ButtonCr.Name = "ButtonCr"
+        Me.ButtonCr.Size = New System.Drawing.Size(52, 26)
+        Me.ButtonCr.TabIndex = 3
+        Me.ButtonCr.Text = "Cr/13"
         '
-        'btnNull
+        'ButtonNull
         '
-        Me.btnNull.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNull.Location = New System.Drawing.Point(250, 43)
-        Me.btnNull.Name = "btnNull"
-        Me.btnNull.Size = New System.Drawing.Size(52, 26)
-        Me.btnNull.TabIndex = 4
-        Me.btnNull.Text = "Null/0"
+        Me.ButtonNull.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonNull.Location = New System.Drawing.Point(250, 43)
+        Me.ButtonNull.Name = "ButtonNull"
+        Me.ButtonNull.Size = New System.Drawing.Size(52, 26)
+        Me.ButtonNull.TabIndex = 4
+        Me.ButtonNull.Text = "Null/0"
         '
         'FormInput
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(6, 16)
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(312, 150)
-        Me.Controls.Add(Me.btnNull)
-        Me.Controls.Add(Me.btnCr)
-        Me.Controls.Add(Me.btnLf)
-        Me.Controls.Add(Me.txtBuffer)
-        Me.Controls.Add(Me.rbBuffer)
-        Me.Controls.Add(Me.txtASCII)
-        Me.Controls.Add(Me.txtChar)
-        Me.Controls.Add(Me.rbChar)
-        Me.Controls.Add(Me.rbASCII)
-        Me.Controls.Add(Me.cmdDebug)
-        Me.Controls.Add(Me.cmdStop)
-        Me.Controls.Add(Me.cmdCont)
+        Me.Controls.Add(Me.ButtonNull)
+        Me.Controls.Add(Me.ButtonCr)
+        Me.Controls.Add(Me.ButtonLf)
+        Me.Controls.Add(Me.TextBoxBuffer)
+        Me.Controls.Add(Me.RadioButtonBuffer)
+        Me.Controls.Add(Me.TextBoxASCII)
+        Me.Controls.Add(Me.TextBoxChar)
+        Me.Controls.Add(Me.RadioButtonChar)
+        Me.Controls.Add(Me.RadioButtonASCII)
+        Me.Controls.Add(Me.ButtonDebug)
+        Me.Controls.Add(Me.ButtonStop)
+        Me.Controls.Add(Me.ButtonCont)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -231,59 +231,57 @@ Friend Class FormInput
 
     End Sub
 #End Region
-    Private Sub cmdCont_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles cmdCont.Click
+    Private Sub ButtonCont_Click(sender As Object, e As EventArgs) Handles ButtonCont.Click
         DoContinue()
     End Sub
 
-    Private Sub mDebugBreak_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles cmdDebug.Click
+    Private Sub ButtonDebugBreak_Click(sender As Object, e As EventArgs) Handles ButtonDebug.Click
         DoDebug()
     End Sub
 
-    Private Sub mDebugStop_Click(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles cmdStop.Click
+    Private Sub ButtonDebugStop_Click(sender As Object, e As EventArgs) Handles ButtonStop.Click
         DoStop()
     End Sub
 
-    Private Sub frmInput_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles MyBase.KeyPress
-        Dim KeyAscii As Short = Asc(eventArgs.KeyChar)
+    Private Sub FormInput_KeyPress(sender As Object, e As KeyPressEventArgs) Handles MyBase.KeyPress
+        Dim KeyAscii As Short = Asc(e.KeyChar)
 
-        If rbChar.Checked Then txtChar.Text = Chr(KeyAscii)
-        If KeyAscii = 0 Then
-            eventArgs.Handled = True
-        End If
+        If RadioButtonChar.Checked Then TextBoxChar.Text = Chr(KeyAscii)
+        If KeyAscii = 0 Then e.Handled = True
     End Sub
 
-    Private Sub frmInput_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
+    Private Sub FormInput_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         With inputChar
             .DoContinue = False
             .DoDebug = False
             .DoStop = False
 
-            If .ASCII > 0 Then txtASCII.Text = CStr(.ASCII)
+            If .ASCII > 0 Then TextBoxASCII.Text = CStr(.ASCII)
             .ASCII = 0
 
-            txtBuffer.Text = .Buffer
+            TextBoxBuffer.Text = .Buffer
         End With
 
-        cmdStop.Enabled = isRunning
+        ButtonStop.Enabled = isRunning
 
         If isDebugging Then
-            cmdCont.Text = "Resume (F5)"
-            cmdDebug.Text = "Step (F8)"
+            ButtonCont.Text = "Resume (F5)"
+            ButtonDebug.Text = "Step (F8)"
         Else
-            cmdCont.Text = "Run" + vbCrLf + "(F5)"
-            cmdDebug.Text = "Break (F8)"
+            ButtonCont.Text = "Run" + vbCrLf + "(F5)"
+            ButtonDebug.Text = "Break (F8)"
         End If
     End Sub
 
-    Private Sub txtASCII_TextChanged(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtASCII.TextChanged
-        If Val(txtASCII.Text) >= 0 And Val(txtASCII.Text) <= 255 Then
-            txtChar.Text = Chr(Val(txtASCII.Text))
+    Private Sub TextBoxASCII_TextChanged(sender As Object, e As EventArgs) Handles TextBoxASCII.TextChanged
+        If Val(TextBoxASCII.Text) >= 0 And Val(TextBoxASCII.Text) <= 255 Then
+            TextBoxChar.Text = Chr(Val(TextBoxASCII.Text))
         End If
     End Sub
 
-    Private Sub txtASCII_KeyDown(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyEventArgs) Handles txtASCII.KeyDown
-        Dim KeyCode As Short = eventArgs.KeyCode
-        Dim Shift As Short = eventArgs.KeyData \ &H10000
+    Private Sub TextBoxASCII_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxASCII.KeyDown
+        Dim KeyCode As Short = e.KeyCode
+        Dim Shift As Short = e.KeyData \ &H10000
 
         If Not (KeyCode >= Asc("0") And KeyCode <= CDbl("9") Or KeyCode = System.Windows.Forms.Keys.Left Or KeyCode = System.Windows.Forms.Keys.Right Or KeyCode = System.Windows.Forms.Keys.Delete) Then
             KeyCode = 0
@@ -291,19 +289,19 @@ Friend Class FormInput
         End If
     End Sub
 
-    Private Sub txtChar_TextChanged(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles txtChar.TextChanged
-        If txtChar.Text <> "" Then txtASCII.Text = CStr(Asc(txtChar.Text))
+    Private Sub TextBoxChar_TextChanged(sender As Object, e As EventArgs) Handles TextBoxChar.TextChanged
+        If TextBoxChar.Text <> "" Then TextBoxASCII.Text = CStr(Asc(TextBoxChar.Text))
     End Sub
 
-    Private Sub frmInput_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
-        If txtChar.Text <> "" Then
-            inputChar.ASCII = Asc(txtChar.Text)
+    Private Sub FormInput_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
+        If TextBoxChar.Text <> "" Then
+            inputChar.ASCII = Asc(TextBoxChar.Text)
         End If
         e.Cancel = False
     End Sub
 
     Private Sub DoContinue()
-        If rbBuffer.Checked Then
+        If RadioButtonBuffer.Checked Then
             inputChar.ASCII = Asc(inputChar.Buffer.Substring(0, 1))
             inputChar.Buffer = inputChar.Buffer.Substring(1)
         End If
@@ -321,7 +319,7 @@ Friend Class FormInput
         Me.Close()
     End Sub
 
-    Private Sub frmInput_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyUp
+    Private Sub FormInput_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyUp
         Select Case e.KeyCode
             Case Keys.F5 : DoContinue()
             Case Keys.F8 : DoDebug()
@@ -329,61 +327,61 @@ Friend Class FormInput
         End Select
     End Sub
 
-    Private Sub btnLf_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLf.Click
-        txtASCII.Focus()
-        txtASCII.Text = "10"
+    Private Sub ButtonLf_Click(sender As Object, e As EventArgs) Handles ButtonLf.Click
+        TextBoxASCII.Focus()
+        TextBoxASCII.Text = "10"
     End Sub
 
-    Private Sub btnCr_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCr.Click
-        txtASCII.Focus()
-        txtASCII.Text = "13"
+    Private Sub ButtonCr_Click(sender As Object, e As EventArgs) Handles ButtonCr.Click
+        TextBoxASCII.Focus()
+        TextBoxASCII.Text = "13"
     End Sub
 
-    Private Sub btnNull_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNull.Click
-        txtASCII.Focus()
-        txtASCII.Text = "0"
+    Private Sub ButtonNull_Click(sender As Object, e As EventArgs) Handles ButtonNull.Click
+        TextBoxASCII.Focus()
+        TextBoxASCII.Text = "0"
     End Sub
 
-    Private Sub txtBuffer_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtBuffer.TextChanged
-        inputChar.Buffer = txtBuffer.Text
+    Private Sub TextBoxBuffer_TextChanged(sender As Object, e As EventArgs) Handles TextBoxBuffer.TextChanged
+        inputChar.Buffer = TextBoxBuffer.Text
     End Sub
 
-    Private Sub rbBuffer_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbBuffer.CheckedChanged
+    Private Sub RadioButtonBuffer_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButtonBuffer.CheckedChanged
         If cancelBubbling Then
             cancelBubbling = False
         Else
-            txtBuffer.Focus()
+            TextBoxBuffer.Focus()
         End If
     End Sub
 
-    Private Sub rbChar_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbChar.CheckedChanged
+    Private Sub RadioButtonChar_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButtonChar.CheckedChanged
         If cancelBubbling Then
             cancelBubbling = False
         Else
-            txtChar.Focus()
+            TextBoxChar.Focus()
         End If
     End Sub
 
-    Private Sub rbASCII_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbASCII.CheckedChanged
+    Private Sub RadioButtonASCII_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButtonASCII.CheckedChanged
         If cancelBubbling Then
             cancelBubbling = False
         Else
-            txtASCII.Focus()
+            TextBoxASCII.Focus()
         End If
     End Sub
 
-    Private Sub txtChar_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtChar.Enter
+    Private Sub TextBoxChar_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TextBoxChar.Enter
         cancelBubbling = True
-        rbChar.Checked = True
+        RadioButtonChar.Checked = True
     End Sub
 
-    Private Sub txtASCII_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtASCII.Enter
+    Private Sub TextBoxASCII_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TextBoxASCII.Enter
         cancelBubbling = True
-        rbASCII.Checked = True
+        RadioButtonASCII.Checked = True
     End Sub
 
-    Private Sub txtBuffer_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtBuffer.Enter
+    Private Sub TextBoxBuffer_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TextBoxBuffer.Enter
         cancelBubbling = True
-        rbBuffer.Checked = True
+        RadioButtonBuffer.Checked = True
     End Sub
 End Class

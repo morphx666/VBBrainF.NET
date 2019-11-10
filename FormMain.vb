@@ -1,9 +1,9 @@
 Imports System.Threading
 
 Public Class FormMain
-    Inherits System.Windows.Forms.Form
+    Inherits Form
 
-    Private dlgMemory As FormMemory = New FormMemory
+    Private dlgMemory As FormMemory = New FormMemory()
     Private compilerStartTime As Integer
 
     Private Const ocIncVal As Byte = Asc("+")
@@ -15,20 +15,20 @@ Public Class FormMain
     Private Const ocWleStr As Byte = Asc("[")
     Private Const ocWleEnd As Byte = Asc("]")
 
-    Friend WithEvents MenuItem2 As System.Windows.Forms.MenuItem
-    Friend WithEvents mOutTextSize As System.Windows.Forms.MenuItem
-    Friend WithEvents mOTSSmallest As System.Windows.Forms.MenuItem
-    Friend WithEvents mOTSSmall As System.Windows.Forms.MenuItem
-    Friend WithEvents mOTSNormal As System.Windows.Forms.MenuItem
-    Friend WithEvents mOTSLarge As System.Windows.Forms.MenuItem
-    Friend WithEvents mOTSLargest As System.Windows.Forms.MenuItem
-    Friend WithEvents sbpElapsed As System.Windows.Forms.StatusBarPanel
-    Friend WithEvents txtCode As System.Windows.Forms.TextBox
+    Friend WithEvents MenuItem2 As MenuItem
+    Friend WithEvents MenuItemOutTextSize As MenuItem
+    Friend WithEvents MenuItemOTSSmallest As MenuItem
+    Friend WithEvents MenuItemOTSSmall As MenuItem
+    Friend WithEvents MenuItemOTSNormal As MenuItem
+    Friend WithEvents MenuItemOTSLarge As MenuItem
+    Friend WithEvents MenuItemOTSLargest As MenuItem
+    Friend WithEvents StatusBarPanelElapsed As StatusBarPanel
+    Friend WithEvents TextBoxCode As TextBox
 
     Private IsTranslated As Boolean
-    Friend WithEvents tpBoF As System.Windows.Forms.TabPage
-    Friend WithEvents txtBoF As System.Windows.Forms.TextBox
-    Friend WithEvents mFileSaveBoF As System.Windows.Forms.MenuItem
+    Friend WithEvents TabPageBoF As TabPage
+    Friend WithEvents TextBoxBoF As TextBox
+    Friend WithEvents MenuItemFileSaveBoF As MenuItem
     Private pFileName As String = "Untitled.bf"
 
     Private brq() As Integer
@@ -112,7 +112,7 @@ Public Class FormMain
     Private Sub InitProgram()
         ReDim mem(maxMem)
 
-        txtOut.Text = vbNullString
+        TextBoxOut.Text = vbNullString
         sOut = vbNullString
         ptr = 0
     End Sub
@@ -158,7 +158,7 @@ Public Class FormMain
 
     Private Sub UpdateDisplay(Optional ByVal IsEOP As Boolean = False)
         Static nCode As String
-        With txtOut
+        With TextBoxOut
             If nCode <> sOut Or IsEOP Then
                 Try
                     nCode = sOut
@@ -171,20 +171,20 @@ Public Class FormMain
 
                         dlgMemory.Refresh()
 
-                        txtCode.SelectionStart = Len(txtCode.Text)
-                        txtCode.SelectionLength = 0
+                        TextBoxCode.SelectionStart = Len(TextBoxCode.Text)
+                        TextBoxCode.SelectionLength = 0
 
-                        txtBasic.SelectionStart = Len(txtBasic.Text)
-                        txtBasic.SelectionLength = 0
+                        TextBoxBasic.SelectionStart = Len(TextBoxBasic.Text)
+                        TextBoxBasic.SelectionLength = 0
 
-                        txtC.SelectionStart = Len(txtC.Text)
-                        txtC.SelectionLength = 0
+                        TextBoxC.SelectionStart = Len(TextBoxC.Text)
+                        TextBoxC.SelectionLength = 0
 
-                        txtJS.SelectionStart = Len(txtJS.Text)
-                        txtJS.SelectionLength = 0
+                        TextBoxJS.SelectionStart = Len(TextBoxJS.Text)
+                        TextBoxJS.SelectionLength = 0
 
-                        txtBoF.SelectionStart = Len(txtBoF.Text)
-                        txtBoF.SelectionLength = 0
+                        TextBoxBoF.SelectionStart = Len(TextBoxBoF.Text)
+                        TextBoxBoF.SelectionLength = 0
                     End If
 
                     .SelectionStart = .Text.Length
@@ -228,7 +228,7 @@ Public Class FormMain
     Private Sub ReadCustomSettings()
         Try
             Dim p As Integer
-            Dim s As String = txtCode.Text
+            Dim s As String = TextBoxCode.Text
             Dim params() As String = {"CellSize"}
             Dim v As String
 
@@ -297,53 +297,53 @@ Public Class FormMain
                     End If
 
                     If (Not (nextStepOut OrElse nextStepOver)) OrElse liveTrace Then
-                        Select Case tcLanguages.TabPages(tcLanguages.SelectedIndex).Name
-                            Case tpBF.Name ' Brainfuck
-                                txtCode.SelectionStart = BFCodePointers(i)
-                                txtCode.SelectionLength = 1
-                                txtCode.ScrollToCaret()
-                            Case tpVBasic.Name ' VB
+                        Select Case TabControlLanguages.TabPages(TabControlLanguages.SelectedIndex).Name
+                            Case TabPageBF.Name ' Brainfuck
+                                TextBoxCode.SelectionStart = BFCodePointers(i)
+                                TextBoxCode.SelectionLength = 1
+                                TextBoxCode.ScrollToCaret()
+                            Case TabPageVBasic.Name ' VB
                                 If IsTranslated Then
                                     If BasicCodePointers(i) = 0 Then
                                         nextStep = True
                                     Else
-                                        txtBasic.SelectionLength = 0
-                                        txtBasic.SelectionStart = BasicCodePointers(i)
-                                        txtBasic.SelectionLength = InStr(txtBasic.SelectionStart, txtBasic.Text, vbCrLf) - txtBasic.SelectionStart
-                                        txtBasic.ScrollToCaret()
+                                        TextBoxBasic.SelectionLength = 0
+                                        TextBoxBasic.SelectionStart = BasicCodePointers(i)
+                                        TextBoxBasic.SelectionLength = InStr(TextBoxBasic.SelectionStart, TextBoxBasic.Text, vbCrLf) - TextBoxBasic.SelectionStart
+                                        TextBoxBasic.ScrollToCaret()
                                     End If
                                 End If
-                            Case tpC.Name ' C
+                            Case TabPageC.Name ' C
                                 If IsTranslated Then
                                     If CCodePointers(i) = 0 Then
                                         nextStep = True
                                     Else
-                                        txtC.SelectionLength = 0
-                                        txtC.SelectionStart = CCodePointers(i)
-                                        txtC.SelectionLength = InStr(txtC.SelectionStart, txtC.Text, vbCrLf) - txtC.SelectionStart
-                                        txtC.ScrollToCaret()
+                                        TextBoxC.SelectionLength = 0
+                                        TextBoxC.SelectionStart = CCodePointers(i)
+                                        TextBoxC.SelectionLength = InStr(TextBoxC.SelectionStart, TextBoxC.Text, vbCrLf) - TextBoxC.SelectionStart
+                                        TextBoxC.ScrollToCaret()
                                     End If
                                 End If
-                            Case tpJS.Name ' Javascript
+                            Case TabPageJS.Name ' Javascript
                                 If IsTranslated Then
                                     If JSCodePointers(i) = 0 Then
                                         nextStep = True
                                     Else
-                                        txtJS.SelectionLength = 0
-                                        txtJS.SelectionStart = JSCodePointers(i)
-                                        txtJS.SelectionLength = InStr(txtJS.SelectionStart, txtJS.Text, vbCrLf) - txtJS.SelectionStart
-                                        txtJS.ScrollToCaret()
+                                        TextBoxJS.SelectionLength = 0
+                                        TextBoxJS.SelectionStart = JSCodePointers(i)
+                                        TextBoxJS.SelectionLength = InStr(TextBoxJS.SelectionStart, TextBoxJS.Text, vbCrLf) - TextBoxJS.SelectionStart
+                                        TextBoxJS.ScrollToCaret()
                                     End If
                                 End If
-                            Case tpBoF.Name ' Boolfuck
+                            Case TabPageBoF.Name ' Boolfuck
                                 If IsTranslated Then
                                     If BoFCodePointers(i) = 0 Then
                                         nextStep = True
                                     Else
-                                        txtBoF.SelectionLength = 0
-                                        txtBoF.SelectionStart = BoFCodePointers(i)
-                                        txtBoF.SelectionLength = InStr(txtBoF.SelectionStart, txtBoF.Text, vbCrLf) - txtBoF.SelectionStart
-                                        txtBoF.ScrollToCaret()
+                                        TextBoxBoF.SelectionLength = 0
+                                        TextBoxBoF.SelectionStart = BoFCodePointers(i)
+                                        TextBoxBoF.SelectionLength = InStr(TextBoxBoF.SelectionStart, TextBoxBoF.Text, vbCrLf) - TextBoxBoF.SelectionStart
+                                        TextBoxBoF.ScrollToCaret()
                                     End If
                                 End If
                         End Select
@@ -435,7 +435,7 @@ Public Class FormMain
         Return If(i < 1, 0, i - 1)
     End Function
 
-    Private Sub dlgMemory_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs)
+    Private Sub DlgMemory_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs)
         If forceAbort Then
             dlgMemory = Nothing
         Else
@@ -465,7 +465,7 @@ Public Class FormMain
             UpdateUI()
         Else
             isDebugging = False
-            Run(txtCode.Text)
+            Run(TextBoxCode.Text)
         End If
     End Sub
 
@@ -482,11 +482,11 @@ Public Class FormMain
     End Sub
 
     Private Sub DoBreak()
-        If txtCode.Text = "" Then Exit Sub
+        If TextBoxCode.Text = "" Then Exit Sub
 
         isDebugging = True
         If Not dlgMemory.Visible Then ToggleMemoryMap()
-        If Not isRunning Then Run(txtCode.Text)
+        If Not isRunning Then Run(TextBoxCode.Text)
         ResumeTranslation()
 
         UpdateUI()
@@ -504,7 +504,7 @@ Public Class FormMain
         If Not translateThread Is Nothing Then
             If translateThread.ThreadState = ThreadState.Running Then
                 translateThread.Suspend()
-                sbpTransStatus.Text = "(Translation Suspended)"
+                StatusBarPanelTransStatus.Text = "(Translation Suspended)"
             End If
         End If
     End Sub
@@ -513,7 +513,7 @@ Public Class FormMain
         If Not translateThread Is Nothing Then
             If translateThread.ThreadState = ThreadState.Suspended Then
                 translateThread.Resume()
-                sbpTransStatus.Text = "Translating:"
+                StatusBarPanelTransStatus.Text = "Translating:"
             End If
         End If
     End Sub
@@ -535,8 +535,8 @@ Public Class FormMain
         Erase Breakpoints
         DoStop()
         prgLen = 0
-        txtCode.Text = ""
-        txtOut.Text = ""
+        TextBoxCode.Text = ""
+        TextBoxOut.Text = ""
         UpdateTitle()
     End Sub
 
@@ -552,7 +552,7 @@ Public Class FormMain
         Me.Text = "VBBrainFNET - " + fn
     End Sub
 
-    Private Sub frmMain_Load(ByVal eventSender As System.Object, ByVal eventArgs As System.EventArgs) Handles MyBase.Load
+    Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'txtCode2.Visible = False
         'txtCode = New VBBFCTextBox
         'With txtCode
@@ -566,45 +566,41 @@ Public Class FormMain
         TextBox.CheckForIllegalCrossThreadCalls = False
 
         refreshEvent = New AutoResetEvent(False)
-        refreshDisplayThread = New Thread(New ThreadStart(AddressOf RefreshDisplaySub))
-        refreshDisplayThread.Name = "refreshDisplay_thread"
+        refreshDisplayThread = New Thread(New ThreadStart(AddressOf RefreshDisplaySub)) With {.Name = "refreshDisplay_thread"}
         refreshDisplayThread.Start()
 
         fuckEvent = New AutoResetEvent(False)
-        fuckThread = New Thread(AddressOf FuckThreadSub)
-        fuckThread.Name = "FuckIt_thread"
+        fuckThread = New Thread(AddressOf FuckThreadSub) With {.Name = "FuckIt_thread"}
         fuckThread.Start()
 
         ipsEvent = New AutoResetEvent(False)
-        ipsThread = New Thread(AddressOf IPSCounterSub)
-        ipsThread.Name = "ips_counter"
+        ipsThread = New Thread(AddressOf IPSCounterSub) With {.Name = "ips_counter"}
         ipsThread.Start()
 
         debugEvent = New AutoResetEvent(False)
 
-        dlgMemory = New FormMemory
-        dlgMemory.Owner = Me
-        AddHandler dlgMemory.Closing, AddressOf dlgMemory_Closing
+        dlgMemory = New FormMemory With {.Owner = Me}
+        AddHandler dlgMemory.Closing, AddressOf DlgMemory_Closing
 
-        AddHandler txtCode.KeyUp, AddressOf SelectAll
-        AddHandler txtCode.TextChanged, AddressOf BFCodeChanged
-        AddHandler txtBasic.KeyUp, AddressOf SelectAll
-        AddHandler txtC.KeyUp, AddressOf SelectAll
-        AddHandler txtJS.KeyUp, AddressOf SelectAll
-        AddHandler txtBoF.KeyUp, AddressOf SelectAll
+        AddHandler TextBoxCode.KeyUp, AddressOf SelectAll
+        AddHandler TextBoxCode.TextChanged, AddressOf BFCodeChanged
+        AddHandler TextBoxBasic.KeyUp, AddressOf SelectAll
+        AddHandler TextBoxC.KeyUp, AddressOf SelectAll
+        AddHandler TextBoxJS.KeyUp, AddressOf SelectAll
+        AddHandler TextBoxBoF.KeyUp, AddressOf SelectAll
 
-        txtCode.Font = New Font("Consolas", 10, FontStyle.Regular)
-        txtBasic.Font = New Font("Consolas", 10, FontStyle.Regular)
-        txtC.Font = New Font("Consolas", 10, FontStyle.Regular)
-        txtJS.Font = New Font("Consolas", 10, FontStyle.Regular)
-        txtBoF.Font = New Font("Consolas", 10, FontStyle.Regular)
-        txtOut.Font = New Font("Consolas", 10, FontStyle.Regular)
+        TextBoxCode.Font = New Font("Consolas", 10, FontStyle.Regular)
+        TextBoxBasic.Font = New Font("Consolas", 10, FontStyle.Regular)
+        TextBoxC.Font = New Font("Consolas", 10, FontStyle.Regular)
+        TextBoxJS.Font = New Font("Consolas", 10, FontStyle.Regular)
+        TextBoxBoF.Font = New Font("Consolas", 10, FontStyle.Regular)
+        TextBoxOut.Font = New Font("Consolas", 10, FontStyle.Regular)
 
-        AddHandler mOTSLargest.Click, AddressOf ChangeOutTextSize
-        AddHandler mOTSLarge.Click, AddressOf ChangeOutTextSize
-        AddHandler mOTSNormal.Click, AddressOf ChangeOutTextSize
-        AddHandler mOTSSmall.Click, AddressOf ChangeOutTextSize
-        AddHandler mOTSSmallest.Click, AddressOf ChangeOutTextSize
+        AddHandler MenuItemOTSLargest.Click, AddressOf ChangeOutTextSize
+        AddHandler MenuItemOTSLarge.Click, AddressOf ChangeOutTextSize
+        AddHandler MenuItemOTSNormal.Click, AddressOf ChangeOutTextSize
+        AddHandler MenuItemOTSSmall.Click, AddressOf ChangeOutTextSize
+        AddHandler MenuItemOTSSmallest.Click, AddressOf ChangeOutTextSize
 
         UpdateTitle()
         UpdateUI()
@@ -612,7 +608,7 @@ Public Class FormMain
 
         LoadProgramSettings()
 
-        sbInfo.Progress = -1
+        StatusBarInfo.Progress = -1
 
         For Each arg As String In My.Application.CommandLineArgs
             If arg.IndexOf("\") <> -1 Then
@@ -640,12 +636,12 @@ Public Class FormMain
                 Case Else
                     u = ""
             End Select
-            sbpIPS.Text = (Math.Round(ips, 2)).ToString() + " " + u + "ips"
-            sbpElapsed.Text = CalcCompileTime()
+            StatusBarPanelIPS.Text = (Math.Round(ips, 2)).ToString() + " " + u + "ips"
+            StatusBarPanelElapsed.Text = CalcCompileTime()
         End While
     End Sub
 
-    Private Sub frmMain_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
+    Private Sub FormMain_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
         SaveProgramSettings()
 
         forceAbort = True
@@ -658,7 +654,7 @@ Public Class FormMain
         e.Cancel = False
     End Sub
 
-    Private Sub mFileOpen_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mFileOpen.Click
+    Private Sub MenuItemFileOpen_Click(sender As Object, e As EventArgs) Handles MenuItemFileOpen.Click
         Dim cDlg As OpenFileDialog = New OpenFileDialog
 
         DoFileNew()
@@ -676,62 +672,64 @@ Public Class FormMain
     Private Sub OpenBFFile(ByVal fileName As String)
         Try
             pFileName = fileName
-            Dim fs As IO.Stream = New IO.StreamReader(pFileName).BaseStream
-            Dim b(CInt(fs.Length)) As Byte
-            fs.Read(b, 0, CInt(fs.Length))
-            fs.Close()
+            Using bs As New IO.StreamReader(pFileName)
+                Dim fs As IO.Stream = bs.BaseStream
+                Dim b(CInt(fs.Length)) As Byte
+                fs.Read(b, 0, CInt(fs.Length))
+                fs.Close()
+                TextBoxCode.Text = FixEOL((New Text.UTF8Encoding).GetString(b))
+            End Using
 
-            txtCode.Text = FixEOL((New System.Text.UTF8Encoding).GetString(b))
             UpdateTitle()
 
-            txtCode.SelectionStart = 0
-            txtCode.Focus()
+            TextBoxCode.SelectionStart = 0
+            TextBoxCode.Focus()
         Catch ex As Exception
             MsgBox("Error opening " + fileName + vbCrLf + vbCrLf + ex.Message, MsgBoxStyle.OkOnly, "Error Opening Brainfuck Program")
         End Try
     End Sub
 
-    Private Sub mNew_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mNew.Click
+    Private Sub MenuItemNew_Click(sender As Object, e As EventArgs) Handles MenuItemNew.Click
         DoFileNew()
     End Sub
 
-    Private Sub mFileExit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mFileExit.Click
+    Private Sub MenuItemFileExit_Click(sender As Object, e As EventArgs) Handles MenuItemFileExit.Click
         Me.Close()
     End Sub
 
-    Private Sub mDebugRun_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mDebugRun.Click
+    Private Sub MenuItemDebugRun_Click(sender As Object, e As EventArgs) Handles MenuItemDebugRun.Click
         DoRun()
     End Sub
 
-    Private Sub mDebugBreak_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mDebugBreak.Click
+    Private Sub MenuItemDebugBreak_Click(sender As Object, e As EventArgs) Handles MenuItemDebugBreak.Click
         DoBreak()
     End Sub
 
-    Private Sub mDebugStepIntoInto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mDebugStepInto.Click
+    Private Sub MenuItemDebugStepIntoInto_Click(sender As Object, e As EventArgs) Handles MenuItemDebugStepInto.Click
         DoStep()
     End Sub
 
-    Private Sub mDebugStop_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mDebugStop.Click
+    Private Sub MenuItemDebugStop_Click(sender As Object, e As EventArgs) Handles MenuItemDebugStop.Click
         DoStop()
     End Sub
 
-    Private Sub mDebugLiveTrace_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mDebugLiveTrace.Click
-        mDebugLiveTrace.Checked = Not mDebugLiveTrace.Checked
-        liveTrace = mDebugLiveTrace.Checked
+    Private Sub MenuItemDebugLiveTrace_Click(sender As Object, e As EventArgs) Handles MenuItemDebugLiveTrace.Click
+        MenuItemDebugLiveTrace.Checked = Not MenuItemDebugLiveTrace.Checked
+        liveTrace = MenuItemDebugLiveTrace.Checked
     End Sub
 
-    Private Sub mDebugFollowPointer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mDebugFollowPointer.Click
-        mDebugFollowPointer.Checked = Not mDebugFollowPointer.Checked
-        followPointer = mDebugFollowPointer.Checked
+    Private Sub MenuItemDebugFollowPointer_Click(sender As Object, e As EventArgs) Handles MenuItemDebugFollowPointer.Click
+        MenuItemDebugFollowPointer.Checked = Not MenuItemDebugFollowPointer.Checked
+        followPointer = MenuItemDebugFollowPointer.Checked
     End Sub
 
-    Private Sub mViewMemoryMap_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mViewMemoryMap.Click
+    Private Sub MenuItemViewMemoryMap_Click(sender As Object, e As EventArgs) Handles MenuItemViewMemoryMap.Click
         ToggleMemoryMap()
     End Sub
 
     Private Sub ToggleMemoryMap()
-        mViewMemoryMap.Checked = Not mViewMemoryMap.Checked
-        If mViewMemoryMap.Checked Then
+        MenuItemViewMemoryMap.Checked = Not MenuItemViewMemoryMap.Checked
+        If MenuItemViewMemoryMap.Checked Then
             dlgMemory.Show()
             Application.DoEvents()
             Me.Focus()
@@ -740,66 +738,66 @@ Public Class FormMain
         End If
     End Sub
 
-    Private Sub mDebugStepOver_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mDebugStepOver.Click
+    Private Sub MenuItemDebugStepOver_Click(sender As Object, e As EventArgs) Handles MenuItemDebugStepOver.Click
         DoStepOver()
     End Sub
 
-    Private Sub mDebugStepOut_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mDebugStepOut.Click
+    Private Sub MenuItemDebugStepOut_Click(sender As Object, e As EventArgs) Handles MenuItemDebugStepOut.Click
         DoStepOut()
     End Sub
 
-    Private Sub mDebugRun2Cursor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mDebugRun2Cursor.Click
+    Private Sub MenuItemDebugRun2Cursor_Click(sender As Object, e As EventArgs) Handles MenuItemDebugRun2Cursor.Click
         DoRun()
-        runToCursorPos = txtCode.SelectionStart
+        runToCursorPos = TextBoxCode.SelectionStart
     End Sub
 
     Private Sub UpdateUI()
         If isRunning Then
             If isDebugging Then
-                mDebugRun.Text = "Resume"
-                mDebugRun.Enabled = True
-                mDebugBreak.Enabled = False
-                mDebugRun2Cursor.Enabled = True
-                mDebugStepInto.Enabled = True
-                mDebugStepOver.Enabled = True
-                mDebugStepOut.Enabled = True
+                MenuItemDebugRun.Text = "Resume"
+                MenuItemDebugRun.Enabled = True
+                MenuItemDebugBreak.Enabled = False
+                MenuItemDebugRun2Cursor.Enabled = True
+                MenuItemDebugStepInto.Enabled = True
+                MenuItemDebugStepOver.Enabled = True
+                MenuItemDebugStepOut.Enabled = True
 
-                sbpStatus.Text = "Debugging"
+                StatusBarPanelStatus.Text = "Debugging"
             Else
-                mDebugRun.Text = "Run"
-                mDebugRun.Enabled = False
-                mDebugBreak.Enabled = True
-                mDebugRun2Cursor.Enabled = False
-                mDebugStepInto.Enabled = False
-                mDebugStepOver.Enabled = False
-                mDebugStepOut.Enabled = False
+                MenuItemDebugRun.Text = "Run"
+                MenuItemDebugRun.Enabled = False
+                MenuItemDebugBreak.Enabled = True
+                MenuItemDebugRun2Cursor.Enabled = False
+                MenuItemDebugStepInto.Enabled = False
+                MenuItemDebugStepOver.Enabled = False
+                MenuItemDebugStepOut.Enabled = False
 
-                sbpStatus.Text = "Running"
+                StatusBarPanelStatus.Text = "Running"
             End If
-            mCellSize256.Enabled = False
-            mCellSize512.Enabled = False
-            mOptionsPrettify.Enabled = False
+            MenuItemCellSize256.Enabled = False
+            MenuItemCellSize512.Enabled = False
+            MenuItemOptionsPrettify.Enabled = False
 
-            mDebugStop.Enabled = True
+            MenuItemDebugStop.Enabled = True
         Else
-            mFileOpen.Enabled = True
+            MenuItemFileOpen.Enabled = True
 
-            mOptionsPrettify.Enabled = True
-            mCellSize256.Enabled = True
-            mCellSize512.Enabled = True
+            MenuItemOptionsPrettify.Enabled = True
+            MenuItemCellSize256.Enabled = True
+            MenuItemCellSize512.Enabled = True
 
-            mDebugRun.Text = "Run"
-            mDebugRun.Enabled = True
-            mDebugBreak.Enabled = False
-            mDebugRun2Cursor.Enabled = True
-            mDebugStepInto.Enabled = True
-            mDebugStepOver.Enabled = True
-            mDebugStepOut.Enabled = False
-            mDebugStop.Enabled = False
+            MenuItemDebugRun.Text = "Run"
+            MenuItemDebugRun.Enabled = True
+            MenuItemDebugBreak.Enabled = False
+            MenuItemDebugRun2Cursor.Enabled = True
+            MenuItemDebugStepInto.Enabled = True
+            MenuItemDebugStepOver.Enabled = True
+            MenuItemDebugStepOut.Enabled = False
+            MenuItemDebugStop.Enabled = False
 
-            sbpStatus.Text = "Idle"
+            StatusBarPanelStatus.Text = "Idle"
         End If
-        sbpCellSize.Text = "Cell Size: " + (maxCellSize + 1).ToString
+        StatusBarPanelCellSize.Text = "Cell Size: " + (maxCellSize + 1).ToString
     End Sub
 
     Private Sub Translate()
@@ -821,12 +819,12 @@ Public Class FormMain
 
         IsTranslated = False
         If prgLen = 0 Then
-            txtBasic.Text = ""
-            txtC.Text = ""
-            txtJS.Text = ""
-            txtBoF.Text = ""
-            sbpProgSize.Text = "Size: 0 bytes"
-            sbInfo.ProgramSize = 0
+            TextBoxBasic.Text = ""
+            TextBoxC.Text = ""
+            TextBoxJS.Text = ""
+            TextBoxBoF.Text = ""
+            StatusBarPanelProgSize.Text = "Size: 0 bytes"
+            StatusBarInfo.ProgramSize = 0
             Exit Sub
         Else
             Dim pl As Integer = prgLen + 1
@@ -839,16 +837,16 @@ Public Class FormMain
                     pl \= 1024
                     unit = "K"
             End Select
-            sbpProgSize.Text = "Size: " + pl.ToString() + " " + unit + "bytes"
-            sbInfo.ProgramSize = (prgLen \ maxMem) * 100
-            sbpTransStatus.Text = "Translating"
+            StatusBarPanelProgSize.Text = "Size: " + pl.ToString() + " " + unit + "bytes"
+            StatusBarInfo.ProgramSize = (prgLen \ maxMem) * 100
+            StatusBarPanelTransStatus.Text = "Translating"
         End If
 
-        mFileSaveC.Enabled = False
-        mFileSaveJS.Enabled = False
-        mFileSaveVB.Enabled = False
-        mFileSaveBoF.Enabled = False
-        mFileCompileEXE.Enabled = False
+        MenuItemFileSaveC.Enabled = False
+        MenuItemFileSaveJS.Enabled = False
+        MenuItemFileSaveVB.Enabled = False
+        MenuItemFileSaveBoF.Enabled = False
+        MenuItemFileCompileEXE.Enabled = False
 
         ReDim CCodePointers(prgLen)
         cCode = "#include <conio.h>" + vbCrLf + vbCrLf +
@@ -876,11 +874,11 @@ Public Class FormMain
         Try
             For i As Integer = 0 To prgLen
                 If i Mod 100 = 0 Then
-                    sbInfo.Progress = CInt(((i + 1) / (prgLen + 1)) * 100)
-                    txtBasic.Text = "Translating: " + sbInfo.Progress.ToString() + "%"
-                    txtC.Text = txtBasic.Text
-                    txtJS.Text = txtBasic.Text
-                    txtBoF.Text = txtBasic.Text
+                    StatusBarInfo.Progress = CInt(((i + 1) / (prgLen + 1)) * 100)
+                    TextBoxBasic.Text = "Translating: " + StatusBarInfo.Progress.ToString() + "%"
+                    TextBoxC.Text = TextBoxBasic.Text
+                    TextBoxJS.Text = TextBoxBasic.Text
+                    TextBoxBoF.Text = TextBoxBasic.Text
                 End If
 
                 c = prg(i)
@@ -1010,26 +1008,26 @@ Public Class FormMain
             bofCode = bCode
         End Try
 
-        txtBasic.Text = bCode
-        txtC.Text = cCode
-        txtJS.Text = jCode
-        txtBoF.Text = bofCode
+        TextBoxBasic.Text = bCode
+        TextBoxC.Text = cCode
+        TextBoxJS.Text = jCode
+        TextBoxBoF.Text = bofCode
 
-        sbpTransStatus.Text = ""
-        sbInfo.Progress = -1
+        StatusBarPanelTransStatus.Text = ""
+        StatusBarInfo.Progress = -1
 
-        mFileSaveC.Enabled = True
-        mFileSaveJS.Enabled = True
-        mFileSaveVB.Enabled = True
-        mFileSaveBoF.Enabled = True
-        mFileCompileEXE.Enabled = True
+        MenuItemFileSaveC.Enabled = True
+        MenuItemFileSaveJS.Enabled = True
+        MenuItemFileSaveVB.Enabled = True
+        MenuItemFileSaveBoF.Enabled = True
+        MenuItemFileCompileEXE.Enabled = True
 
         IsTranslated = True
     End Sub
 
     Private Sub BFCodeChanged(ByVal sender As Object, ByVal e As EventArgs)
         If Not isRunning Then
-            GetProgram(txtCode.Text)
+            GetProgram(TextBoxCode.Text)
             StartTranslation()
             DoPrettify()
         End If
@@ -1038,8 +1036,7 @@ Public Class FormMain
     Private Sub StartTranslation()
         CancelTranslateThread()
 
-        translateThread = New Thread(AddressOf Translate)
-        translateThread.Name = "translate_thread"
+        translateThread = New Thread(AddressOf Translate) With {.Name = "translate_thread"}
         translateThread.Start()
     End Sub
 
@@ -1048,43 +1045,43 @@ Public Class FormMain
             If translateThread.ThreadState = ThreadState.Suspended Then translateThread.Resume()
             translateThread.Abort()
             translateThread = Nothing
-            sbpTransStatus.Text = ""
-            sbInfo.Progress = -1
+            StatusBarPanelTransStatus.Text = ""
+            StatusBarInfo.Progress = -1
         End If
     End Sub
 
-    Private Sub pSplit_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles pSplit.MouseDown
+    Private Sub PanelSplit_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles PanelSplit.MouseDown
         IsDragging = True
-        pSplit.Tag = e.Y
+        PanelSplit.Tag = e.Y
     End Sub
 
-    Private Sub pSplit_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles pSplit.MouseUp
+    Private Sub PanelSplit_MouseUp(ByVal sender As Object, ByVal e As MouseEventArgs) Handles PanelSplit.MouseUp
         IsDragging = False
     End Sub
 
-    Private Sub pSplit_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles pSplit.MouseMove
+    Private Sub PanelSplit_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles PanelSplit.MouseMove
         If IsDragging Then
-            pSplit.Top = pSplit.Top + (e.Y - CType(pSplit.Tag, Integer))
+            PanelSplit.Top = PanelSplit.Top + (e.Y - CType(PanelSplit.Tag, Integer))
             ResizeUI()
         End If
     End Sub
 
-    Private Sub frmMain_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Resize
+    Private Sub FormMain_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Resize
         ResizeUI()
     End Sub
 
     Private Sub ResizeUI()
-        If Height - pSplit.Top < 125 Then pSplit.Top = Height - 125
-        If pSplit.Top < 100 Then pSplit.Top = 100
+        If Height - PanelSplit.Top < 125 Then PanelSplit.Top = Height - 125
+        If PanelSplit.Top < 100 Then PanelSplit.Top = 100
 
-        tcLanguages.Height = pSplit.Top - 10
+        TabControlLanguages.Height = PanelSplit.Top - 10
 
-        Dim n As Integer = pSplit.Top + pSplit.Height
-        txtOut.Height += (txtOut.Top - n)
-        txtOut.Top = n
+        Dim n As Integer = PanelSplit.Top + PanelSplit.Height
+        TextBoxOut.Height += (TextBoxOut.Top - n)
+        TextBoxOut.Top = n
     End Sub
 
-    Private Sub mFileSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mFileSave.Click
+    Private Sub MenuItemFileSave_Click(sender As Object, e As EventArgs) Handles MenuItemFileSave.Click
         DoFileSave(False)
     End Sub
 
@@ -1108,21 +1105,21 @@ Public Class FormMain
         End If
 
         Dim fs As IO.FileStream = New IO.FileStream(pFileName, IO.FileMode.OpenOrCreate)
-        fs.Write((New System.Text.ASCIIEncoding).GetBytes(txtCode.Text), 0, txtCode.Text.Length)
+        fs.Write((New System.Text.ASCIIEncoding).GetBytes(TextBoxCode.Text), 0, TextBoxCode.Text.Length)
         fs.Close()
 
         UpdateTitle()
     End Sub
 
-    Private Sub mFileSaveAs_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mFileSaveAs.Click
+    Private Sub MenuItemFileSaveAs_Click(sender As Object, e As EventArgs) Handles MenuItemFileSaveAs.Click
         DoFileSave(True)
     End Sub
 
-    Private Sub mCellSize256_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mCellSize256.Click
+    Private Sub MenuItemCellSize256_Click(sender As Object, e As EventArgs) Handles MenuItemCellSize256.Click
         SetMaxCellSize(256)
     End Sub
 
-    Private Sub mCellSize512_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mCellSize512.Click
+    Private Sub MenuItemCellSize512_Click(sender As Object, e As EventArgs) Handles MenuItemCellSize512.Click
         SetMaxCellSize(512)
     End Sub
 
@@ -1130,12 +1127,12 @@ Public Class FormMain
         If cs = maxCellSize + 1 Then Exit Sub
         Select Case cs
             Case 256
-                mCellSize256.Checked = True
-                mCellSize512.Checked = False
+                MenuItemCellSize256.Checked = True
+                MenuItemCellSize512.Checked = False
                 maxCellSize = 256
             Case 512
-                mCellSize256.Checked = False
-                mCellSize512.Checked = True
+                MenuItemCellSize256.Checked = False
+                MenuItemCellSize512.Checked = True
                 maxCellSize = 256 * 2
         End Select
         maxCellSize -= 1
@@ -1143,7 +1140,7 @@ Public Class FormMain
         StartTranslation()
     End Sub
 
-    Private Sub SelectAll(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs)
+    Private Sub SelectAll(ByVal sender As Object, ByVal e As KeyEventArgs)
         If e.KeyCode = Keys.A And e.Control Then
             If TypeOf (sender) Is TextBox Then
                 Dim txt As TextBox = CType(sender, TextBox)
@@ -1154,11 +1151,11 @@ Public Class FormMain
     End Sub
 
     Private Sub DoPrettify()
-        If Not mOptionsPrettify.Checked OrElse txtCode.Text.Length = 0 Then Exit Sub
+        If Not MenuItemOptionsPrettify.Checked OrElse TextBoxCode.Text.Length = 0 Then Exit Sub
 
         Dim i As Integer
         Dim ii As Integer
-        Dim s As String = txtCode.Text
+        Dim s As String = TextBoxCode.Text
         Dim nc As String = ""
         Dim c As String
         Dim lc As String
@@ -1173,7 +1170,7 @@ Public Class FormMain
 
         lineBreak = vbCrLf
 
-        mOptionsPrettify.Checked = False
+        MenuItemOptionsPrettify.Checked = False
 
         'If txtCode.SelectionStart = txtCode.Text.Length Then
         '    selOpCode = -1
@@ -1189,11 +1186,11 @@ Public Class FormMain
 
         s = s.Replace(lineBreak, "").Replace(vbTab, "").Replace(" ", "")
         If s = "" Then Exit Sub
-        sbpTransStatus.Text = "Prettifying"
+        StatusBarPanelTransStatus.Text = "Prettifying"
 
         lc = s.Substring(0, 1)
         For i = 1 To s.Length
-            If i Mod 100 = 0 Then sbInfo.Progress = CInt((i / s.Length) * 100)
+            If i Mod 100 = 0 Then StatusBarInfo.Progress = CInt((i / s.Length) * 100)
 
             c = s.Substring(i - 1, 1)
             Select Case c
@@ -1261,43 +1258,43 @@ Public Class FormMain
             End If
         End If
 
-        txtCode.Text = nc
-        GetProgram(txtCode.Text)
+        TextBoxCode.Text = nc
+        GetProgram(TextBoxCode.Text)
         For j As Integer = 0 To prgLen
             If Breakpoints(j) Then
-                With txtCode
+                With TextBoxCode
                     .SelectionStart = BFCodePointers(j)
                     '.SelectionStyle(New Font(.Font.FontFamily, .Font.Size, FontStyle.Bold), Color.Red, .BackColor)
                 End With
             End If
         Next
 
-        With txtCode
+        With TextBoxCode
             .SelectionStart = i
-            txtCode.SelectionLength = t - i
+            TextBoxCode.SelectionLength = t - i
             '.ScrollCaret()
         End With
 
-        sbpTransStatus.Text = ""
-        sbInfo.Progress = -1
+        StatusBarPanelTransStatus.Text = ""
+        StatusBarInfo.Progress = -1
 
-        mOptionsPrettify.Checked = True
+        MenuItemOptionsPrettify.Checked = True
     End Sub
 
-    Private Sub mOptionsPrettify_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mOptionsPrettify.Click
-        mOptionsPrettify.Checked = Not mOptionsPrettify.Checked
+    Private Sub MenuItemOptionsPrettify_Click(sender As Object, e As EventArgs) Handles MenuItemOptionsPrettify.Click
+        MenuItemOptionsPrettify.Checked = Not MenuItemOptionsPrettify.Checked
         DoPrettify()
     End Sub
 
-    Private Sub mDebugToggleBreakpoint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mDebugToggleBreakpoint.Click
+    Private Sub MenuItemDebugToggleBreakpoint_Click(sender As Object, e As EventArgs) Handles MenuItemDebugToggleBreakpoint.Click
         DoToggleBreakpoint()
     End Sub
 
     Private Sub DoToggleBreakpoint()
         For i As Integer = 0 To prgLen
-            If BFCodePointers(i) = txtCode.SelectionStart Then
+            If BFCodePointers(i) = TextBoxCode.SelectionStart Then
                 Breakpoints(i) = Not Breakpoints(i)
-                With txtCode
+                With TextBoxCode
                     If Breakpoints(i) Then
                         '.SelectionStyle(Color.White, Color.DarkRed, New Font(.Font.FontFamily, .Font.Size, FontStyle.Bold))
                     Else
@@ -1309,28 +1306,28 @@ Public Class FormMain
         Next i
     End Sub
 
-    Private Sub mDebugClearAllBreakpoint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mDebugClearAllBreakpoint.Click
+    Private Sub MenuItemDebugClearAllBreakpoint_Click(sender As Object, e As EventArgs) Handles MenuItemDebugClearAllBreakpoint.Click
         Dim i As Integer
         Dim j As Integer
         For i = 0 To prgLen - 1
             Breakpoints(i) = False
         Next i
 
-        With txtCode
+        With TextBoxCode
             i = .SelectionStart
-            j = txtCode.SelectionLength
+            j = TextBoxCode.SelectionLength
 
             .SelectionStart = 0
-            txtCode.SelectionLength = .Text.Length
+            TextBoxCode.SelectionLength = .Text.Length
             '.SelectionStyle(.ForeColor, .BackColor, .Font)
 
             .SelectionStart = i
-            txtCode.SelectionLength = j
+            TextBoxCode.SelectionLength = j
         End With
     End Sub
 
-    Private Sub mFileSaveVB_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mFileSaveVB.Click
-        SaveAltLanguage(txtBasic.Text, ".vb", "Visual Basic")
+    Private Sub MenuItemFileSaveVB_Click(sender As Object, e As EventArgs) Handles MenuItemFileSaveVB.Click
+        SaveAltLanguage(TextBoxBasic.Text, ".vb", "Visual Basic")
     End Sub
 
     Private Function SaveAltLanguage(ByVal c As String, ByVal ext As String, ByVal langName As String, Optional ByVal promptForFileName As Boolean = True) As String
@@ -1361,26 +1358,26 @@ Public Class FormMain
         Return fileName
     End Function
 
-    Private Sub mFileSaveC_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mFileSaveC.Click
+    Private Sub MenuItemFileSaveC_Click(sender As Object, e As EventArgs) Handles MenuItemFileSaveC.Click
         SaveAsC()
     End Sub
 
-    Private Sub mFileSaveJS_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mFileSaveJS.Click
-        SaveAltLanguage(txtJS.Text, ".js", "JavaScript")
+    Private Sub MenuItemFileSaveJS_Click(sender As Object, e As EventArgs) Handles MenuItemFileSaveJS.Click
+        SaveAltLanguage(TextBoxJS.Text, ".js", "JavaScript")
     End Sub
 
-    Private Sub mFileSaveBoF_Click(sender As Object, e As EventArgs) Handles mFileSaveBoF.Click
-        SaveAltLanguage(txtBoF.Text, ".bof", "BoolFuck")
+    Private Sub MenuItemFileSaveBoF_Click(sender As Object, e As EventArgs) Handles MenuItemFileSaveBoF.Click
+        SaveAltLanguage(TextBoxBoF.Text, ".bof", "BoolFuck")
     End Sub
 
     Private Function SaveAsC(Optional ByVal promptForFileName As Boolean = True, Optional ByVal waitKeyStart As Boolean = False, Optional ByVal waitKeyEnd As Boolean = False) As String
-        Dim c As String = txtC.Text
+        Dim c As String = TextBoxC.Text
         If waitKeyStart Then c = c.Replace("char *p = b;", "char *p = b;char m[]=""Press any key to start...\n\0"";_cputs(m);*m = _getch();")
         If waitKeyEnd Then c = c.Replace("return 0;", "*p = _getch();return 0;")
         Return SaveAltLanguage(c, ".cpp", "C", promptForFileName)
     End Function
 
-    Private Sub mFileCompileEXE_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mFileCompileEXE.Click
+    Private Sub MenuItemFileCompileEXE_Click(sender As Object, e As EventArgs) Handles MenuItemFileCompileEXE.Click
         Compile2EXE()
     End Sub
 
@@ -1436,22 +1433,22 @@ Public Class FormMain
                 vsVars = String.Format("call ""{0}{1}""", clPath, $"..\Common7\Tools\{vsBatchFile}")
                 clFile = String.Format("cl.exe /O& /G% /Fe""{0}"" ""{1}""", exeName, fi.FullName)
 
-                Dim cOp As New frmCompilerOptions
+                Dim cOp As New FormCompilerOptions()
                 With cOp
-                    If .ShowDialog(Me) <> Windows.Forms.DialogResult.OK Then Exit Sub
+                    If .ShowDialog(Me) <> DialogResult.OK Then Exit Sub
 
-                    SaveAsC(False, .chkWaitStart.Checked, .chkWaitEnd.Checked)
+                    SaveAsC(False, .CheckBoxWaitStart.Checked, .CheckBoxWaitEnd.Checked)
 
-                    If .opOp1.Checked Then clFile = clFile.Replace("&", "d")
-                    If .opOp2.Checked Then clFile = clFile.Replace("&", "1")
-                    If .opOp3.Checked Then clFile = clFile.Replace("&", "2")
+                    If .RadioButtonOp1.Checked Then clFile = clFile.Replace("&", "d")
+                    If .RadioButtonOp2.Checked Then clFile = clFile.Replace("&", "1")
+                    If .RadioButtonOp3.Checked Then clFile = clFile.Replace("&", "2")
 
-                    If .opCg1.Checked Then clFile = clFile.Replace("%", "B")
-                    If .opCg2.Checked Then clFile = clFile.Replace("%", "3")
-                    If .opCg3.Checked Then clFile = clFile.Replace("%", "4")
-                    If .opCg4.Checked Then clFile = clFile.Replace("%", "5")
-                    If .opCg5.Checked Then clFile = clFile.Replace("%", "6")
-                    If .opCg6.Checked Then clFile = clFile.Replace("%", "7")
+                    If .RadioButtonCg1.Checked Then clFile = clFile.Replace("%", "B")
+                    If .RadioButtonCg2.Checked Then clFile = clFile.Replace("%", "3")
+                    If .RadioButtonCg3.Checked Then clFile = clFile.Replace("%", "4")
+                    If .RadioButtonCg4.Checked Then clFile = clFile.Replace("%", "5")
+                    If .RadioButtonCg5.Checked Then clFile = clFile.Replace("%", "6")
+                    If .RadioButtonCg6.Checked Then clFile = clFile.Replace("%", "7")
                 End With
                 cOp.Dispose()
 
@@ -1488,11 +1485,11 @@ Public Class FormMain
         SaveSetting("VBBrainFNET", "Preferences", "MemH", dlgMemory.Height.ToString)
         SaveSetting("VBBrainFNET", "Preferences", "MemV", IIf(Of String)(dlgMemory.Visible, "1", "0"))
 
-        SaveSetting("VBBrainFNET", "Preferences", "Prettify", IIf(Of String)(mOptionsPrettify.Checked, "1", "0"))
-        SaveSetting("VBBrainFNET", "Preferences", "FollowPointer", IIf(Of String)(mDebugFollowPointer.Checked, "1", "0"))
-        SaveSetting("VBBrainFNET", "Preferences", "LiveTrace", IIf(Of String)(mDebugLiveTrace.Checked, "1", "0"))
+        SaveSetting("VBBrainFNET", "Preferences", "Prettify", IIf(Of String)(MenuItemOptionsPrettify.Checked, "1", "0"))
+        SaveSetting("VBBrainFNET", "Preferences", "FollowPointer", IIf(Of String)(MenuItemDebugFollowPointer.Checked, "1", "0"))
+        SaveSetting("VBBrainFNET", "Preferences", "LiveTrace", IIf(Of String)(MenuItemDebugLiveTrace.Checked, "1", "0"))
 
-        SaveSetting("VBBrainFNET", "Preferences", "OutputFontSize", txtOut.Font.Size.ToString)
+        SaveSetting("VBBrainFNET", "Preferences", "OutputFontSize", TextBoxOut.Font.Size.ToString)
     End Sub
 
     Private Sub LoadProgramSettings()
@@ -1511,13 +1508,13 @@ Public Class FormMain
             dlgMemory.Height = CInt(GetSetting("VBBrainFNET", "Preferences", "MemH", CStr(Me.Height / 2)))
             If CInt(GetSetting("VBBrainFNET", "Preferences", "MemV", "0")) = 1 Then ToggleMemoryMap()
 
-            If CInt(GetSetting("VBBrainFNET", "Preferences", "Prettify", "0")) = 1 Then mOptionsPrettify_Click(Nothing, New System.EventArgs)
-            If CInt(GetSetting("VBBrainFNET", "Preferences", "FollowPointer", "1")) = 0 Then mDebugFollowPointer_Click(Nothing, New System.EventArgs)
-            If CInt(GetSetting("VBBrainFNET", "Preferences", "LiveTrace", "0")) = 1 Then mDebugLiveTrace_Click(Nothing, New System.EventArgs)
+            If CInt(GetSetting("VBBrainFNET", "Preferences", "Prettify", "0")) = 1 Then MenuItemOptionsPrettify_Click(Nothing, New System.EventArgs)
+            If CInt(GetSetting("VBBrainFNET", "Preferences", "FollowPointer", "1")) = 0 Then MenuItemDebugFollowPointer_Click(Nothing, New System.EventArgs)
+            If CInt(GetSetting("VBBrainFNET", "Preferences", "LiveTrace", "0")) = 1 Then MenuItemDebugLiveTrace_Click(Nothing, New System.EventArgs)
 
             Dim fontSize As Integer = CInt(GetSetting("VBBrainFNET", "Preferences", "OutputFontSize", "10"))
-            ChangeOutTextSize(mOTSNormal, New EventArgs())
-            For Each mItem As MenuItem In mOutTextSize.MenuItems
+            ChangeOutTextSize(MenuItemOTSNormal, New EventArgs())
+            For Each mItem As MenuItem In MenuItemOutTextSize.MenuItems
                 If CType(mItem.Tag, Integer) = fontSize Then
                     ChangeOutTextSize(mItem, New EventArgs())
                 End If
@@ -1526,13 +1523,13 @@ Public Class FormMain
         End Try
     End Sub
 
-    Private Sub mHelpAbout_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mHelpAbout.Click
+    Private Sub MenuItemHelpAbout_Click(sender As Object, e As EventArgs) Handles MenuItemHelpAbout.Click
         Dim dlgAbout As Form = New FormAbout
         dlgAbout.ShowDialog()
         dlgAbout.Dispose()
     End Sub
 
-    Private Sub ChangeOutTextSize(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub ChangeOutTextSize(sender As Object, e As EventArgs)
         Dim m As MenuItem = CType(sender, MenuItem)
 
         For Each mItem As MenuItem In m.Parent.MenuItems
@@ -1541,7 +1538,7 @@ Public Class FormMain
         m.RadioCheck = True
         m.Checked = True
 
-        txtOut.Font = New Font("Consolas", CType(m.Tag, Integer), FontStyle.Regular)
+        TextBoxOut.Font = New Font("Consolas", CType(m.Tag, Integer), FontStyle.Regular)
     End Sub
 
 #Region "Windows Form Designer generated code "
@@ -1559,6 +1556,11 @@ Public Class FormMain
     Protected Overloads Overrides Sub Dispose(ByVal disposing As Boolean)
         If disposing Then
             If Not (components Is Nothing) Then
+                dlgMemory?.Dispose()
+                fuckEvent?.Dispose()
+                refreshEvent?.Dispose()
+                debugEvent?.Dispose()
+                ipsEvent?.Dispose()
                 components.Dispose()
             End If
         End If
@@ -1567,714 +1569,714 @@ Public Class FormMain
 
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
-    Public WithEvents txtOut As System.Windows.Forms.TextBox
+    Public WithEvents TextBoxOut As TextBox
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.
     'Do not modify it using the code editor.
-    Friend WithEvents mMenu As System.Windows.Forms.MainMenu
-    Friend WithEvents MenuItem4 As System.Windows.Forms.MenuItem
-    Friend WithEvents MenuItem5 As System.Windows.Forms.MenuItem
-    Friend WithEvents MenuItem8 As System.Windows.Forms.MenuItem
-    Friend WithEvents mFileOpen As System.Windows.Forms.MenuItem
-    Friend WithEvents mFile As System.Windows.Forms.MenuItem
-    Friend WithEvents mNew As System.Windows.Forms.MenuItem
-    Friend WithEvents mFileSave As System.Windows.Forms.MenuItem
-    Friend WithEvents mFileSaveAs As System.Windows.Forms.MenuItem
-    Friend WithEvents mFileExit As System.Windows.Forms.MenuItem
-    Friend WithEvents mDebug As System.Windows.Forms.MenuItem
-    Friend WithEvents mDebugRun As System.Windows.Forms.MenuItem
-    Friend WithEvents mDebugBreak As System.Windows.Forms.MenuItem
-    Friend WithEvents mDebugStop As System.Windows.Forms.MenuItem
-    Friend WithEvents MenuItem9 As System.Windows.Forms.MenuItem
-    Friend WithEvents MenuItem10 As System.Windows.Forms.MenuItem
-    Friend WithEvents MenuItem11 As System.Windows.Forms.MenuItem
-    Friend WithEvents MenuItem1 As System.Windows.Forms.MenuItem
-    Friend WithEvents mDebugLiveTrace As System.Windows.Forms.MenuItem
-    Friend WithEvents mDebugFollowPointer As System.Windows.Forms.MenuItem
-    Friend WithEvents mDebugStepInto As System.Windows.Forms.MenuItem
-    Friend WithEvents mView As System.Windows.Forms.MenuItem
-    Friend WithEvents mViewMemoryMap As System.Windows.Forms.MenuItem
-    Friend WithEvents mDebugStepOver As System.Windows.Forms.MenuItem
-    Friend WithEvents mDebugRun2Cursor As System.Windows.Forms.MenuItem
-    Friend WithEvents tpBF As System.Windows.Forms.TabPage
-    Friend WithEvents tpC As System.Windows.Forms.TabPage
-    Friend WithEvents txtBasic As System.Windows.Forms.TextBox
-    Friend WithEvents tcLanguages As System.Windows.Forms.TabControl
-    Friend WithEvents txtC As System.Windows.Forms.TextBox
-    Friend WithEvents pSplit As System.Windows.Forms.Panel
-    Friend WithEvents tpJS As System.Windows.Forms.TabPage
-    Friend WithEvents txtJS As System.Windows.Forms.TextBox
-    Friend WithEvents sbpStatus As System.Windows.Forms.StatusBarPanel
-    Friend WithEvents sbpIPS As System.Windows.Forms.StatusBarPanel
-    Friend WithEvents sbpProgSize As System.Windows.Forms.StatusBarPanel
-    Friend WithEvents sbInfo As VBBFCStatusBar
-    Friend WithEvents tpVBasic As System.Windows.Forms.TabPage
-    Friend WithEvents mCellSize256 As System.Windows.Forms.MenuItem
-    Friend WithEvents mCellSize512 As System.Windows.Forms.MenuItem
-    Friend WithEvents mOptions As System.Windows.Forms.MenuItem
-    Friend WithEvents mOptionsCellSize As System.Windows.Forms.MenuItem
-    Friend WithEvents mOptionsPrettify As System.Windows.Forms.MenuItem
-    Friend WithEvents mDebugStepOut As System.Windows.Forms.MenuItem
-    Friend WithEvents sbpTransStatus As System.Windows.Forms.StatusBarPanel
-    Friend WithEvents mDebugClearAllBreakpoint As System.Windows.Forms.MenuItem
-    Friend WithEvents MenuItem3 As System.Windows.Forms.MenuItem
-    Friend WithEvents mDebugToggleBreakpoint As System.Windows.Forms.MenuItem
-    Friend WithEvents MenuItem13 As System.Windows.Forms.MenuItem
-    Friend WithEvents mSep As System.Windows.Forms.MenuItem
-    Friend WithEvents mFileSaveVB As System.Windows.Forms.MenuItem
-    Friend WithEvents mFileSaveC As System.Windows.Forms.MenuItem
-    Friend WithEvents mFileSaveJS As System.Windows.Forms.MenuItem
-    Friend WithEvents mFileCompileEXE As System.Windows.Forms.MenuItem
-    Friend WithEvents sbpCellSize As System.Windows.Forms.StatusBarPanel
-    Friend WithEvents mHelp As System.Windows.Forms.MenuItem
-    Friend WithEvents mHelpAbout As System.Windows.Forms.MenuItem
+    Friend WithEvents MainMenuMenu As MainMenu
+    Friend WithEvents MenuItem4 As MenuItem
+    Friend WithEvents MenuItem5 As MenuItem
+    Friend WithEvents MenuItem8 As MenuItem
+    Friend WithEvents MenuItemFileOpen As MenuItem
+    Friend WithEvents MainMenuFile As MenuItem
+    Friend WithEvents MenuItemNew As MenuItem
+    Friend WithEvents MenuItemFileSave As MenuItem
+    Friend WithEvents MenuItemFileSaveAs As MenuItem
+    Friend WithEvents MenuItemFileExit As MenuItem
+    Friend WithEvents MainMenuDebug As MenuItem
+    Friend WithEvents MenuItemDebugRun As MenuItem
+    Friend WithEvents MenuItemDebugBreak As MenuItem
+    Friend WithEvents MenuItemDebugStop As MenuItem
+    Friend WithEvents MenuItem9 As MenuItem
+    Friend WithEvents MenuItem10 As MenuItem
+    Friend WithEvents MenuItem11 As MenuItem
+    Friend WithEvents MenuItem1 As MenuItem
+    Friend WithEvents MenuItemDebugLiveTrace As MenuItem
+    Friend WithEvents MenuItemDebugFollowPointer As MenuItem
+    Friend WithEvents MenuItemDebugStepInto As MenuItem
+    Friend WithEvents MainMenuView As MenuItem
+    Friend WithEvents MenuItemViewMemoryMap As MenuItem
+    Friend WithEvents MenuItemDebugStepOver As MenuItem
+    Friend WithEvents MenuItemDebugRun2Cursor As MenuItem
+    Friend WithEvents TabPageBF As TabPage
+    Friend WithEvents TabPageC As TabPage
+    Friend WithEvents TextBoxBasic As TextBox
+    Friend WithEvents TabControlLanguages As TabControl
+    Friend WithEvents TextBoxC As TextBox
+    Friend WithEvents PanelSplit As Panel
+    Friend WithEvents TabPageJS As TabPage
+    Friend WithEvents TextBoxJS As TextBox
+    Friend WithEvents StatusBarPanelStatus As StatusBarPanel
+    Friend WithEvents StatusBarPanelIPS As StatusBarPanel
+    Friend WithEvents StatusBarPanelProgSize As StatusBarPanel
+    Friend WithEvents StatusBarInfo As VBBFCStatusBar
+    Friend WithEvents TabPageVBasic As TabPage
+    Friend WithEvents MenuItemCellSize256 As MenuItem
+    Friend WithEvents MenuItemCellSize512 As MenuItem
+    Friend WithEvents MainMenuOptions As MenuItem
+    Friend WithEvents MenuItemOptionsCellSize As MenuItem
+    Friend WithEvents MenuItemOptionsPrettify As MenuItem
+    Friend WithEvents MenuItemDebugStepOut As MenuItem
+    Friend WithEvents StatusBarPanelTransStatus As StatusBarPanel
+    Friend WithEvents MenuItemDebugClearAllBreakpoint As MenuItem
+    Friend WithEvents MenuItem3 As MenuItem
+    Friend WithEvents MenuItemDebugToggleBreakpoint As MenuItem
+    Friend WithEvents MenuItem13 As MenuItem
+    Friend WithEvents MenuItemSep As MenuItem
+    Friend WithEvents MenuItemFileSaveVB As MenuItem
+    Friend WithEvents MenuItemFileSaveC As MenuItem
+    Friend WithEvents MenuItemFileSaveJS As MenuItem
+    Friend WithEvents MenuItemFileCompileEXE As MenuItem
+    Friend WithEvents StatusBarPanelCellSize As StatusBarPanel
+    Friend WithEvents MainMenuHelp As MenuItem
+    Friend WithEvents MenuItemHelpAbout As MenuItem
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
-        Me.txtOut = New System.Windows.Forms.TextBox()
-        Me.mMenu = New System.Windows.Forms.MainMenu(Me.components)
-        Me.mFile = New System.Windows.Forms.MenuItem()
-        Me.mNew = New System.Windows.Forms.MenuItem()
-        Me.MenuItem4 = New System.Windows.Forms.MenuItem()
-        Me.mFileOpen = New System.Windows.Forms.MenuItem()
-        Me.MenuItem5 = New System.Windows.Forms.MenuItem()
-        Me.mFileSave = New System.Windows.Forms.MenuItem()
-        Me.mFileSaveAs = New System.Windows.Forms.MenuItem()
-        Me.mSep = New System.Windows.Forms.MenuItem()
-        Me.mFileSaveBoF = New System.Windows.Forms.MenuItem()
-        Me.mFileSaveVB = New System.Windows.Forms.MenuItem()
-        Me.mFileSaveC = New System.Windows.Forms.MenuItem()
-        Me.mFileSaveJS = New System.Windows.Forms.MenuItem()
-        Me.MenuItem8 = New System.Windows.Forms.MenuItem()
-        Me.mFileCompileEXE = New System.Windows.Forms.MenuItem()
-        Me.MenuItem13 = New System.Windows.Forms.MenuItem()
-        Me.mFileExit = New System.Windows.Forms.MenuItem()
-        Me.mView = New System.Windows.Forms.MenuItem()
-        Me.mViewMemoryMap = New System.Windows.Forms.MenuItem()
-        Me.mOptions = New System.Windows.Forms.MenuItem()
-        Me.mOptionsCellSize = New System.Windows.Forms.MenuItem()
-        Me.mCellSize256 = New System.Windows.Forms.MenuItem()
-        Me.mCellSize512 = New System.Windows.Forms.MenuItem()
-        Me.mOptionsPrettify = New System.Windows.Forms.MenuItem()
-        Me.MenuItem2 = New System.Windows.Forms.MenuItem()
-        Me.mOutTextSize = New System.Windows.Forms.MenuItem()
-        Me.mOTSSmallest = New System.Windows.Forms.MenuItem()
-        Me.mOTSSmall = New System.Windows.Forms.MenuItem()
-        Me.mOTSNormal = New System.Windows.Forms.MenuItem()
-        Me.mOTSLarge = New System.Windows.Forms.MenuItem()
-        Me.mOTSLargest = New System.Windows.Forms.MenuItem()
-        Me.mDebug = New System.Windows.Forms.MenuItem()
-        Me.mDebugRun = New System.Windows.Forms.MenuItem()
-        Me.mDebugRun2Cursor = New System.Windows.Forms.MenuItem()
-        Me.MenuItem9 = New System.Windows.Forms.MenuItem()
-        Me.mDebugBreak = New System.Windows.Forms.MenuItem()
-        Me.MenuItem10 = New System.Windows.Forms.MenuItem()
-        Me.mDebugStepInto = New System.Windows.Forms.MenuItem()
-        Me.mDebugStepOver = New System.Windows.Forms.MenuItem()
-        Me.mDebugStepOut = New System.Windows.Forms.MenuItem()
-        Me.MenuItem11 = New System.Windows.Forms.MenuItem()
-        Me.mDebugStop = New System.Windows.Forms.MenuItem()
-        Me.MenuItem1 = New System.Windows.Forms.MenuItem()
-        Me.mDebugToggleBreakpoint = New System.Windows.Forms.MenuItem()
-        Me.mDebugClearAllBreakpoint = New System.Windows.Forms.MenuItem()
-        Me.MenuItem3 = New System.Windows.Forms.MenuItem()
-        Me.mDebugLiveTrace = New System.Windows.Forms.MenuItem()
-        Me.mDebugFollowPointer = New System.Windows.Forms.MenuItem()
-        Me.mHelp = New System.Windows.Forms.MenuItem()
-        Me.mHelpAbout = New System.Windows.Forms.MenuItem()
-        Me.tcLanguages = New System.Windows.Forms.TabControl()
-        Me.tpBF = New System.Windows.Forms.TabPage()
-        Me.txtCode = New System.Windows.Forms.TextBox()
-        Me.tpBoF = New System.Windows.Forms.TabPage()
-        Me.txtBoF = New System.Windows.Forms.TextBox()
-        Me.tpVBasic = New System.Windows.Forms.TabPage()
-        Me.txtBasic = New System.Windows.Forms.TextBox()
-        Me.tpC = New System.Windows.Forms.TabPage()
-        Me.txtC = New System.Windows.Forms.TextBox()
-        Me.tpJS = New System.Windows.Forms.TabPage()
-        Me.txtJS = New System.Windows.Forms.TextBox()
-        Me.pSplit = New System.Windows.Forms.Panel()
-        Me.sbInfo = New VBBrainFNET.VBBFCStatusBar()
-        Me.sbpProgSize = New System.Windows.Forms.StatusBarPanel()
-        Me.sbpStatus = New System.Windows.Forms.StatusBarPanel()
-        Me.sbpCellSize = New System.Windows.Forms.StatusBarPanel()
-        Me.sbpIPS = New System.Windows.Forms.StatusBarPanel()
-        Me.sbpElapsed = New System.Windows.Forms.StatusBarPanel()
-        Me.sbpTransStatus = New System.Windows.Forms.StatusBarPanel()
-        Me.tcLanguages.SuspendLayout()
-        Me.tpBF.SuspendLayout()
-        Me.tpBoF.SuspendLayout()
-        Me.tpVBasic.SuspendLayout()
-        Me.tpC.SuspendLayout()
-        Me.tpJS.SuspendLayout()
-        CType(Me.sbpProgSize, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.sbpStatus, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.sbpCellSize, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.sbpIPS, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.sbpElapsed, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.sbpTransStatus, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TextBoxOut = New TextBox()
+        Me.MainMenuMenu = New MainMenu(Me.components)
+        Me.MainMenuFile = New MenuItem()
+        Me.MenuItemNew = New MenuItem()
+        Me.MenuItem4 = New MenuItem()
+        Me.MenuItemFileOpen = New MenuItem()
+        Me.MenuItem5 = New MenuItem()
+        Me.MenuItemFileSave = New MenuItem()
+        Me.MenuItemFileSaveAs = New MenuItem()
+        Me.MenuItemSep = New MenuItem()
+        Me.MenuItemFileSaveBoF = New MenuItem()
+        Me.MenuItemFileSaveVB = New MenuItem()
+        Me.MenuItemFileSaveC = New MenuItem()
+        Me.MenuItemFileSaveJS = New MenuItem()
+        Me.MenuItem8 = New MenuItem()
+        Me.MenuItemFileCompileEXE = New MenuItem()
+        Me.MenuItem13 = New MenuItem()
+        Me.MenuItemFileExit = New MenuItem()
+        Me.MainMenuView = New MenuItem()
+        Me.MenuItemViewMemoryMap = New MenuItem()
+        Me.MainMenuOptions = New MenuItem()
+        Me.MenuItemOptionsCellSize = New MenuItem()
+        Me.MenuItemCellSize256 = New MenuItem()
+        Me.MenuItemCellSize512 = New MenuItem()
+        Me.MenuItemOptionsPrettify = New MenuItem()
+        Me.MenuItem2 = New MenuItem()
+        Me.MenuItemOutTextSize = New MenuItem()
+        Me.MenuItemOTSSmallest = New MenuItem()
+        Me.MenuItemOTSSmall = New MenuItem()
+        Me.MenuItemOTSNormal = New MenuItem()
+        Me.MenuItemOTSLarge = New MenuItem()
+        Me.MenuItemOTSLargest = New MenuItem()
+        Me.MainMenuDebug = New MenuItem()
+        Me.MenuItemDebugRun = New MenuItem()
+        Me.MenuItemDebugRun2Cursor = New MenuItem()
+        Me.MenuItem9 = New MenuItem()
+        Me.MenuItemDebugBreak = New MenuItem()
+        Me.MenuItem10 = New MenuItem()
+        Me.MenuItemDebugStepInto = New MenuItem()
+        Me.MenuItemDebugStepOver = New MenuItem()
+        Me.MenuItemDebugStepOut = New MenuItem()
+        Me.MenuItem11 = New MenuItem()
+        Me.MenuItemDebugStop = New MenuItem()
+        Me.MenuItem1 = New MenuItem()
+        Me.MenuItemDebugToggleBreakpoint = New MenuItem()
+        Me.MenuItemDebugClearAllBreakpoint = New MenuItem()
+        Me.MenuItem3 = New MenuItem()
+        Me.MenuItemDebugLiveTrace = New MenuItem()
+        Me.MenuItemDebugFollowPointer = New MenuItem()
+        Me.MainMenuHelp = New MenuItem()
+        Me.MenuItemHelpAbout = New MenuItem()
+        Me.TabControlLanguages = New TabControl()
+        Me.TabPageBF = New TabPage()
+        Me.TextBoxCode = New TextBox()
+        Me.TabPageBoF = New TabPage()
+        Me.TextBoxBoF = New TextBox()
+        Me.TabPageVBasic = New TabPage()
+        Me.TextBoxBasic = New TextBox()
+        Me.TabPageC = New TabPage()
+        Me.TextBoxC = New TextBox()
+        Me.TabPageJS = New TabPage()
+        Me.TextBoxJS = New TextBox()
+        Me.PanelSplit = New Panel()
+        Me.StatusBarInfo = New VBBrainFNET.VBBFCStatusBar()
+        Me.StatusBarPanelProgSize = New StatusBarPanel()
+        Me.StatusBarPanelStatus = New StatusBarPanel()
+        Me.StatusBarPanelCellSize = New StatusBarPanel()
+        Me.StatusBarPanelIPS = New StatusBarPanel()
+        Me.StatusBarPanelElapsed = New StatusBarPanel()
+        Me.StatusBarPanelTransStatus = New StatusBarPanel()
+        Me.TabControlLanguages.SuspendLayout()
+        Me.TabPageBF.SuspendLayout()
+        Me.TabPageBoF.SuspendLayout()
+        Me.TabPageVBasic.SuspendLayout()
+        Me.TabPageC.SuspendLayout()
+        Me.TabPageJS.SuspendLayout()
+        CType(Me.StatusBarPanelProgSize, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.StatusBarPanelStatus, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.StatusBarPanelCellSize, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.StatusBarPanelIPS, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.StatusBarPanelElapsed, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.StatusBarPanelTransStatus, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'txtOut
+        'TextBoxOut
         '
-        Me.txtOut.AcceptsReturn = True
-        Me.txtOut.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtOut.BackColor = System.Drawing.Color.Black
-        Me.txtOut.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtOut.Font = New System.Drawing.Font("Consolas", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtOut.ForeColor = System.Drawing.Color.Lime
-        Me.txtOut.HideSelection = False
-        Me.txtOut.Location = New System.Drawing.Point(0, 247)
-        Me.txtOut.MaxLength = 0
-        Me.txtOut.Multiline = True
-        Me.txtOut.Name = "txtOut"
-        Me.txtOut.ReadOnly = True
-        Me.txtOut.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtOut.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.txtOut.Size = New System.Drawing.Size(862, 403)
-        Me.txtOut.TabIndex = 1
-        Me.txtOut.WordWrap = False
+        Me.TextBoxOut.AcceptsReturn = True
+        Me.TextBoxOut.Anchor = CType((((AnchorStyles.Top Or AnchorStyles.Bottom) _
+            Or AnchorStyles.Left) _
+            Or AnchorStyles.Right), AnchorStyles)
+        Me.TextBoxOut.BackColor = System.Drawing.Color.Black
+        Me.TextBoxOut.Cursor = Cursors.IBeam
+        Me.TextBoxOut.Font = New System.Drawing.Font("Consolas", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxOut.ForeColor = System.Drawing.Color.Lime
+        Me.TextBoxOut.HideSelection = False
+        Me.TextBoxOut.Location = New System.Drawing.Point(0, 247)
+        Me.TextBoxOut.MaxLength = 0
+        Me.TextBoxOut.Multiline = True
+        Me.TextBoxOut.Name = "TextBoxOut"
+        Me.TextBoxOut.ReadOnly = True
+        Me.TextBoxOut.RightToLeft = RightToLeft.No
+        Me.TextBoxOut.ScrollBars = ScrollBars.Both
+        Me.TextBoxOut.Size = New System.Drawing.Size(862, 382)
+        Me.TextBoxOut.TabIndex = 1
+        Me.TextBoxOut.WordWrap = False
         '
-        'mMenu
+        'MainMenuMenu
         '
-        Me.mMenu.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mFile, Me.mView, Me.mOptions, Me.mDebug, Me.mHelp})
+        Me.MainMenuMenu.MenuItems.AddRange(New MenuItem() {Me.MainMenuFile, Me.MainMenuView, Me.MainMenuOptions, Me.MainMenuDebug, Me.MainMenuHelp})
         '
-        'mFile
+        'MainMenuFile
         '
-        Me.mFile.Index = 0
-        Me.mFile.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mNew, Me.MenuItem4, Me.mFileOpen, Me.MenuItem5, Me.mFileSave, Me.mFileSaveAs, Me.mSep, Me.mFileSaveBoF, Me.mFileSaveVB, Me.mFileSaveC, Me.mFileSaveJS, Me.MenuItem8, Me.mFileCompileEXE, Me.MenuItem13, Me.mFileExit})
-        Me.mFile.Text = "File"
+        Me.MainMenuFile.Index = 0
+        Me.MainMenuFile.MenuItems.AddRange(New MenuItem() {Me.MenuItemNew, Me.MenuItem4, Me.MenuItemFileOpen, Me.MenuItem5, Me.MenuItemFileSave, Me.MenuItemFileSaveAs, Me.MenuItemSep, Me.MenuItemFileSaveBoF, Me.MenuItemFileSaveVB, Me.MenuItemFileSaveC, Me.MenuItemFileSaveJS, Me.MenuItem8, Me.MenuItemFileCompileEXE, Me.MenuItem13, Me.MenuItemFileExit})
+        Me.MainMenuFile.Text = "File"
         '
-        'mNew
+        'MenuItemNew
         '
-        Me.mNew.Index = 0
-        Me.mNew.Shortcut = System.Windows.Forms.Shortcut.CtrlN
-        Me.mNew.Text = "New"
+        Me.MenuItemNew.Index = 0
+        Me.MenuItemNew.Shortcut = Shortcut.CtrlN
+        Me.MenuItemNew.Text = "New"
         '
         'MenuItem4
         '
         Me.MenuItem4.Index = 1
         Me.MenuItem4.Text = "-"
         '
-        'mFileOpen
+        'MenuItemFileOpen
         '
-        Me.mFileOpen.Index = 2
-        Me.mFileOpen.Shortcut = System.Windows.Forms.Shortcut.CtrlO
-        Me.mFileOpen.Text = "Open..."
+        Me.MenuItemFileOpen.Index = 2
+        Me.MenuItemFileOpen.Shortcut = Shortcut.CtrlO
+        Me.MenuItemFileOpen.Text = "Open..."
         '
         'MenuItem5
         '
         Me.MenuItem5.Index = 3
         Me.MenuItem5.Text = "-"
         '
-        'mFileSave
+        'MenuItemFileSave
         '
-        Me.mFileSave.Index = 4
-        Me.mFileSave.Shortcut = System.Windows.Forms.Shortcut.CtrlS
-        Me.mFileSave.Text = "Save"
+        Me.MenuItemFileSave.Index = 4
+        Me.MenuItemFileSave.Shortcut = Shortcut.CtrlS
+        Me.MenuItemFileSave.Text = "Save"
         '
-        'mFileSaveAs
+        'MenuItemFileSaveAs
         '
-        Me.mFileSaveAs.Index = 5
-        Me.mFileSaveAs.Shortcut = System.Windows.Forms.Shortcut.CtrlShiftS
-        Me.mFileSaveAs.Text = "Save As..."
+        Me.MenuItemFileSaveAs.Index = 5
+        Me.MenuItemFileSaveAs.Shortcut = Shortcut.CtrlShiftS
+        Me.MenuItemFileSaveAs.Text = "Save As..."
         '
-        'mSep
+        'MenuItemSep
         '
-        Me.mSep.Index = 6
-        Me.mSep.Text = "-"
+        Me.MenuItemSep.Index = 6
+        Me.MenuItemSep.Text = "-"
         '
-        'mFileSaveBoF
+        'MenuItemFileSaveBoF
         '
-        Me.mFileSaveBoF.Index = 7
-        Me.mFileSaveBoF.Text = "Save Boolfuck Code"
+        Me.MenuItemFileSaveBoF.Index = 7
+        Me.MenuItemFileSaveBoF.Text = "Save Boolfuck Code"
         '
-        'mFileSaveVB
+        'MenuItemFileSaveVB
         '
-        Me.mFileSaveVB.Index = 8
-        Me.mFileSaveVB.Text = "Save Visual Basic Code"
+        Me.MenuItemFileSaveVB.Index = 8
+        Me.MenuItemFileSaveVB.Text = "Save Visual Basic Code"
         '
-        'mFileSaveC
+        'MenuItemFileSaveC
         '
-        Me.mFileSaveC.Index = 9
-        Me.mFileSaveC.Text = "Save C Code"
+        Me.MenuItemFileSaveC.Index = 9
+        Me.MenuItemFileSaveC.Text = "Save C Code"
         '
-        'mFileSaveJS
+        'MenuItemFileSaveJS
         '
-        Me.mFileSaveJS.Index = 10
-        Me.mFileSaveJS.Text = "Save JavaScript Code"
+        Me.MenuItemFileSaveJS.Index = 10
+        Me.MenuItemFileSaveJS.Text = "Save JavaScript Code"
         '
         'MenuItem8
         '
         Me.MenuItem8.Index = 11
         Me.MenuItem8.Text = "-"
         '
-        'mFileCompileEXE
+        'MenuItemFileCompileEXE
         '
-        Me.mFileCompileEXE.Index = 12
-        Me.mFileCompileEXE.Text = "Compile to EXE"
+        Me.MenuItemFileCompileEXE.Index = 12
+        Me.MenuItemFileCompileEXE.Text = "Compile to EXE"
         '
         'MenuItem13
         '
         Me.MenuItem13.Index = 13
         Me.MenuItem13.Text = "-"
         '
-        'mFileExit
+        'MenuItemFileExit
         '
-        Me.mFileExit.Index = 14
-        Me.mFileExit.Text = "Exit"
+        Me.MenuItemFileExit.Index = 14
+        Me.MenuItemFileExit.Text = "Exit"
         '
-        'mView
+        'MainMenuView
         '
-        Me.mView.Index = 1
-        Me.mView.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mViewMemoryMap})
-        Me.mView.Text = "View"
+        Me.MainMenuView.Index = 1
+        Me.MainMenuView.MenuItems.AddRange(New MenuItem() {Me.MenuItemViewMemoryMap})
+        Me.MainMenuView.Text = "View"
         '
-        'mViewMemoryMap
+        'MenuItemViewMemoryMap
         '
-        Me.mViewMemoryMap.Index = 0
-        Me.mViewMemoryMap.Shortcut = System.Windows.Forms.Shortcut.F2
-        Me.mViewMemoryMap.Text = "Memory Map"
+        Me.MenuItemViewMemoryMap.Index = 0
+        Me.MenuItemViewMemoryMap.Shortcut = Shortcut.F2
+        Me.MenuItemViewMemoryMap.Text = "Memory Map"
         '
-        'mOptions
+        'MainMenuOptions
         '
-        Me.mOptions.Index = 2
-        Me.mOptions.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mOptionsCellSize, Me.mOptionsPrettify, Me.MenuItem2, Me.mOutTextSize})
-        Me.mOptions.Text = "Options"
+        Me.MainMenuOptions.Index = 2
+        Me.MainMenuOptions.MenuItems.AddRange(New MenuItem() {Me.MenuItemOptionsCellSize, Me.MenuItemOptionsPrettify, Me.MenuItem2, Me.MenuItemOutTextSize})
+        Me.MainMenuOptions.Text = "Options"
         '
-        'mOptionsCellSize
+        'MenuItemOptionsCellSize
         '
-        Me.mOptionsCellSize.Index = 0
-        Me.mOptionsCellSize.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mCellSize256, Me.mCellSize512})
-        Me.mOptionsCellSize.Text = "Cell Size"
+        Me.MenuItemOptionsCellSize.Index = 0
+        Me.MenuItemOptionsCellSize.MenuItems.AddRange(New MenuItem() {Me.MenuItemCellSize256, Me.MenuItemCellSize512})
+        Me.MenuItemOptionsCellSize.Text = "Cell Size"
         '
-        'mCellSize256
+        'MenuItemCellSize256
         '
-        Me.mCellSize256.Checked = True
-        Me.mCellSize256.Index = 0
-        Me.mCellSize256.RadioCheck = True
-        Me.mCellSize256.Text = "256"
+        Me.MenuItemCellSize256.Checked = True
+        Me.MenuItemCellSize256.Index = 0
+        Me.MenuItemCellSize256.RadioCheck = True
+        Me.MenuItemCellSize256.Text = "256"
         '
-        'mCellSize512
+        'MenuItemCellSize512
         '
-        Me.mCellSize512.Index = 1
-        Me.mCellSize512.RadioCheck = True
-        Me.mCellSize512.Text = "512"
+        Me.MenuItemCellSize512.Index = 1
+        Me.MenuItemCellSize512.RadioCheck = True
+        Me.MenuItemCellSize512.Text = "512"
         '
-        'mOptionsPrettify
+        'MenuItemOptionsPrettify
         '
-        Me.mOptionsPrettify.Index = 1
-        Me.mOptionsPrettify.Text = "Prettify"
+        Me.MenuItemOptionsPrettify.Index = 1
+        Me.MenuItemOptionsPrettify.Text = "Prettify"
         '
         'MenuItem2
         '
         Me.MenuItem2.Index = 2
         Me.MenuItem2.Text = "-"
         '
-        'mOutTextSize
+        'MenuItemOutTextSize
         '
-        Me.mOutTextSize.Index = 3
-        Me.mOutTextSize.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mOTSSmallest, Me.mOTSSmall, Me.mOTSNormal, Me.mOTSLarge, Me.mOTSLargest})
-        Me.mOutTextSize.Text = "Output Text Size"
+        Me.MenuItemOutTextSize.Index = 3
+        Me.MenuItemOutTextSize.MenuItems.AddRange(New MenuItem() {Me.MenuItemOTSSmallest, Me.MenuItemOTSSmall, Me.MenuItemOTSNormal, Me.MenuItemOTSLarge, Me.MenuItemOTSLargest})
+        Me.MenuItemOutTextSize.Text = "Output Text Size"
         '
-        'mOTSSmallest
+        'MenuItemOTSSmallest
         '
-        Me.mOTSSmallest.Index = 0
-        Me.mOTSSmallest.Tag = "8"
-        Me.mOTSSmallest.Text = "Smallest"
+        Me.MenuItemOTSSmallest.Index = 0
+        Me.MenuItemOTSSmallest.Tag = "8"
+        Me.MenuItemOTSSmallest.Text = "Smallest"
         '
-        'mOTSSmall
+        'MenuItemOTSSmall
         '
-        Me.mOTSSmall.Index = 1
-        Me.mOTSSmall.Tag = "9"
-        Me.mOTSSmall.Text = "Small"
+        Me.MenuItemOTSSmall.Index = 1
+        Me.MenuItemOTSSmall.Tag = "9"
+        Me.MenuItemOTSSmall.Text = "Small"
         '
-        'mOTSNormal
+        'MenuItemOTSNormal
         '
-        Me.mOTSNormal.Index = 2
-        Me.mOTSNormal.Tag = "10"
-        Me.mOTSNormal.Text = "Normal"
+        Me.MenuItemOTSNormal.Index = 2
+        Me.MenuItemOTSNormal.Tag = "10"
+        Me.MenuItemOTSNormal.Text = "Normal"
         '
-        'mOTSLarge
+        'MenuItemOTSLarge
         '
-        Me.mOTSLarge.Index = 3
-        Me.mOTSLarge.Tag = "11"
-        Me.mOTSLarge.Text = "Large"
+        Me.MenuItemOTSLarge.Index = 3
+        Me.MenuItemOTSLarge.Tag = "11"
+        Me.MenuItemOTSLarge.Text = "Large"
         '
-        'mOTSLargest
+        'MenuItemOTSLargest
         '
-        Me.mOTSLargest.Index = 4
-        Me.mOTSLargest.Tag = "12"
-        Me.mOTSLargest.Text = "Largest"
+        Me.MenuItemOTSLargest.Index = 4
+        Me.MenuItemOTSLargest.Tag = "12"
+        Me.MenuItemOTSLargest.Text = "Largest"
         '
-        'mDebug
+        'MainMenuDebug
         '
-        Me.mDebug.Index = 3
-        Me.mDebug.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mDebugRun, Me.mDebugRun2Cursor, Me.MenuItem9, Me.mDebugBreak, Me.MenuItem10, Me.mDebugStepInto, Me.mDebugStepOver, Me.mDebugStepOut, Me.MenuItem11, Me.mDebugStop, Me.MenuItem1, Me.mDebugToggleBreakpoint, Me.mDebugClearAllBreakpoint, Me.MenuItem3, Me.mDebugLiveTrace, Me.mDebugFollowPointer})
-        Me.mDebug.Text = "Debug"
+        Me.MainMenuDebug.Index = 3
+        Me.MainMenuDebug.MenuItems.AddRange(New MenuItem() {Me.MenuItemDebugRun, Me.MenuItemDebugRun2Cursor, Me.MenuItem9, Me.MenuItemDebugBreak, Me.MenuItem10, Me.MenuItemDebugStepInto, Me.MenuItemDebugStepOver, Me.MenuItemDebugStepOut, Me.MenuItem11, Me.MenuItemDebugStop, Me.MenuItem1, Me.MenuItemDebugToggleBreakpoint, Me.MenuItemDebugClearAllBreakpoint, Me.MenuItem3, Me.MenuItemDebugLiveTrace, Me.MenuItemDebugFollowPointer})
+        Me.MainMenuDebug.Text = "Debug"
         '
-        'mDebugRun
+        'MenuItemDebugRun
         '
-        Me.mDebugRun.Index = 0
-        Me.mDebugRun.Shortcut = System.Windows.Forms.Shortcut.F5
-        Me.mDebugRun.Text = "Run"
+        Me.MenuItemDebugRun.Index = 0
+        Me.MenuItemDebugRun.Shortcut = Shortcut.F5
+        Me.MenuItemDebugRun.Text = "Run"
         '
-        'mDebugRun2Cursor
+        'MenuItemDebugRun2Cursor
         '
-        Me.mDebugRun2Cursor.Index = 1
-        Me.mDebugRun2Cursor.Shortcut = System.Windows.Forms.Shortcut.ShiftF5
-        Me.mDebugRun2Cursor.Text = "Run to Cursor"
+        Me.MenuItemDebugRun2Cursor.Index = 1
+        Me.MenuItemDebugRun2Cursor.Shortcut = Shortcut.ShiftF5
+        Me.MenuItemDebugRun2Cursor.Text = "Run to Cursor"
         '
         'MenuItem9
         '
         Me.MenuItem9.Index = 2
         Me.MenuItem9.Text = "-"
         '
-        'mDebugBreak
+        'MenuItemDebugBreak
         '
-        Me.mDebugBreak.Index = 3
-        Me.mDebugBreak.Shortcut = System.Windows.Forms.Shortcut.CtrlC
-        Me.mDebugBreak.Text = "Break"
+        Me.MenuItemDebugBreak.Index = 3
+        Me.MenuItemDebugBreak.Shortcut = Shortcut.CtrlC
+        Me.MenuItemDebugBreak.Text = "Break"
         '
         'MenuItem10
         '
         Me.MenuItem10.Index = 4
         Me.MenuItem10.Text = "-"
         '
-        'mDebugStepInto
+        'MenuItemDebugStepInto
         '
-        Me.mDebugStepInto.Index = 5
-        Me.mDebugStepInto.Shortcut = System.Windows.Forms.Shortcut.F8
-        Me.mDebugStepInto.Text = "Step Into"
+        Me.MenuItemDebugStepInto.Index = 5
+        Me.MenuItemDebugStepInto.Shortcut = Shortcut.F8
+        Me.MenuItemDebugStepInto.Text = "Step Into"
         '
-        'mDebugStepOver
+        'MenuItemDebugStepOver
         '
-        Me.mDebugStepOver.Index = 6
-        Me.mDebugStepOver.Shortcut = System.Windows.Forms.Shortcut.ShiftF8
-        Me.mDebugStepOver.Text = "Step Over"
+        Me.MenuItemDebugStepOver.Index = 6
+        Me.MenuItemDebugStepOver.Shortcut = Shortcut.ShiftF8
+        Me.MenuItemDebugStepOver.Text = "Step Over"
         '
-        'mDebugStepOut
+        'MenuItemDebugStepOut
         '
-        Me.mDebugStepOut.Index = 7
-        Me.mDebugStepOut.Shortcut = System.Windows.Forms.Shortcut.CtrlShiftF8
-        Me.mDebugStepOut.Text = "Step Out"
+        Me.MenuItemDebugStepOut.Index = 7
+        Me.MenuItemDebugStepOut.Shortcut = Shortcut.CtrlShiftF8
+        Me.MenuItemDebugStepOut.Text = "Step Out"
         '
         'MenuItem11
         '
         Me.MenuItem11.Index = 8
         Me.MenuItem11.Text = "-"
         '
-        'mDebugStop
+        'MenuItemDebugStop
         '
-        Me.mDebugStop.Index = 9
-        Me.mDebugStop.Text = "Stop"
+        Me.MenuItemDebugStop.Index = 9
+        Me.MenuItemDebugStop.Text = "Stop"
         '
         'MenuItem1
         '
         Me.MenuItem1.Index = 10
         Me.MenuItem1.Text = "-"
         '
-        'mDebugToggleBreakpoint
+        'MenuItemDebugToggleBreakpoint
         '
-        Me.mDebugToggleBreakpoint.Index = 11
-        Me.mDebugToggleBreakpoint.Shortcut = System.Windows.Forms.Shortcut.F9
-        Me.mDebugToggleBreakpoint.Text = "Toggle Breakpoint"
+        Me.MenuItemDebugToggleBreakpoint.Index = 11
+        Me.MenuItemDebugToggleBreakpoint.Shortcut = Shortcut.F9
+        Me.MenuItemDebugToggleBreakpoint.Text = "Toggle Breakpoint"
         '
-        'mDebugClearAllBreakpoint
+        'MenuItemDebugClearAllBreakpoint
         '
-        Me.mDebugClearAllBreakpoint.Index = 12
-        Me.mDebugClearAllBreakpoint.Text = "Clear All Breakpoints"
+        Me.MenuItemDebugClearAllBreakpoint.Index = 12
+        Me.MenuItemDebugClearAllBreakpoint.Text = "Clear All Breakpoints"
         '
         'MenuItem3
         '
         Me.MenuItem3.Index = 13
         Me.MenuItem3.Text = "-"
         '
-        'mDebugLiveTrace
+        'MenuItemDebugLiveTrace
         '
-        Me.mDebugLiveTrace.Index = 14
-        Me.mDebugLiveTrace.Text = "Live Trace"
+        Me.MenuItemDebugLiveTrace.Index = 14
+        Me.MenuItemDebugLiveTrace.Text = "Live Trace"
         '
-        'mDebugFollowPointer
+        'MenuItemDebugFollowPointer
         '
-        Me.mDebugFollowPointer.Checked = True
-        Me.mDebugFollowPointer.Index = 15
-        Me.mDebugFollowPointer.Text = "Follow Pointer"
+        Me.MenuItemDebugFollowPointer.Checked = True
+        Me.MenuItemDebugFollowPointer.Index = 15
+        Me.MenuItemDebugFollowPointer.Text = "Follow Pointer"
         '
-        'mHelp
+        'MainMenuHelp
         '
-        Me.mHelp.Index = 4
-        Me.mHelp.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mHelpAbout})
-        Me.mHelp.Text = "Help"
+        Me.MainMenuHelp.Index = 4
+        Me.MainMenuHelp.MenuItems.AddRange(New MenuItem() {Me.MenuItemHelpAbout})
+        Me.MainMenuHelp.Text = "Help"
         '
-        'mHelpAbout
+        'MenuItemHelpAbout
         '
-        Me.mHelpAbout.Index = 0
-        Me.mHelpAbout.Text = "About..."
+        Me.MenuItemHelpAbout.Index = 0
+        Me.MenuItemHelpAbout.Text = "About..."
         '
-        'tcLanguages
+        'TabControlLanguages
         '
-        Me.tcLanguages.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tcLanguages.Controls.Add(Me.tpBF)
-        Me.tcLanguages.Controls.Add(Me.tpBoF)
-        Me.tcLanguages.Controls.Add(Me.tpVBasic)
-        Me.tcLanguages.Controls.Add(Me.tpC)
-        Me.tcLanguages.Controls.Add(Me.tpJS)
-        Me.tcLanguages.Location = New System.Drawing.Point(0, 12)
-        Me.tcLanguages.Name = "tcLanguages"
-        Me.tcLanguages.SelectedIndex = 0
-        Me.tcLanguages.Size = New System.Drawing.Size(862, 222)
-        Me.tcLanguages.TabIndex = 6
+        Me.TabControlLanguages.Anchor = CType(((AnchorStyles.Top Or AnchorStyles.Left) _
+            Or AnchorStyles.Right), AnchorStyles)
+        Me.TabControlLanguages.Controls.Add(Me.TabPageBF)
+        Me.TabControlLanguages.Controls.Add(Me.TabPageBoF)
+        Me.TabControlLanguages.Controls.Add(Me.TabPageVBasic)
+        Me.TabControlLanguages.Controls.Add(Me.TabPageC)
+        Me.TabControlLanguages.Controls.Add(Me.TabPageJS)
+        Me.TabControlLanguages.Location = New System.Drawing.Point(0, 12)
+        Me.TabControlLanguages.Name = "TabControlLanguages"
+        Me.TabControlLanguages.SelectedIndex = 0
+        Me.TabControlLanguages.Size = New System.Drawing.Size(862, 222)
+        Me.TabControlLanguages.TabIndex = 6
         '
-        'tpBF
+        'TabPageBF
         '
-        Me.tpBF.Controls.Add(Me.txtCode)
-        Me.tpBF.Location = New System.Drawing.Point(4, 24)
-        Me.tpBF.Name = "tpBF"
-        Me.tpBF.Size = New System.Drawing.Size(854, 194)
-        Me.tpBF.TabIndex = 0
-        Me.tpBF.Text = "Brainfuck"
+        Me.TabPageBF.Controls.Add(Me.TextBoxCode)
+        Me.TabPageBF.Location = New System.Drawing.Point(4, 24)
+        Me.TabPageBF.Name = "TabPageBF"
+        Me.TabPageBF.Size = New System.Drawing.Size(854, 194)
+        Me.TabPageBF.TabIndex = 0
+        Me.TabPageBF.Text = "Brainfuck"
         '
-        'txtCode
+        'TextBoxCode
         '
-        Me.txtCode.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtCode.Location = New System.Drawing.Point(5, 5)
-        Me.txtCode.Multiline = True
-        Me.txtCode.Name = "txtCode"
-        Me.txtCode.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.txtCode.Size = New System.Drawing.Size(844, 179)
-        Me.txtCode.TabIndex = 0
+        Me.TextBoxCode.Anchor = CType((((AnchorStyles.Top Or AnchorStyles.Bottom) _
+            Or AnchorStyles.Left) _
+            Or AnchorStyles.Right), AnchorStyles)
+        Me.TextBoxCode.Location = New System.Drawing.Point(5, 5)
+        Me.TextBoxCode.Multiline = True
+        Me.TextBoxCode.Name = "TextBoxCode"
+        Me.TextBoxCode.ScrollBars = ScrollBars.Both
+        Me.TextBoxCode.Size = New System.Drawing.Size(844, 175)
+        Me.TextBoxCode.TabIndex = 0
         '
-        'tpBoF
+        'TabPageBoF
         '
-        Me.tpBoF.BackColor = System.Drawing.SystemColors.Control
-        Me.tpBoF.Controls.Add(Me.txtBoF)
-        Me.tpBoF.Location = New System.Drawing.Point(4, 22)
-        Me.tpBoF.Name = "tpBoF"
-        Me.tpBoF.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpBoF.Size = New System.Drawing.Size(854, 196)
-        Me.tpBoF.TabIndex = 4
-        Me.tpBoF.Text = "Boolfuck"
+        Me.TabPageBoF.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPageBoF.Controls.Add(Me.TextBoxBoF)
+        Me.TabPageBoF.Location = New System.Drawing.Point(4, 22)
+        Me.TabPageBoF.Name = "TabPageBoF"
+        Me.TabPageBoF.Padding = New Padding(3)
+        Me.TabPageBoF.Size = New System.Drawing.Size(854, 196)
+        Me.TabPageBoF.TabIndex = 4
+        Me.TabPageBoF.Text = "Boolfuck"
         '
-        'txtBoF
+        'TextBoxBoF
         '
-        Me.txtBoF.AcceptsReturn = True
-        Me.txtBoF.AcceptsTab = True
-        Me.txtBoF.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtBoF.BackColor = System.Drawing.SystemColors.Window
-        Me.txtBoF.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtBoF.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBoF.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.txtBoF.HideSelection = False
-        Me.txtBoF.Location = New System.Drawing.Point(5, 5)
-        Me.txtBoF.MaxLength = 0
-        Me.txtBoF.Multiline = True
-        Me.txtBoF.Name = "txtBoF"
-        Me.txtBoF.ReadOnly = True
-        Me.txtBoF.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtBoF.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.txtBoF.Size = New System.Drawing.Size(637, 185)
-        Me.txtBoF.TabIndex = 10
-        Me.txtBoF.WordWrap = False
+        Me.TextBoxBoF.AcceptsReturn = True
+        Me.TextBoxBoF.AcceptsTab = True
+        Me.TextBoxBoF.Anchor = CType((((AnchorStyles.Top Or AnchorStyles.Bottom) _
+            Or AnchorStyles.Left) _
+            Or AnchorStyles.Right), AnchorStyles)
+        Me.TextBoxBoF.BackColor = System.Drawing.SystemColors.Window
+        Me.TextBoxBoF.Cursor = Cursors.IBeam
+        Me.TextBoxBoF.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxBoF.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.TextBoxBoF.HideSelection = False
+        Me.TextBoxBoF.Location = New System.Drawing.Point(5, 5)
+        Me.TextBoxBoF.MaxLength = 0
+        Me.TextBoxBoF.Multiline = True
+        Me.TextBoxBoF.Name = "TextBoxBoF"
+        Me.TextBoxBoF.ReadOnly = True
+        Me.TextBoxBoF.RightToLeft = RightToLeft.No
+        Me.TextBoxBoF.ScrollBars = ScrollBars.Both
+        Me.TextBoxBoF.Size = New System.Drawing.Size(637, 183)
+        Me.TextBoxBoF.TabIndex = 10
+        Me.TextBoxBoF.WordWrap = False
         '
-        'tpVBasic
+        'TabPageVBasic
         '
-        Me.tpVBasic.Controls.Add(Me.txtBasic)
-        Me.tpVBasic.Location = New System.Drawing.Point(4, 22)
-        Me.tpVBasic.Name = "tpVBasic"
-        Me.tpVBasic.Size = New System.Drawing.Size(854, 196)
-        Me.tpVBasic.TabIndex = 1
-        Me.tpVBasic.Text = "Visual Basic"
+        Me.TabPageVBasic.Controls.Add(Me.TextBoxBasic)
+        Me.TabPageVBasic.Location = New System.Drawing.Point(4, 22)
+        Me.TabPageVBasic.Name = "TabPageVBasic"
+        Me.TabPageVBasic.Size = New System.Drawing.Size(854, 196)
+        Me.TabPageVBasic.TabIndex = 1
+        Me.TabPageVBasic.Text = "Visual Basic"
         '
-        'txtBasic
+        'TextBoxBasic
         '
-        Me.txtBasic.AcceptsReturn = True
-        Me.txtBasic.AcceptsTab = True
-        Me.txtBasic.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtBasic.BackColor = System.Drawing.SystemColors.Window
-        Me.txtBasic.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtBasic.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBasic.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.txtBasic.HideSelection = False
-        Me.txtBasic.Location = New System.Drawing.Point(5, 5)
-        Me.txtBasic.MaxLength = 0
-        Me.txtBasic.Multiline = True
-        Me.txtBasic.Name = "txtBasic"
-        Me.txtBasic.ReadOnly = True
-        Me.txtBasic.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtBasic.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.txtBasic.Size = New System.Drawing.Size(637, 185)
-        Me.txtBasic.TabIndex = 8
-        Me.txtBasic.WordWrap = False
+        Me.TextBoxBasic.AcceptsReturn = True
+        Me.TextBoxBasic.AcceptsTab = True
+        Me.TextBoxBasic.Anchor = CType((((AnchorStyles.Top Or AnchorStyles.Bottom) _
+            Or AnchorStyles.Left) _
+            Or AnchorStyles.Right), AnchorStyles)
+        Me.TextBoxBasic.BackColor = System.Drawing.SystemColors.Window
+        Me.TextBoxBasic.Cursor = Cursors.IBeam
+        Me.TextBoxBasic.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxBasic.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.TextBoxBasic.HideSelection = False
+        Me.TextBoxBasic.Location = New System.Drawing.Point(5, 5)
+        Me.TextBoxBasic.MaxLength = 0
+        Me.TextBoxBasic.Multiline = True
+        Me.TextBoxBasic.Name = "TextBoxBasic"
+        Me.TextBoxBasic.ReadOnly = True
+        Me.TextBoxBasic.RightToLeft = RightToLeft.No
+        Me.TextBoxBasic.ScrollBars = ScrollBars.Both
+        Me.TextBoxBasic.Size = New System.Drawing.Size(637, 183)
+        Me.TextBoxBasic.TabIndex = 8
+        Me.TextBoxBasic.WordWrap = False
         '
-        'tpC
+        'TabPageC
         '
-        Me.tpC.Controls.Add(Me.txtC)
-        Me.tpC.Location = New System.Drawing.Point(4, 22)
-        Me.tpC.Name = "tpC"
-        Me.tpC.Size = New System.Drawing.Size(854, 196)
-        Me.tpC.TabIndex = 2
-        Me.tpC.Text = "C"
+        Me.TabPageC.Controls.Add(Me.TextBoxC)
+        Me.TabPageC.Location = New System.Drawing.Point(4, 22)
+        Me.TabPageC.Name = "TabPageC"
+        Me.TabPageC.Size = New System.Drawing.Size(854, 196)
+        Me.TabPageC.TabIndex = 2
+        Me.TabPageC.Text = "C"
         '
-        'txtC
+        'TextBoxC
         '
-        Me.txtC.AcceptsReturn = True
-        Me.txtC.AcceptsTab = True
-        Me.txtC.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtC.BackColor = System.Drawing.SystemColors.Window
-        Me.txtC.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtC.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtC.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.txtC.HideSelection = False
-        Me.txtC.Location = New System.Drawing.Point(5, 5)
-        Me.txtC.MaxLength = 0
-        Me.txtC.Multiline = True
-        Me.txtC.Name = "txtC"
-        Me.txtC.ReadOnly = True
-        Me.txtC.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtC.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.txtC.Size = New System.Drawing.Size(637, 185)
-        Me.txtC.TabIndex = 8
-        Me.txtC.WordWrap = False
+        Me.TextBoxC.AcceptsReturn = True
+        Me.TextBoxC.AcceptsTab = True
+        Me.TextBoxC.Anchor = CType((((AnchorStyles.Top Or AnchorStyles.Bottom) _
+            Or AnchorStyles.Left) _
+            Or AnchorStyles.Right), AnchorStyles)
+        Me.TextBoxC.BackColor = System.Drawing.SystemColors.Window
+        Me.TextBoxC.Cursor = Cursors.IBeam
+        Me.TextBoxC.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxC.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.TextBoxC.HideSelection = False
+        Me.TextBoxC.Location = New System.Drawing.Point(5, 5)
+        Me.TextBoxC.MaxLength = 0
+        Me.TextBoxC.Multiline = True
+        Me.TextBoxC.Name = "TextBoxC"
+        Me.TextBoxC.ReadOnly = True
+        Me.TextBoxC.RightToLeft = RightToLeft.No
+        Me.TextBoxC.ScrollBars = ScrollBars.Both
+        Me.TextBoxC.Size = New System.Drawing.Size(637, 183)
+        Me.TextBoxC.TabIndex = 8
+        Me.TextBoxC.WordWrap = False
         '
-        'tpJS
+        'TabPageJS
         '
-        Me.tpJS.Controls.Add(Me.txtJS)
-        Me.tpJS.Location = New System.Drawing.Point(4, 22)
-        Me.tpJS.Name = "tpJS"
-        Me.tpJS.Size = New System.Drawing.Size(854, 196)
-        Me.tpJS.TabIndex = 3
-        Me.tpJS.Text = "JavaScript"
+        Me.TabPageJS.Controls.Add(Me.TextBoxJS)
+        Me.TabPageJS.Location = New System.Drawing.Point(4, 22)
+        Me.TabPageJS.Name = "TabPageJS"
+        Me.TabPageJS.Size = New System.Drawing.Size(854, 196)
+        Me.TabPageJS.TabIndex = 3
+        Me.TabPageJS.Text = "JavaScript"
         '
-        'txtJS
+        'TextBoxJS
         '
-        Me.txtJS.AcceptsReturn = True
-        Me.txtJS.AcceptsTab = True
-        Me.txtJS.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtJS.BackColor = System.Drawing.SystemColors.Window
-        Me.txtJS.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtJS.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtJS.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.txtJS.HideSelection = False
-        Me.txtJS.Location = New System.Drawing.Point(5, 5)
-        Me.txtJS.MaxLength = 0
-        Me.txtJS.Multiline = True
-        Me.txtJS.Name = "txtJS"
-        Me.txtJS.ReadOnly = True
-        Me.txtJS.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtJS.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.txtJS.Size = New System.Drawing.Size(637, 185)
-        Me.txtJS.TabIndex = 9
-        Me.txtJS.WordWrap = False
+        Me.TextBoxJS.AcceptsReturn = True
+        Me.TextBoxJS.AcceptsTab = True
+        Me.TextBoxJS.Anchor = CType((((AnchorStyles.Top Or AnchorStyles.Bottom) _
+            Or AnchorStyles.Left) _
+            Or AnchorStyles.Right), AnchorStyles)
+        Me.TextBoxJS.BackColor = System.Drawing.SystemColors.Window
+        Me.TextBoxJS.Cursor = Cursors.IBeam
+        Me.TextBoxJS.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxJS.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.TextBoxJS.HideSelection = False
+        Me.TextBoxJS.Location = New System.Drawing.Point(5, 5)
+        Me.TextBoxJS.MaxLength = 0
+        Me.TextBoxJS.Multiline = True
+        Me.TextBoxJS.Name = "TextBoxJS"
+        Me.TextBoxJS.ReadOnly = True
+        Me.TextBoxJS.RightToLeft = RightToLeft.No
+        Me.TextBoxJS.ScrollBars = ScrollBars.Both
+        Me.TextBoxJS.Size = New System.Drawing.Size(637, 183)
+        Me.TextBoxJS.TabIndex = 9
+        Me.TextBoxJS.WordWrap = False
         '
-        'pSplit
+        'PanelSplit
         '
-        Me.pSplit.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pSplit.Cursor = System.Windows.Forms.Cursors.NoMoveVert
-        Me.pSplit.Location = New System.Drawing.Point(0, 367)
-        Me.pSplit.Name = "pSplit"
-        Me.pSplit.Size = New System.Drawing.Size(862, 7)
-        Me.pSplit.TabIndex = 7
+        Me.PanelSplit.Anchor = CType((AnchorStyles.Left Or AnchorStyles.Right), AnchorStyles)
+        Me.PanelSplit.Cursor = Cursors.NoMoveVert
+        Me.PanelSplit.Location = New System.Drawing.Point(0, 356)
+        Me.PanelSplit.Name = "PanelSplit"
+        Me.PanelSplit.Size = New System.Drawing.Size(862, 7)
+        Me.PanelSplit.TabIndex = 7
         '
-        'sbInfo
+        'StatusBarInfo
         '
-        Me.sbInfo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.sbInfo.Location = New System.Drawing.Point(0, 656)
-        Me.sbInfo.Name = "sbInfo"
-        Me.sbInfo.Panels.AddRange(New System.Windows.Forms.StatusBarPanel() {Me.sbpProgSize, Me.sbpStatus, Me.sbpCellSize, Me.sbpIPS, Me.sbpElapsed, Me.sbpTransStatus})
-        Me.sbInfo.ProgramSize = 0
-        Me.sbInfo.Progress = -1
-        Me.sbInfo.ShowPanels = True
-        Me.sbInfo.Size = New System.Drawing.Size(863, 26)
-        Me.sbInfo.TabIndex = 8
+        Me.StatusBarInfo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.StatusBarInfo.Location = New System.Drawing.Point(0, 635)
+        Me.StatusBarInfo.Name = "StatusBarInfo"
+        Me.StatusBarInfo.Panels.AddRange(New StatusBarPanel() {Me.StatusBarPanelProgSize, Me.StatusBarPanelStatus, Me.StatusBarPanelCellSize, Me.StatusBarPanelIPS, Me.StatusBarPanelElapsed, Me.StatusBarPanelTransStatus})
+        Me.StatusBarInfo.ProgramSize = 0
+        Me.StatusBarInfo.Progress = -1
+        Me.StatusBarInfo.ShowPanels = True
+        Me.StatusBarInfo.Size = New System.Drawing.Size(863, 26)
+        Me.StatusBarInfo.TabIndex = 8
         '
-        'sbpProgSize
+        'StatusBarPanelProgSize
         '
-        Me.sbpProgSize.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents
-        Me.sbpProgSize.Name = "sbpProgSize"
-        Me.sbpProgSize.Text = "Size: 0 bytes"
-        Me.sbpProgSize.Width = 81
+        Me.StatusBarPanelProgSize.AutoSize = StatusBarPanelAutoSize.Contents
+        Me.StatusBarPanelProgSize.Name = "sbpProgSize"
+        Me.StatusBarPanelProgSize.Text = "Size: 0 bytes"
+        Me.StatusBarPanelProgSize.Width = 81
         '
-        'sbpStatus
+        'StatusBarPanelStatus
         '
-        Me.sbpStatus.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents
-        Me.sbpStatus.MinWidth = 100
-        Me.sbpStatus.Name = "sbpStatus"
+        Me.StatusBarPanelStatus.AutoSize = StatusBarPanelAutoSize.Contents
+        Me.StatusBarPanelStatus.MinWidth = 100
+        Me.StatusBarPanelStatus.Name = "sbpStatus"
         '
-        'sbpCellSize
+        'StatusBarPanelCellSize
         '
-        Me.sbpCellSize.Name = "sbpCellSize"
+        Me.StatusBarPanelCellSize.Name = "sbpCellSize"
         '
-        'sbpIPS
+        'StatusBarPanelIPS
         '
-        Me.sbpIPS.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents
-        Me.sbpIPS.Name = "sbpIPS"
-        Me.sbpIPS.Text = "0 ips"
-        Me.sbpIPS.Width = 40
+        Me.StatusBarPanelIPS.AutoSize = StatusBarPanelAutoSize.Contents
+        Me.StatusBarPanelIPS.Name = "sbpIPS"
+        Me.StatusBarPanelIPS.Text = "0 ips"
+        Me.StatusBarPanelIPS.Width = 40
         '
-        'sbpElapsed
+        'StatusBarPanelElapsed
         '
-        Me.sbpElapsed.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Contents
-        Me.sbpElapsed.Name = "sbpElapsed"
-        Me.sbpElapsed.Text = "0h 0m 0s 0ms"
-        Me.sbpElapsed.Width = 90
+        Me.StatusBarPanelElapsed.AutoSize = StatusBarPanelAutoSize.Contents
+        Me.StatusBarPanelElapsed.Name = "sbpElapsed"
+        Me.StatusBarPanelElapsed.Text = "0h 0m 0s 0ms"
+        Me.StatusBarPanelElapsed.Width = 90
         '
-        'sbpTransStatus
+        'StatusBarPanelTransStatus
         '
-        Me.sbpTransStatus.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Spring
-        Me.sbpTransStatus.Name = "sbpTransStatus"
-        Me.sbpTransStatus.Width = 435
+        Me.StatusBarPanelTransStatus.AutoSize = StatusBarPanelAutoSize.Spring
+        Me.StatusBarPanelTransStatus.Name = "sbpTransStatus"
+        Me.StatusBarPanelTransStatus.Width = 435
         '
         'FormMain
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(6, 16)
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(863, 682)
-        Me.Controls.Add(Me.sbInfo)
-        Me.Controls.Add(Me.txtOut)
-        Me.Controls.Add(Me.pSplit)
-        Me.Controls.Add(Me.tcLanguages)
-        Me.Cursor = System.Windows.Forms.Cursors.Default
+        Me.ClientSize = New System.Drawing.Size(863, 661)
+        Me.Controls.Add(Me.StatusBarInfo)
+        Me.Controls.Add(Me.TextBoxOut)
+        Me.Controls.Add(Me.PanelSplit)
+        Me.Controls.Add(Me.TabControlLanguages)
+        Me.Cursor = Cursors.Default
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.Location = New System.Drawing.Point(338, 230)
-        Me.Menu = Me.mMenu
+        Me.Menu = Me.MainMenuMenu
         Me.Name = "FormMain"
-        Me.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.RightToLeft = RightToLeft.No
+        Me.SizeGripStyle = SizeGripStyle.Show
+        Me.StartPosition = FormStartPosition.CenterScreen
         Me.Text = "VBBrainFNET"
-        Me.tcLanguages.ResumeLayout(False)
-        Me.tpBF.ResumeLayout(False)
-        Me.tpBF.PerformLayout()
-        Me.tpBoF.ResumeLayout(False)
-        Me.tpBoF.PerformLayout()
-        Me.tpVBasic.ResumeLayout(False)
-        Me.tpVBasic.PerformLayout()
-        Me.tpC.ResumeLayout(False)
-        Me.tpC.PerformLayout()
-        Me.tpJS.ResumeLayout(False)
-        Me.tpJS.PerformLayout()
-        CType(Me.sbpProgSize, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.sbpStatus, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.sbpCellSize, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.sbpIPS, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.sbpElapsed, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.sbpTransStatus, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabControlLanguages.ResumeLayout(False)
+        Me.TabPageBF.ResumeLayout(False)
+        Me.TabPageBF.PerformLayout()
+        Me.TabPageBoF.ResumeLayout(False)
+        Me.TabPageBoF.PerformLayout()
+        Me.TabPageVBasic.ResumeLayout(False)
+        Me.TabPageVBasic.PerformLayout()
+        Me.TabPageC.ResumeLayout(False)
+        Me.TabPageC.PerformLayout()
+        Me.TabPageJS.ResumeLayout(False)
+        Me.TabPageJS.PerformLayout()
+        CType(Me.StatusBarPanelProgSize, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.StatusBarPanelStatus, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.StatusBarPanelCellSize, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.StatusBarPanelIPS, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.StatusBarPanelElapsed, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.StatusBarPanelTransStatus, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

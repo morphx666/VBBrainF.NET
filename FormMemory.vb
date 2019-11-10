@@ -79,7 +79,7 @@ Public Class FormMemory
 
     Private sf As StringFormat = New StringFormat(StringFormatFlags.MeasureTrailingSpaces Or StringFormatFlags.FitBlackBox)
 
-    Private Sub frmMemory_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmMemory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Font = New Font("Consolas", 10, FontStyle.Regular)
 
         Me.SetStyle(ControlStyles.DoubleBuffer, True)

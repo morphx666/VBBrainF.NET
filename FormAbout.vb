@@ -33,22 +33,22 @@ Public Class FormAbout
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents lnkXFX As System.Windows.Forms.LinkLabel
+    Friend WithEvents LinkXFX As System.Windows.Forms.LinkLabel
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents lnkBF As System.Windows.Forms.LinkLabel
-    Friend WithEvents lnkOWS As System.Windows.Forms.LinkLabel
+    Friend WithEvents LinkBF As System.Windows.Forms.LinkLabel
+    Friend WithEvents LinkOWS As System.Windows.Forms.LinkLabel
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormAbout))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.lnkXFX = New System.Windows.Forms.LinkLabel()
+        Me.LinkXFX = New System.Windows.Forms.LinkLabel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.lnkBF = New System.Windows.Forms.LinkLabel()
-        Me.lnkOWS = New System.Windows.Forms.LinkLabel()
+        Me.LinkBF = New System.Windows.Forms.LinkLabel()
+        Me.LinkOWS = New System.Windows.Forms.LinkLabel()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -94,19 +94,19 @@ Public Class FormAbout
         Me.Button1.TabIndex = 1
         Me.Button1.Text = "Close"
         '
-        'lnkXFX
+        'LinkXFX
         '
-        Me.lnkXFX.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.LinkXFX.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lnkXFX.LinkArea = New System.Windows.Forms.LinkArea(22, 45)
-        Me.lnkXFX.Location = New System.Drawing.Point(14, 232)
-        Me.lnkXFX.Name = "lnkXFX"
-        Me.lnkXFX.Size = New System.Drawing.Size(391, 16)
-        Me.lnkXFX.TabIndex = 2
-        Me.lnkXFX.TabStop = True
-        Me.lnkXFX.Text = "VBBrainFNET Web Site: http://software.xfx.net/utilities/vbbfck/"
-        Me.lnkXFX.UseCompatibleTextRendering = True
-        Me.lnkXFX.UseMnemonic = False
+        Me.LinkXFX.LinkArea = New System.Windows.Forms.LinkArea(22, 45)
+        Me.LinkXFX.Location = New System.Drawing.Point(14, 232)
+        Me.LinkXFX.Name = "LinkXFX"
+        Me.LinkXFX.Size = New System.Drawing.Size(391, 16)
+        Me.LinkXFX.TabIndex = 2
+        Me.LinkXFX.TabStop = True
+        Me.LinkXFX.Text = "VBBrainFNET Web Site: http://software.xfx.net/utilities/vbbfck/"
+        Me.LinkXFX.UseCompatibleTextRendering = True
+        Me.LinkXFX.UseMnemonic = False
         '
         'Label3
         '
@@ -128,43 +128,43 @@ Public Class FormAbout
         Me.Panel2.Size = New System.Drawing.Size(435, 4)
         Me.Panel2.TabIndex = 4
         '
-        'lnkBF
+        'LinkBF
         '
-        Me.lnkBF.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.LinkBF.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lnkBF.LinkArea = New System.Windows.Forms.LinkArea(83, 122)
-        Me.lnkBF.Location = New System.Drawing.Point(14, 154)
-        Me.lnkBF.Name = "lnkBF"
-        Me.lnkBF.Size = New System.Drawing.Size(379, 29)
-        Me.lnkBF.TabIndex = 5
-        Me.lnkBF.TabStop = True
-        Me.lnkBF.Text = "Brainfuck is a creation of Urban Müller. Follow this link for further information" &
+        Me.LinkBF.LinkArea = New System.Windows.Forms.LinkArea(83, 122)
+        Me.LinkBF.Location = New System.Drawing.Point(14, 154)
+        Me.LinkBF.Name = "LinkBF"
+        Me.LinkBF.Size = New System.Drawing.Size(379, 29)
+        Me.LinkBF.TabIndex = 5
+        Me.LinkBF.TabStop = True
+        Me.LinkBF.Text = "Brainfuck is a creation of Urban Müller. Follow this link for further information" &
     ": http://en.wikipedia.org/wiki/Brainfuck"
-        Me.lnkBF.UseCompatibleTextRendering = True
-        Me.lnkBF.UseMnemonic = False
+        Me.LinkBF.UseCompatibleTextRendering = True
+        Me.LinkBF.UseMnemonic = False
         '
-        'lnkOWS
+        'LinkOWS
         '
-        Me.lnkOWS.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.LinkOWS.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lnkOWS.LinkArea = New System.Windows.Forms.LinkArea(38, 77)
-        Me.lnkOWS.Location = New System.Drawing.Point(14, 193)
-        Me.lnkOWS.Name = "lnkOWS"
-        Me.lnkOWS.Size = New System.Drawing.Size(379, 29)
-        Me.lnkOWS.TabIndex = 6
-        Me.lnkOWS.TabStop = True
-        Me.lnkOWS.Text = "(almost) Official Brainfuck Web Site: http://www.muppetlabs.com/~breadbox/bf/"
-        Me.lnkOWS.UseCompatibleTextRendering = True
+        Me.LinkOWS.LinkArea = New System.Windows.Forms.LinkArea(38, 77)
+        Me.LinkOWS.Location = New System.Drawing.Point(14, 193)
+        Me.LinkOWS.Name = "LinkOWS"
+        Me.LinkOWS.Size = New System.Drawing.Size(379, 29)
+        Me.LinkOWS.TabIndex = 6
+        Me.LinkOWS.TabStop = True
+        Me.LinkOWS.Text = "(almost) Official Brainfuck Web Site: http://www.muppetlabs.com/~breadbox/bf/"
+        Me.LinkOWS.UseCompatibleTextRendering = True
         '
         'FormAbout
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(6, 16)
         Me.ClientSize = New System.Drawing.Size(417, 315)
-        Me.Controls.Add(Me.lnkOWS)
-        Me.Controls.Add(Me.lnkBF)
+        Me.Controls.Add(Me.LinkOWS)
+        Me.Controls.Add(Me.LinkBF)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.lnkXFX)
+        Me.Controls.Add(Me.LinkXFX)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -183,20 +183,20 @@ Public Class FormAbout
 
 #End Region
 
-    Private Sub lnkBF_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkBF.LinkClicked
-        With lnkBF
+    Private Sub LinkBF_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkBF.LinkClicked
+        With LinkBF
             System.Diagnostics.Process.Start(.Text.Substring(.LinkArea.Start))
         End With
     End Sub
 
-    Private Sub lnkXFX_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkXFX.LinkClicked
-        With lnkXFX
+    Private Sub LinkXFX_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkXFX.LinkClicked
+        With LinkXFX
             System.Diagnostics.Process.Start(.Text.Substring(.LinkArea.Start))
         End With
     End Sub
 
-    Private Sub lnkOWS_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkOWS.LinkClicked
-        With lnkOWS
+    Private Sub LinkOWS_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkOWS.LinkClicked
+        With LinkOWS
             System.Diagnostics.Process.Start(.Text.Substring(.LinkArea.Start))
         End With
     End Sub
